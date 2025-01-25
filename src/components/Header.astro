@@ -16,13 +16,20 @@ const navItems = [
 
 <header id="header">
     <div class="topBar">
-        <img id="background" src={naturdermaLogo.src} alt="Naturderma logo" fetchpriority="high"/>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-            <Icon name="sun" class="sun-icon" />
-            <Icon name="moon" class="moon-icon" />
-        </button>
+        <a href="/" class="logo-link">
+            <img id="background" src={naturdermaLogo.src} alt="Naturderma logo" fetchpriority="high"/>
+        </a>
+        <div class="header-controls">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <Icon name="sun" class="sun-icon" />
+                <Icon name="moon" class="moon-icon" />
+            </button>
+            <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
     </div>
-    <nav>
+    <nav id="main-nav">
         <ul>
             {navItems.map(({ path, label }) => (
                 <li>
@@ -157,6 +164,64 @@ const navItems = [
         }
     }
 
+    .header-controls {
+        display: flex;
+        gap: map.get($spacing, 4);
+        align-items: center;
+    }
+
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: map.get($spacing, 2);
+        width: 40px;
+        height: 40px;
+        position: relative;
+
+        .hamburger {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background-color: var(--text-primary);
+            transition: all 0.3s ease;
+            position: relative;
+
+            &::before,
+            &::after {
+                content: '';
+                position: absolute;
+                width: 24px;
+                height: 2px;
+                background-color: var(--text-primary);
+                transition: all 0.3s ease;
+            }
+
+            &::before {
+                transform: translateY(-8px);
+            }
+
+            &::after {
+                transform: translateY(8px);
+            }
+        }
+
+        &.active {
+            .hamburger {
+                background-color: transparent;
+
+                &::before {
+                    transform: rotate(45deg);
+                }
+
+                &::after {
+                    transform: rotate(-45deg);
+                }
+            }
+        }
+    }
+
     @media (max-width: map.get($breakpoints, md)) {
         .topBar {
             height: 100px;
@@ -170,6 +235,51 @@ const navItems = [
         nav ul {
             gap: map.get($spacing, 4);
             padding: map.get($spacing, 2);
+        }
+
+        .menu-toggle {
+            display: block;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--bg-primary);
+            padding-top: 100px;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            z-index: 90;
+
+            &.active {
+                transform: translateX(0);
+            }
+
+            ul {
+                flex-direction: column;
+                align-items: center;
+                gap: map.get($spacing, 8);
+                padding: map.get($spacing, 8);
+
+                .nav-link {
+                    font-size: map.get($font-sizes, xl);
+                }
+            }
+        }
+
+        .topBar {
+            position: relative;
+            z-index: 100;
+        }
+    }
+
+    .logo-link {
+        display: block;
+        
+        &:hover {
+            opacity: 0.9;
         }
     }
 </style>
@@ -200,4 +310,43 @@ const navItems = [
         const newTheme = e.matches ? 'dark' : 'light';
         setTheme(newTheme);
     });
+</script>
+
+<script>
+    // Menu toggle functionality
+    function setupMobileMenu() {
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        function toggleMenu() {
+            menuToggle?.classList.toggle('active');
+            mainNav?.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        }
+
+        menuToggle?.addEventListener('click', toggleMenu);
+
+        // Close menu when clicking a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (mainNav?.classList.contains('active')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const target = e.target as Node;
+            if (mainNav?.classList.contains('active') && 
+                !mainNav.contains(target) && 
+                !menuToggle?.contains(target)) {
+                toggleMenu();
+            }
+        });
+    }
+
+    // Setup menu on page load and after navigation
+    document.addEventListener('astro:page-load', setupMobileMenu);
 </script>
