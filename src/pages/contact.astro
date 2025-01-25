@@ -3,48 +3,71 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout 
-    title="Contact | Naturderma - Hypoallergene Sieraden" 
-    description="Neem contact op met Naturderma voor vragen over onze hypoallergene sieraden, verkooppunten of samenwerkingen."
+    title="Contact | Naturderma" 
+    description="Neem contact met ons op voor vragen over onze hypoallergene sieraden"
 >
     <main class="contact-container">
         <h1>Contact</h1>
-        <section class="contact-info">
-            <div class="info-block">
-                <h2>Bezoekadres</h2>
-                <p>Naturderma BV</p>
-                <p>Straatnaam 123</p>
-                <p>1234 AB Amsterdam</p>
-                <p>Nederland</p>
-            </div>
-            
-            <div class="info-block">
-                <h2>Contact Informatie</h2>
-                <p>Email: info@naturderma.nl</p>
-                <p>Tel: +31 (0)20 123 4567</p>
-            </div>
-        </section>
+        
+        <div class="contact-info">
+            <p class="contact-intro">
+                Voor vragen of informatie over onze producten of distributie, neem gerust contact met ons op via e-mail:
+                <a href="mailto:contacto@naturderma.com" class="email-link">contacto@naturderma.com</a>
+            </p>
+        </div>
 
-        <section class="contact-form">
+        <div class="contact-form-container">
             <h2>Stuur ons een bericht</h2>
-            <form>
+            <form class="contact-form" action="#" method="POST">
                 <div class="form-group">
                     <label for="name">Naam</label>
-                    <input type="text" id="name" name="name" required>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        required 
+                        placeholder="Uw naam"
+                    />
                 </div>
-                
+
                 <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                    <label for="email">E-mail</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        required 
+                        placeholder="uw@email.com"
+                    />
                 </div>
-                
+
+                <div class="form-group">
+                    <label for="subject">Onderwerp</label>
+                    <input 
+                        type="text" 
+                        id="subject" 
+                        name="subject" 
+                        required 
+                        placeholder="Onderwerp van uw bericht"
+                    />
+                </div>
+
                 <div class="form-group">
                     <label for="message">Bericht</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                    <textarea 
+                        id="message" 
+                        name="message" 
+                        required 
+                        placeholder="Uw bericht..."
+                        rows="5"
+                    ></textarea>
                 </div>
-                
-                <button type="submit">Verstuur</button>
+
+                <button type="submit" class="submit-button">
+                    Verstuur Bericht
+                </button>
             </form>
-        </section>
+        </div>
     </main>
 </Layout>
 
@@ -66,68 +89,121 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .contact-info {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: map.get($spacing, 8);
         margin-bottom: map.get($spacing, 12);
+        text-align: center;
+    }
 
-        .info-block {
-            h2 {
-                font-size: map.get($font-sizes, xl);
-                color: var(--text-primary);
-                margin-bottom: map.get($spacing, 4);
-            }
+    .contact-intro {
+        font-size: map.get($font-sizes, lg);
+        color: var(--text-secondary);
+        line-height: 1.6;
+    }
 
-            p {
-                color: var(--text-secondary);
-                margin-bottom: map.get($spacing, 2);
-            }
+    .email-link {
+        display: inline-block;
+        color: var(--bg-secondary);
+        text-decoration: none;
+        font-weight: map.get($font-weights, medium);
+        margin-top: map.get($spacing, 2);
+        transition: color 0.3s ease;
+
+        &:hover {
+            color: var(--text-primary);
         }
     }
 
-    .contact-form {
+    .contact-form-container {
+        background: var(--card-bg);
+        border: 1px solid var(--border-primary);
+        border-radius: map.get($spacing, 2);
+        padding: map.get($spacing, 8);
+
         h2 {
             font-size: map.get($font-sizes, xl);
             color: var(--text-primary);
             margin-bottom: map.get($spacing, 6);
+            text-align: center;
         }
+    }
+
+    .contact-form {
+        display: grid;
+        gap: map.get($spacing, 6);
 
         .form-group {
-            margin-bottom: map.get($spacing, 4);
+            display: grid;
+            gap: map.get($spacing, 2);
 
             label {
-                display: block;
-                margin-bottom: map.get($spacing, 2);
+                font-size: map.get($font-sizes, base);
                 color: var(--text-primary);
+                font-weight: map.get($font-weights, medium);
             }
 
             input, textarea {
                 width: 100%;
                 padding: map.get($spacing, 3);
                 border: 1px solid var(--border-primary);
-                border-radius: 4px;
-                background: var(--card-bg);
+                border-radius: map.get($spacing, 1);
+                background: var(--bg-main);
                 color: var(--text-primary);
+                font-size: map.get($font-sizes, base);
+                transition: border-color 0.3s ease;
+
+                &::placeholder {
+                    color: var(--text-tertiary);
+                }
 
                 &:focus {
                     outline: none;
                     border-color: var(--bg-secondary);
                 }
             }
+
+            textarea {
+                resize: vertical;
+                min-height: 120px;
+            }
+        }
+    }
+
+    .submit-button {
+        background: var(--bg-secondary);
+        color: white;
+        border: none;
+        padding: map.get($spacing, 4) map.get($spacing, 6);
+        border-radius: map.get($spacing, 1);
+        font-size: map.get($font-sizes, base);
+        font-weight: map.get($font-weights, medium);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        justify-self: center;
+        min-width: 200px;
+
+        &:hover {
+            background: var(--bg-primary);
+        }
+    }
+
+    @media (max-width: map.get($breakpoints, md)) {
+        .contact-container {
+            padding: map.get($spacing, 4);
+
+            h1 {
+                font-size: map.get($font-sizes, 2xl);
+            }
         }
 
-        button {
-            background: var(--bg-secondary);
-            color: white;
-            border: none;
-            padding: map.get($spacing, 3) map.get($spacing, 6);
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: map.get($font-weights, medium);
+        .contact-form-container {
+            padding: map.get($spacing, 4);
+        }
 
-            &:hover {
-                opacity: 0.9;
-            }
+        .contact-intro {
+            font-size: map.get($font-sizes, base);
+        }
+
+        .submit-button {
+            width: 100%;
         }
     }
 </style> 
