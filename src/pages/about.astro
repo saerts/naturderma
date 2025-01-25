@@ -10,8 +10,10 @@ const { Content } = await aboutContent.render();
     title="Over ons | Naturderma" 
     description={aboutContent.data.description}
 >
-    <main class="about-container">
-        <Content />
+    <main class="about-container" transition:animate="fade">
+        <div class="stagger-in">
+            <Content />
+        </div>
     </main>
 </Layout>
 

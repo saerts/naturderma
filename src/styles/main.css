@@ -1,82 +1,50 @@
-@font-face {
-  font-family: 'system-ui';
-  font-style: normal;
-  font-weight: 100;
-  src: url("/fonts/sf-ui-display-ultralight-58646b19bf205.otf"); }
-@font-face {
-  font-family: 'system-ui';
-  font-style: normal;
-  font-weight: 200;
-  src: url("/fonts/sf-ui-display-thin-58646e9b26e8b.otf"); }
-@font-face {
-  font-family: 'system-ui';
-  font-style: normal;
-  font-weight: 300;
-  src: url("/fonts/sf-ui-display-light-58646b33e0551.otf"); }
-@font-face {
-  font-family: 'system-ui';
-  font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/sf-ui-display-medium-58646be638f96.otf"); }
-@font-face {
-  font-family: 'system-ui';
-  font-style: normal;
-  font-weight: 500;
-  src: url("/fonts/sf-ui-display-semibold-58646eddcae92.otf"); }
-@font-face {
-  font-family: 'system-ui';
-  font-style: normal;
-  font-weight: 600;
-  src: url("/fonts/sf-ui-display-bold-58646a511e3d9.otf"); }
-@font-face {
-  font-family: 'system-ui';
-  font-style: normal;
-  font-weight: 800;
-  src: url("/fonts/sf-ui-display-heavy-586470160b9e5.otf"); }
-@font-face {
-  font-family: 'system-ui';
-  font-style: normal;
-  font-weight: 900;
-  src: url("/fonts/sf-ui-display-black-58646a6b80d5a.otf"); }
-:root {
-  --bg-primary: rgba(118, 203, 182, 0.62);
-  --bg-secondary: #028987;
-  --bg-tertiary: #212121;
-  --bg-main: white;
-  --text-primary: #1A1A1A;
-  --text-secondary: #4A5568;
-  --text-tertiary: #718096;
-  --border-primary: #E2E8F0;
-  --border-secondary: #CBD5E0;
-  --card-bg: #FFFFFF;
-  --card-border: #E2E8F0;
-  --spacing-2: 0.5rem;
-  --spacing-4: 1rem;
-  --spacing-8: 2rem; }
-  :root[data-theme='dark'] {
-    --bg-primary: #1A1A1A;
-    --bg-secondary: #262626;
-    --bg-tertiary: #404040;
-    --bg-main: black;
-    --text-primary: #FFFFFF;
-    --text-secondary: #A0AEC0;
-    --text-tertiary: #718096;
-    --border-primary: #404040;
-    --border-secondary: #4A5568;
-    --card-bg: #2D2D2D;
-    --card-border: #404040; }
+/*
+Error: Invalid CSS after "  font-family: map": expected ";", was ".get($fonts, pr..."
+        on line 26 of main.scss
 
-html,
-body {
-  margin: 0;
-  width: 100%;
-  height: 100%; }
+21:   width: 100%;
+22:   height: 100%;
+23: }
+24: 
+25: body {
+26:   font-family: map.get($fonts, primary);
+27:   /*background-color: theme('bg-primary');*\/
+28:   color: theme('text-primary');
+29:   line-height: 1.6;
+30:   transition: background-color 0.3s ease, color 0.3s ease;
+31: }
 
-body {
-  font-family: "system-ui", sans-serif;
-  /*background-color: theme('bg-primary');*/
-  color: var(--text-primary);
-  line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease; }
-
-/*# sourceMappingURL=main.css.map */
+Backtrace:
+main.scss:26
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1278:in `expected'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1208:in `expected'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1203:in `tok!'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:804:in `block in try_declaration'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1254:in `rethrow'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:809:in `try_declaration'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:732:in `declaration_or_ruleset'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:697:in `block_child'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:686:in `block_contents'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:678:in `block'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:670:in `ruleset'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:696:in `block_child'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:689:in `block_contents'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:137:in `stylesheet'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:41:in `parse'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/engine.rb:414:in `_to_tree'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/engine.rb:389:in `_render_with_sourcemap'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/engine.rb:307:in `render_with_sourcemap'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/exec/sass_scss.rb:387:in `run'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/exec/base.rb:50:in `parse'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/exec/base.rb:18:in `parse!'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/bin/sass:13:in `<top (required)>'
+/Users/saerts/.rvm/gems/ruby-2.5.1/bin/sass:23:in `load'
+/Users/saerts/.rvm/gems/ruby-2.5.1/bin/sass:23:in `<main>'
+/Users/saerts/.rvm/gems/ruby-2.5.1/bin/ruby_executable_hooks:24:in `eval'
+/Users/saerts/.rvm/gems/ruby-2.5.1/bin/ruby_executable_hooks:24:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"  font-family: map\": expected \";\", was \".get($fonts, pr...\"\A         on line 26 of main.scss\A \A 21:   width: 100%;\A 22:   height: 100%;\A 23: }\A 24: \A 25: body {\A 26:   font-family: map.get($fonts, primary);\A 27:   /*background-color: theme('bg-primary');*/\A 28:   color: theme('text-primary');\A 29:   line-height: 1.6;\A 30:   transition: background-color 0.3s ease, color 0.3s ease;\A 31: }"; }

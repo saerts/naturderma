@@ -6,13 +6,13 @@ const imagePath3 = "/images/3_Naturderma.jpg";
 const imagePath4 = "/images/4_Naturderma.jpg";
 ---
 
-<main id="main">
-    <section class="hero">
+<main id="main" transition:animate="fade">
+    <section class="hero animate-in">
         <h1>Naturderma</h1>
         <p>Spanish hypoallergenic jewelry brand</p>
     </section>
 
-    <section class="featured">
+    <section class="featured stagger-in">
         <img src={imagePath1} alt="Geen allergieën meer" />
         <img src={imagePath2} alt="Exclusief in apotheken" />
         <img src={imagePath3} alt="Unieke modellen" />
@@ -60,5 +60,26 @@ const imagePath4 = "/images/4_Naturderma.jpg";
             display: block;
             margin: 0 auto;
         }
+    }
+
+    /* Add view transition styles */
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation: none;
+        mix-blend-mode: normal;
+    }
+
+    /* Customize the view transition animation */
+    ::view-transition-old(root) {
+        animation: fadeOut 0.5s ease-out forwards;
+    }
+
+    ::view-transition-new(root) {
+        animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
     }
 </style>
