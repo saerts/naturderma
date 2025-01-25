@@ -1,3 +1,43 @@
+@font-face {
+  font-family: 'system-ui';
+  font-style: normal;
+  font-weight: 100;
+  src: url("/fonts/sf-ui-display-ultralight-58646b19bf205.otf"); }
+@font-face {
+  font-family: 'system-ui';
+  font-style: normal;
+  font-weight: 200;
+  src: url("/fonts/sf-ui-display-thin-58646e9b26e8b.otf"); }
+@font-face {
+  font-family: 'system-ui';
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/sf-ui-display-light-58646b33e0551.otf"); }
+@font-face {
+  font-family: 'system-ui';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/sf-ui-display-medium-58646be638f96.otf"); }
+@font-face {
+  font-family: 'system-ui';
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/sf-ui-display-semibold-58646eddcae92.otf"); }
+@font-face {
+  font-family: 'system-ui';
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/sf-ui-display-bold-58646a511e3d9.otf"); }
+@font-face {
+  font-family: 'system-ui';
+  font-style: normal;
+  font-weight: 800;
+  src: url("/fonts/sf-ui-display-heavy-586470160b9e5.otf"); }
+@font-face {
+  font-family: 'system-ui';
+  font-style: normal;
+  font-weight: 900;
+  src: url("/fonts/sf-ui-display-black-58646a6b80d5a.otf"); }
 :root {
   --bg-primary: rgba(118, 203, 182, 0.62);
   --bg-secondary: #028987;
@@ -30,7 +70,7 @@ body {
   height: 100%; }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "system-ui", sans-serif;
   /*background-color: theme('bg-primary');*/
   color: var(--text-primary);
   line-height: 1.6;

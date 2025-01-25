@@ -1,40 +1,64 @@
 ---
-// Import any needed components or assets
+
+const imagePath1 = "/images/1_Naturderma.jpg";
+const imagePath2 = "/images/2_Naturderma.jpg";
+const imagePath3 = "/images/3_Naturderma.jpg";
+const imagePath4 = "/images/4_Naturderma.jpg";
 ---
 
 <main id="main">
     <section class="hero">
-        <h1>Welcome to Naturderma</h1>
+        <h1>Naturderma</h1>
         <p>Spanish hypoallergenic jewelry brand</p>
     </section>
 
     <section class="featured">
-        <!-- Add featured products/content here -->
+        <img src={imagePath1} alt="Geen allergieën meer" />
+        <img src={imagePath2} alt="Exclusief in apotheken" />
+        <img src={imagePath3} alt="Unieke modellen" />
+        <img src={imagePath4} alt="5, 10, 15 of 20 Euros" />
     </section>
 </main>
 
-
-<style>
+<style lang="scss">
+    @use 'sass:map';
+    @use '../styles/_partials/_design-system' as *;
+    
     #frame {
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 32px;
+        padding: map.get($spacing, 8);
     }
 
     .hero {
         text-align: center;
-        padding: 4rem 0;
+        padding: map.get($spacing, 16) 0;
     }
 
     h1 {
-        font-size: 2.5rem;
+        font-size: map.get($font-sizes, 5xl);
         color: var(--text-primary);
-        margin-bottom: 1rem;
+        margin-bottom: map.get($spacing, 4);
     }
 
     p {
-        font-size: 1.2rem;
+        font-size: map.get($font-sizes, xl);
         color: var(--text-secondary);
+    }
+
+    .featured {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: map.get($spacing, 8);
+        
+        img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
     }
 </style>
