@@ -1,0 +1,60 @@
+// Navigation styles
+nav {
+    border-bottom: 1px solid var(--border-primary);
+    
+    ul {
+        list-style: none;
+        display: flex;
+        gap: var(--spacing-8);
+        padding: var(--spacing-4);
+        margin: 0;
+        justify-content: center;
+    }
+
+    .nav-link {
+        color: var(--text-primary);
+        text-decoration: none;
+        font-weight: 500;
+        padding: var(--spacing-2) var(--spacing-4);
+        border-radius: 4px;
+        transition: all 0.3s ease;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--bg-secondary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        &:hover {
+            color: var(--bg-secondary);
+            
+            &::after {
+                transform: scaleX(0.5);
+            }
+        }
+
+        &.active {
+            color: var(--bg-secondary);
+            
+            &::after {
+                transform: scaleX(1);
+            }
+        }
+    }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    nav ul {
+        gap: var(--spacing-4);
+        padding: var(--spacing-2);
+        flex-wrap: wrap;
+    }
+} 

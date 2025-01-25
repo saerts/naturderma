@@ -1,0 +1,67 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getEntry } from 'astro:content';
+
+const aboutContent = await getEntry('about', 'about');
+const { Content } = await aboutContent.render();
+---
+
+<Layout 
+    title="Over ons | Naturderma" 
+    description={aboutContent.data.description}
+>
+    <main class="about-container" transition:animate="fade">
+        <div class="stagger-in">
+            <Content />
+        </div>
+    </main>
+</Layout>
+
+<style lang="scss">
+    @use 'sass:map';
+    @use '../styles/_partials/_design-system' as *;
+
+    .about-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: map.get($spacing, 8);
+
+        :global(h1) {
+            font-size: map.get($font-sizes, 3xl);
+            color: var(--text-primary);
+            margin-bottom: map.get($spacing, 8);
+            text-align: center;
+        }
+
+        :global(h2) {
+            font-size: map.get($font-sizes, xl);
+            color: var(--text-primary);
+            margin: map.get($spacing, 8) 0 map.get($spacing, 4);
+        }
+
+        :global(p) {
+            font-size: map.get($font-sizes, lg);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: map.get($spacing, 4);
+        }
+    }
+
+    @media (max-width: map.get($breakpoints, md)) {
+        .about-container {
+            padding: map.get($spacing, 4);
+
+            :global(h1) {
+                font-size: map.get($font-sizes, 2xl);
+            }
+
+            :global(h2) {
+                font-size: map.get($font-sizes, lg);
+            }
+
+            :global(p) {
+                font-size: map.get($font-sizes, base);
+            }
+        }
+    }
+</style> 

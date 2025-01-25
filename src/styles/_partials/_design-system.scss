@@ -1,80 +1,87 @@
+@use 'sass:map';
+
 // Design System
 
 // Colors
 $colors: (
-  primary: (
-    base: var(--skill-html),
-    light: #33C7C7,
-    dark: #009595
-  ),
-  secondary: (
-    base: var(--skill-angular),
-    light: #FF7490,
-    dark: #E62E54
-  ),
-  neutral: (
-    900: var(--bg-primary),
-    800: var(--bg-secondary),
-    700: #404040,  // Elements
-    600: #595959,  // Borders
-    500: #737373,  // Disabled text
-    400: #8C8C8C,  // Secondary text
-    300: #A6A6A6,
-    200: #BFBFBF,
-    100: #D9D9D9,
-    50: #F2F2F2
-  ),
+    primary: (
+        base: var(--skill-html),
+        light: #33C7C7,
+        dark: #009595
+    ),
+    secondary: (
+        base: var(--skill-angular),
+        light: #FF7490,
+        dark: #E62E54
+    ),
+    neutral: (
+        900: var(--bg-primary),
+        800: var(--bg-secondary),
+        700: #404040, // Elements
+        600: #595959, // Borders
+        500: #737373, // Disabled text
+        400: #8C8C8C, // Secondary text
+        300: #A6A6A6,
+        200: #BFBFBF,
+        100: #D9D9D9,
+        50: #F2F2F2
+    ),
 );
 
 // Typography
 $fonts: (
-  primary: ('Poppins', sans-serif),
-  mono: ('Roboto Mono', monospace)
+    primary: ('system-ui', sans-serif),
+    mono: ('Roboto Mono', monospace)
 );
 
 $font-weights: (
-  regular: 400,
-  medium: 500,
-  semibold: 600,
-  bold: 700
+    ultralight: 100,
+    thin: 200,
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+    heavy: 800,
+    black: 900
 );
 
 $font-sizes: (
-  xs: 0.75rem,    // 12px
-  sm: 0.875rem,   // 14px
-  base: 1rem,     // 16px
-  lg: 1.125rem,   // 18px
-  xl: 1.25rem,    // 20px
-  2xl: 1.5rem,    // 24px
-  3xl: 1.875rem,  // 30px
-  4xl: 2.25rem,   // 36px
-  5xl: 3rem       // 48px
+    xs: 0.75rem, // 12px
+    sm: 0.875rem, // 14px
+    base: 1rem, // 16px
+    lg: 1.125rem, // 18px
+    xl: 1.25rem, // 20px
+    2xl: 3rem, // 48px
+    3xl: 4rem, // 64px
+    4xl: 5rem, // 80px
+    5xl: 7rem // 96px
 );
 
 // Spacing
 $spacing: (
-  0: 0,
-  1: 0.25rem,     // 4px
-  2: 0.5rem,      // 8px
-  3: 0.75rem,     // 12px
-  4: 1rem,        // 16px
-  5: 1.25rem,     // 20px
-  6: 1.5rem,      // 24px
-  8: 2rem,        // 32px
-  10: 2.5rem,     // 40px
-  12: 3rem,       // 48px
-  16: 4rem,       // 64px
-  20: 5rem,       // 80px
-  24: 6rem        // 96px
+    0: 0,
+    1: 0.25rem, // 4px
+    2: 0.5rem, // 8px
+    3: 0.75rem, // 12px
+    4: 1rem, // 16px
+    5: 1.25rem, // 20px
+    6: 1.5rem, // 24px
+    8: 2rem, // 32px
+    10: 2.5rem, // 40px
+    12: 3rem, // 48px
+    16: 4rem, // 64px
+    20: 5rem, // 80px
+    24: 6rem // 96px
 );
 
 // Breakpoints
 $breakpoints: (
-  sm: 640px,
-  md: 768px,
-  lg: 1024px,
-  xl: 1280px,
-  2xl: 1536px
+    sm: 640px,
+    md: 768px,
+    lg: 1024px,
+    xl: 1280px,
+    2xl: 1536px
 );
 
 // Mixins

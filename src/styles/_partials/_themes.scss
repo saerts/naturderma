@@ -1,3 +1,5 @@
+@use 'sass:map';
+
 // Theme color tokens
 $themes: (
     light: (
@@ -43,7 +45,7 @@ $themes: (
 
 // Theme CSS variable generator
 @mixin generate-theme-vars($theme-name) {
-  $theme: map-get($themes, $theme-name);
+  $theme: map.get($themes, $theme-name);
 
   @each $key, $value in $theme {
     --#{$key}: #{$value};

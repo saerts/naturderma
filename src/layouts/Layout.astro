@@ -1,6 +1,9 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { ViewTransitions } from 'astro:transitions';
+import "../styles/main.scss";
+
 interface Props {
     title: string;
     description?: string;
@@ -23,27 +26,37 @@ const {title, description = "Spaans hypoallergeen sieradenmerk", image = "assets
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <ViewTransitions fallback="animate" />
 </head>
 <body>
-<div class="frame">
-    <Header/>
-    <main>
-        <slot/>
-    </main>
-    <Footer/>
-</div>
+    <div class="frame">
+        <Header transition:persist />
+        <main>
+            <slot />
+        </main>
+        <Footer transition:persist />
+    </div>
 </body>
 </html>
 
 <style>
-
     .frame {
-        display: grid;
-        grid-template-rows: 150px 1fr 150px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
 
-        .main {
-            height: 100%;
-            background: var(--bg-primary);
-        }
+    main {
+        flex: 1;
     }
 </style>
+
+<script>
+    // Add animation classes to new content after navigation
+    document.addEventListener('astro:page-load', () => {
+        const animateElements = document.querySelectorAll('.animate-in');
+        animateElements.forEach((element, index) => {
+            element.style.animationDelay = `${index * 0.2}s`;
+        });
+    });
+</script>
