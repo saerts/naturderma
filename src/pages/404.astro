@@ -1,0 +1,163 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+    title="404 | Pagina niet gevonden | Naturderma" 
+    description="De pagina die je zoekt bestaat niet."
+>
+    <main class="error-container">
+        <div class="stars"></div>
+        <div class="central-body">
+            <div class="error-content">
+                <h1>4<span class="planet">0</span>4</h1>
+                <p>Oeps! Deze pagina is verdwenen in het universum</p>
+                <a href="/" class="btn-go-home">Terug naar Home</a>
+            </div>
+            <div class="astronaut">
+                <div class="astronaut-backpack"></div>
+                <div class="astronaut-head"></div>
+                <div class="astronaut-body"></div>
+                <div class="astronaut-leg left"></div>
+                <div class="astronaut-leg right"></div>
+                <div class="astronaut-arm left"></div>
+                <div class="astronaut-arm right"></div>
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style lang="scss">
+    @use 'sass:map';
+    @use '../styles/_partials/_design-system' as *;
+
+    .error-container {
+        min-height: 100vh;
+        background: linear-gradient(to bottom, #0a192f, #112240);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .stars {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        animation: twinkle 2s infinite;
+        
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #fff, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, #fff, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+            opacity: 0;
+            animation: twinkle 2s infinite;
+        }
+
+        &::after {
+            background-position: 100px 100px;
+            animation-delay: 1s;
+        }
+    }
+
+    .central-body {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .error-content {
+        color: #fff;
+        
+        h1 {
+            font-size: 150px;
+            margin: 0;
+            font-weight: map.get($font-weights, bold);
+            text-shadow: 0 0 20px rgba(255,255,255,0.3);
+
+            .planet {
+                display: inline-block;
+                animation: rotate 4s linear infinite;
+                background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+                border-radius: 50%;
+                box-shadow: 0 0 50px rgba(255,107,107,0.3);
+            }
+        }
+
+        p {
+            font-size: map.get($font-sizes, xl);
+            margin: 20px 0;
+            color: #8892b0;
+        }
+    }
+
+    .btn-go-home {
+        display: inline-block;
+        padding: 15px 30px;
+        background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: map.get($font-weights, medium);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255,107,107,0.4);
+        }
+    }
+
+    .astronaut {
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        animation: float 6s ease-in-out infinite;
+        pointer-events: none;
+    }
+
+    @keyframes twinkle {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.3; }
+    }
+
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+
+    @media (max-width: map.get($breakpoints, md)) {
+        .error-content {
+            h1 {
+                font-size: 100px;
+            }
+
+            p {
+                font-size: map.get($font-sizes, lg);
+                padding: 0 20px;
+            }
+        }
+
+        .astronaut {
+            display: none;
+        }
+    }
+</style> 
