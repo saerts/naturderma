@@ -9,10 +9,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.1.9"
+    "astro": "^5.1.9",
+    "astro-icon": "^1.1.5"
   },
   "devDependencies": {
-    "sass-embedded": "^1.83.4",
-    "sass": "^1.71.0"
+    "sass": "^1.71.0",
+    "sass-embedded": "^1.83.4"
   }
 }

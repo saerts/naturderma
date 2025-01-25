@@ -1,5 +1,6 @@
 ---
 import naturdermaLogo from '../assets/naturderma-logo.png';
+import { Icon } from 'astro-icon/components';
 
 // Get the current path to determine active state
 const currentPath = Astro.url.pathname;
@@ -16,6 +17,10 @@ const navItems = [
 <header id="header">
     <div class="topBar">
         <img id="background" src={naturdermaLogo.src} alt="Naturderma logo" fetchpriority="high"/>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+            <Icon name="sun" class="sun-icon" />
+            <Icon name="moon" class="moon-icon" />
+        </button>
     </div>
     <nav>
         <ul>
@@ -52,12 +57,64 @@ const navItems = [
         height: 150px;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         padding: map.get($spacing, 4);
 
         img {
             max-width: 347px;
             height: auto;
+        }
+    }
+
+    .theme-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: map.get($spacing, 2);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        color: var(--text-primary);
+        transition: all 0.3s ease;
+
+        &:hover {
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+        }
+
+        svg {
+            width: 24px;
+            height: 24px;
+            position: absolute;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .sun-icon {
+            opacity: 0;
+            transform: rotate(90deg) scale(0);
+        }
+
+        .moon-icon {
+            opacity: 1;
+            transform: rotate(0) scale(1);
+        }
+    }
+
+    :global([data-theme="dark"]) {
+        .theme-toggle {
+            .sun-icon {
+                opacity: 1;
+                transform: rotate(0) scale(1);
+            }
+
+            .moon-icon {
+                opacity: 0;
+                transform: rotate(-90deg) scale(0);
+            }
         }
     }
 
@@ -85,38 +142,62 @@ const navItems = [
             &::after {
                 content: '';
                 position: absolute;
-                bottom: -4px;
-                left: 0;
-                width: 100%;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
                 height: 2px;
                 background-color: var(--bg-secondary);
-                transform: scaleX(0);
-                transition: transform 0.3s ease;
+                transition: width 0.3s ease;
             }
 
-            &:hover {
-                color: var(--bg-secondary);
-                
-                &::after {
-                    transform: scaleX(0.5);
-                }
-            }
-
-            &.active {
-                color: var(--bg-secondary);
-                
-                &::after {
-                    transform: scaleX(1);
-                }
+            &:hover::after {
+                width: 100%;
             }
         }
     }
 
     @media (max-width: map.get($breakpoints, md)) {
+        .topBar {
+            height: 100px;
+            padding: map.get($spacing, 2);
+
+            img {
+                max-width: 200px;
+            }
+        }
+
         nav ul {
             gap: map.get($spacing, 4);
             padding: map.get($spacing, 2);
-            flex-wrap: wrap;
         }
     }
 </style>
+
+<script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    // Function to set theme
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+    }
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    setTheme(savedTheme);
+
+    // Toggle theme on button click
+    themeToggle?.addEventListener('click', () => {
+        const currentTheme = document.documentElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        setTheme(newTheme);
+    });
+
+    // Handle system preference changes
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        const newTheme = e.matches ? 'dark' : 'light';
+        setTheme(newTheme);
+    });
+</script>
