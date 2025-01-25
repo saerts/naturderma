@@ -1,0 +1,55 @@
+---
+import naturdermaLogo from '../assets/naturderma-logo.png';
+---
+<header id="header">
+    <div class="topBar">
+        <img id="background" src={naturdermaLogo.src} alt="" fetchpriority="high"/>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">Over ons</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+    header {
+        background-color: var(--bg-primary);
+        display: flex;
+        flex-direction: column;
+
+        .topBar {
+            height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px;
+
+            img {
+                max-width: 347px;
+            }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            padding: 1rem;
+            justify-content: center;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--text-secondary);
+        }
+    }
+</style>

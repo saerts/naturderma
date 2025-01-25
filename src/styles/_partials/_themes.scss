@@ -1,0 +1,51 @@
+// Theme color tokens
+$themes: (
+    light: (
+      // Background colors
+        bg-primary: rgba(118, 203, 182, 0.62),
+        bg-secondary: #028987,
+        bg-tertiary: #212121,
+        bg-main: white,
+      // Text colors
+        text-primary: #1A1A1A,
+        text-secondary: #4A5568,
+        text-tertiary: #718096,
+      // Border colors
+        border-primary: #E2E8F0,
+        border-secondary: #CBD5E0,
+      // Card colors
+        card-bg: #FFFFFF,
+        card-border: #E2E8F0,
+    ),
+    dark: (
+      // Background colors
+        bg-primary: #1A1A1A,
+        bg-secondary: #262626,
+        bg-tertiary: #404040,
+        bg-main: black,
+      // Text colors
+        text-primary: #FFFFFF,
+        text-secondary: #A0AEC0,
+        text-tertiary: #718096,
+      // Border colors
+        border-primary: #404040,
+        border-secondary: #4A5568,
+      // Card colors
+        card-bg: #2D2D2D,
+        card-border: #404040,
+    )
+);
+
+// Theme getter function
+@function theme($key) {
+  @return var(--#{$key});
+}
+
+// Theme CSS variable generator
+@mixin generate-theme-vars($theme-name) {
+  $theme: map-get($themes, $theme-name);
+
+  @each $key, $value in $theme {
+    --#{$key}: #{$value};
+  }
+} 

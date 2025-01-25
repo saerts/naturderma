@@ -1,0 +1,39 @@
+:root {
+  --bg-primary: rgba(118, 203, 182, 0.62);
+  --bg-secondary: #028987;
+  --bg-tertiary: #212121;
+  --bg-main: white;
+  --text-primary: #1A1A1A;
+  --text-secondary: #4A5568;
+  --text-tertiary: #718096;
+  --border-primary: #E2E8F0;
+  --border-secondary: #CBD5E0;
+  --card-bg: #FFFFFF;
+  --card-border: #E2E8F0; }
+  :root[data-theme='dark'] {
+    --bg-primary: #1A1A1A;
+    --bg-secondary: #262626;
+    --bg-tertiary: #404040;
+    --bg-main: black;
+    --text-primary: #FFFFFF;
+    --text-secondary: #A0AEC0;
+    --text-tertiary: #718096;
+    --border-primary: #404040;
+    --border-secondary: #4A5568;
+    --card-bg: #2D2D2D;
+    --card-border: #404040; }
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%; }
+
+body {
+  font-family: "Poppins", sans-serif;
+  /*background-color: theme('bg-primary');*/
+  color: var(--text-primary);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease; }
+
+/*# sourceMappingURL=main.css.map */
