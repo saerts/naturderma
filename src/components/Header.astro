@@ -1,56 +1,122 @@
 ---
 import naturdermaLogo from '../assets/naturderma-logo.png';
+
+// Get the current path to determine active state
+const currentPath = Astro.url.pathname;
+
+// Define navigation items
+const navItems = [
+    { path: '/', label: 'Home' },
+    { path: '/about', label: 'Over ons' },
+    { path: '/blog', label: 'Blog' },
+    { path: '/contact', label: 'Contact' }
+];
 ---
+
 <header id="header">
     <div class="topBar">
-        <img id="background" src={naturdermaLogo.src} alt="" fetchpriority="high"/>
+        <img id="background" src={naturdermaLogo.src} alt="Naturderma logo" fetchpriority="high"/>
     </div>
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">Over ons</a></li>
-            <li><a href="/blog">Blog</a></li>
-            <li><a href="/contact">Contact</a></li>
+            {navItems.map(({ path, label }) => (
+                <li>
+                    <a 
+                        href={path}
+                        class:list={[
+                            'nav-link',
+                            { active: currentPath === path || 
+                              (path !== '/' && currentPath.startsWith(path)) }
+                        ]}
+                        aria-current={currentPath === path ? 'page' : undefined}
+                    >
+                        {label}
+                    </a>
+                </li>
+            ))}
         </ul>
     </nav>
 </header>
 
-<style>
-    header {
+<style lang="scss">
+    @use 'sass:map';
+    @use '../styles/_partials/_design-system' as *;
 
+    header {
         display: flex;
         flex-direction: column;
+    }
 
-        .topBar {
-            background-color: var(--bg-primary);
-            height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 16px;
+    .topBar {
+        background-color: var(--bg-primary);
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: map.get($spacing, 4);
 
-            img {
-                max-width: 347px;
-            }
+        img {
+            max-width: 347px;
+            height: auto;
         }
+    }
 
-        nav ul {
+    nav {
+        border-bottom: 1px solid var(--border-primary);
+        
+        ul {
             list-style: none;
             display: flex;
-            gap: 2rem;
-            padding: 1rem;
+            gap: map.get($spacing, 8);
+            padding: map.get($spacing, 4);
+            margin: 0;
             justify-content: center;
         }
 
-        nav a {
+        .nav-link {
             color: var(--text-primary);
             text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
+            font-weight: map.get($font-weights, medium);
+            padding: map.get($spacing, 2) map.get($spacing, 4);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
 
-        nav a:hover {
-            color: var(--text-secondary);
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: var(--bg-secondary);
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+
+            &:hover {
+                color: var(--bg-secondary);
+                
+                &::after {
+                    transform: scaleX(0.5);
+                }
+            }
+
+            &.active {
+                color: var(--bg-secondary);
+                
+                &::after {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+
+    @media (max-width: map.get($breakpoints, md)) {
+        nav ul {
+            gap: map.get($spacing, 4);
+            padding: map.get($spacing, 2);
+            flex-wrap: wrap;
         }
     }
 </style>

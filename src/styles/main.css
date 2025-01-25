@@ -49,7 +49,10 @@
   --border-primary: #E2E8F0;
   --border-secondary: #CBD5E0;
   --card-bg: #FFFFFF;
-  --card-border: #E2E8F0; }
+  --card-border: #E2E8F0;
+  --spacing-2: 0.5rem;
+  --spacing-4: 1rem;
+  --spacing-8: 2rem; }
   :root[data-theme='dark'] {
     --bg-primary: #1A1A1A;
     --bg-secondary: #262626;

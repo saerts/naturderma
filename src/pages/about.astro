@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+    title="Over ons | Naturderma - Hypoallergene Sieraden" 
+    description="Ontdek het verhaal achter Naturderma, het Spaanse merk voor hypoallergene sieraden. Leer meer over onze missie voor allergie-vrije, stijlvolle sieraden."
+>
+    <main class="about-container">
+        <h1>Over Naturderma</h1>
+        <section class="mission">
+            <h2>Onze Missie</h2>
+            <p>Bij Naturderma geloven we dat iedereen het recht heeft om prachtige sieraden te dragen, zonder zorgen over allergische reacties.</p>
+        </section>
+        
+        <section class="story">
+            <h2>Ons Verhaal</h2>
+            <p>Opgericht in Spanje, brengt Naturderma de perfecte combinatie van stijl en hypoallergene materialen samen.</p>
+        </section>
+    </main>
+</Layout>
+
+<style lang="scss">
+    @use 'sass:map';
+    @use '../styles/_partials/_design-system' as *;
+
+    .about-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: map.get($spacing, 8);
+
+        h1 {
+            font-size: map.get($font-sizes, 3xl);
+            color: var(--text-primary);
+            margin-bottom: map.get($spacing, 8);
+            text-align: center;
+        }
+
+        section {
+            margin-bottom: map.get($spacing, 12);
+
+            h2 {
+                font-size: map.get($font-sizes, 2xl);
+                color: var(--text-primary);
+                margin-bottom: map.get($spacing, 4);
+            }
+
+            p {
+                font-size: map.get($font-sizes, lg);
+                color: var(--text-secondary);
+                line-height: 1.6;
+            }
+        }
+    }
+</style> 

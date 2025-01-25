@@ -6,6 +6,11 @@
 :root {
   @include generate-theme-vars('light');
 
+  // Add spacing variables
+  --spacing-2: 0.5rem;
+  --spacing-4: 1rem;
+  --spacing-8: 2rem;
+
   &[data-theme='dark'] {
     @include generate-theme-vars('dark');
   }

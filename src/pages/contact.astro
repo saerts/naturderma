@@ -1,0 +1,133 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+    title="Contact | Naturderma - Hypoallergene Sieraden" 
+    description="Neem contact op met Naturderma voor vragen over onze hypoallergene sieraden, verkooppunten of samenwerkingen."
+>
+    <main class="contact-container">
+        <h1>Contact</h1>
+        <section class="contact-info">
+            <div class="info-block">
+                <h2>Bezoekadres</h2>
+                <p>Naturderma BV</p>
+                <p>Straatnaam 123</p>
+                <p>1234 AB Amsterdam</p>
+                <p>Nederland</p>
+            </div>
+            
+            <div class="info-block">
+                <h2>Contact Informatie</h2>
+                <p>Email: info@naturderma.nl</p>
+                <p>Tel: +31 (0)20 123 4567</p>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <h2>Stuur ons een bericht</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name">Naam</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Bericht</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit">Verstuur</button>
+            </form>
+        </section>
+    </main>
+</Layout>
+
+<style lang="scss">
+    @use 'sass:map';
+    @use '../styles/_partials/_design-system' as *;
+
+    .contact-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: map.get($spacing, 8);
+
+        h1 {
+            font-size: map.get($font-sizes, 3xl);
+            color: var(--text-primary);
+            margin-bottom: map.get($spacing, 8);
+            text-align: center;
+        }
+    }
+
+    .contact-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: map.get($spacing, 8);
+        margin-bottom: map.get($spacing, 12);
+
+        .info-block {
+            h2 {
+                font-size: map.get($font-sizes, xl);
+                color: var(--text-primary);
+                margin-bottom: map.get($spacing, 4);
+            }
+
+            p {
+                color: var(--text-secondary);
+                margin-bottom: map.get($spacing, 2);
+            }
+        }
+    }
+
+    .contact-form {
+        h2 {
+            font-size: map.get($font-sizes, xl);
+            color: var(--text-primary);
+            margin-bottom: map.get($spacing, 6);
+        }
+
+        .form-group {
+            margin-bottom: map.get($spacing, 4);
+
+            label {
+                display: block;
+                margin-bottom: map.get($spacing, 2);
+                color: var(--text-primary);
+            }
+
+            input, textarea {
+                width: 100%;
+                padding: map.get($spacing, 3);
+                border: 1px solid var(--border-primary);
+                border-radius: 4px;
+                background: var(--card-bg);
+                color: var(--text-primary);
+
+                &:focus {
+                    outline: none;
+                    border-color: var(--bg-secondary);
+                }
+            }
+        }
+
+        button {
+            background: var(--bg-secondary);
+            color: white;
+            border: none;
+            padding: map.get($spacing, 3) map.get($spacing, 6);
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: map.get($font-weights, medium);
+
+            &:hover {
+                opacity: 0.9;
+            }
+        }
+    }
+</style> 

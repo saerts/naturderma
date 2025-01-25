@@ -1,0 +1,90 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// In a real application, these would come from a CMS or database
+const blogPosts = [
+    {
+        title: "Hypoallergene Sieraden: Een Complete Gids",
+        excerpt: "Alles wat je moet weten over hypoallergene sieraden en hoe ze je kunnen helpen.",
+        date: "2024-03-20",
+        slug: "hypoallergene-sieraden-gids"
+    },
+    // Add more blog posts here
+];
+---
+
+<Layout 
+    title="Blog | Naturderma - Nieuws en Tips over Hypoallergene Sieraden" 
+    description="Lees de laatste artikelen over hypoallergene sieraden, tips voor gevoelige huid, en nieuws van Naturderma."
+>
+    <main class="blog-container">
+        <h1>Blog</h1>
+        <section class="blog-posts">
+            {blogPosts.map(post => (
+                <article class="blog-post">
+                    <h2>{post.title}</h2>
+                    <p class="date">{new Date(post.date).toLocaleDateString('nl-NL')}</p>
+                    <p class="excerpt">{post.excerpt}</p>
+                    <a href={`/blog/${post.slug}`} class="read-more">Lees meer</a>
+                </article>
+            ))}
+        </section>
+    </main>
+</Layout>
+
+<style lang="scss">
+    @use 'sass:map';
+    @use '../styles/_partials/_design-system' as *;
+
+    .blog-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: map.get($spacing, 8);
+
+        h1 {
+            font-size: map.get($font-sizes, 3xl);
+            color: var(--text-primary);
+            margin-bottom: map.get($spacing, 8);
+            text-align: center;
+        }
+    }
+
+    .blog-posts {
+        display: grid;
+        gap: map.get($spacing, 8);
+    }
+
+    .blog-post {
+        padding: map.get($spacing, 6);
+        border: 1px solid var(--border-primary);
+        border-radius: 8px;
+        background: var(--card-bg);
+
+        h2 {
+            font-size: map.get($font-sizes, xl);
+            color: var(--text-primary);
+            margin-bottom: map.get($spacing, 2);
+        }
+
+        .date {
+            color: var(--text-tertiary);
+            font-size: map.get($font-sizes, sm);
+            margin-bottom: map.get($spacing, 4);
+        }
+
+        .excerpt {
+            color: var(--text-secondary);
+            margin-bottom: map.get($spacing, 4);
+        }
+
+        .read-more {
+            color: var(--bg-secondary);
+            text-decoration: none;
+            font-weight: map.get($font-weights, medium);
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+</style> 
