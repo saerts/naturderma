@@ -285,36 +285,14 @@ const navItems = [
 </style>
 
 <script>
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('theme-toggle');
-    
-    // Function to set theme
-    function setTheme(theme) {
-        document.documentElement.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-    }
+    import { setupTheme } from '../scripts/theme';
 
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    setTheme(savedTheme);
+    // Initialize theme and menu on page load and after navigation
+    document.addEventListener('astro:page-load', () => {
+        // Setup theme
+        setupTheme();
 
-    // Toggle theme on button click
-    themeToggle?.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-    });
-
-    // Handle system preference changes
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        const newTheme = e.matches ? 'dark' : 'light';
-        setTheme(newTheme);
-    });
-</script>
-
-<script>
-    // Menu toggle functionality
-    function setupMobileMenu() {
+        // Setup mobile menu
         const menuToggle = document.getElementById('menu-toggle');
         const mainNav = document.getElementById('main-nav');
         const navLinks = document.querySelectorAll('.nav-link');
@@ -345,8 +323,5 @@ const navItems = [
                 toggleMenu();
             }
         });
-    }
-
-    // Setup menu on page load and after navigation
-    document.addEventListener('astro:page-load', setupMobileMenu);
+    });
 </script>
