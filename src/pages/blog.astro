@@ -1,31 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-// In a real application, these would come from a CMS or database
-const blogPosts = [
-    {
-        title: "Hypoallergene Sieraden: Een Complete Gids",
-        excerpt: "Alles wat je moet weten over hypoallergene sieraden en hoe ze je kunnen helpen.",
-        date: "2024-03-20",
-        slug: "hypoallergene-sieraden-gids"
-    },
-    // Add more blog posts here
-];
+const posts = await getCollection('blog');
+posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 ---
 
 <Layout 
     title="Blog | Naturderma - Nieuws en Tips over Hypoallergene Sieraden" 
     description="Lees de laatste artikelen over hypoallergene sieraden, tips voor gevoelige huid, en nieuws van Naturderma."
 >
-    <main class="blog-container">
+    <main class="blog-container animate-in">
         <h1>Blog</h1>
-        <section class="blog-posts">
-            {blogPosts.map(post => (
+        <section class="blog-posts stagger-in">
+            {posts.map(post => (
                 <article class="blog-post">
-                    <h2>{post.title}</h2>
-                    <p class="date">{new Date(post.date).toLocaleDateString('nl-NL')}</p>
-                    <p class="excerpt">{post.excerpt}</p>
-                    <a href={`/blog/${post.slug}`} class="read-more">Lees meer</a>
+                    <a href={`/blog/${post.slug}`}>
+                        {post.data.heroImage && (
+                            <img 
+                                src={post.data.heroImage} 
+                                alt={post.data.title}
+                                loading="lazy"
+                            />
+                        )}
+                        <div class="content">
+                            <h2>{post.data.title}</h2>
+                            <p class="excerpt">{post.data.description}</p>
+                            <span class="date">
+                                {new Date(post.data.pubDate).toLocaleDateString('nl-NL', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric'
+                                })}
+                            </span>
+                        </div>
+                    </a>
                 </article>
             ))}
         </section>
@@ -37,7 +46,7 @@ const blogPosts = [
     @use '../styles/_partials/_design-system' as *;
 
     .blog-container {
-        max-width: 1000px;
+        max-width: 1200px;
         margin: 0 auto;
         padding: map.get($spacing, 8);
 
@@ -51,40 +60,67 @@ const blogPosts = [
 
     .blog-posts {
         display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
         gap: map.get($spacing, 8);
     }
 
     .blog-post {
-        padding: map.get($spacing, 6);
-        border: 1px solid var(--border-primary);
-        border-radius: 8px;
+        border-radius: map.get($spacing, 4);
+        overflow: hidden;
         background: var(--card-bg);
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
 
-        h2 {
-            font-size: map.get($font-sizes, xl);
-            color: var(--text-primary);
-            margin-bottom: map.get($spacing, 2);
+        &:hover {
+            transform: translateY(-4px);
         }
 
-        .date {
-            color: var(--text-tertiary);
-            font-size: map.get($font-sizes, sm);
-            margin-bottom: map.get($spacing, 4);
-        }
-
-        .excerpt {
-            color: var(--text-secondary);
-            margin-bottom: map.get($spacing, 4);
-        }
-
-        .read-more {
-            color: var(--bg-secondary);
+        a {
             text-decoration: none;
-            font-weight: map.get($font-weights, medium);
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
 
-            &:hover {
-                text-decoration: underline;
+        img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: map.get($spacing, 6);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                font-size: map.get($font-sizes, xl);
+                color: var(--text-primary);
+                margin-bottom: map.get($spacing, 2);
             }
+
+            .excerpt {
+                color: var(--text-secondary);
+                margin-bottom: map.get($spacing, 4);
+                flex: 1;
+            }
+
+            .date {
+                font-size: map.get($font-sizes, sm);
+                color: var(--text-tertiary);
+            }
+        }
+    }
+
+    @media (max-width: map.get($breakpoints, md)) {
+        .blog-container {
+            padding: map.get($spacing, 4);
+        }
+
+        .blog-posts {
+            grid-template-columns: 1fr;
         }
     }
 </style> 

@@ -1,0 +1,22 @@
+{
+  "radius-xs": {
+    "value": "4",
+    "type": "borderRadius"
+  },
+  "radius-s": {
+    "value": "8",
+    "type": "borderRadius"
+  },
+  "radius-m": {
+    "value": "16",
+    "type": "borderRadius"
+  },
+  "radius-l": {
+    "value": "32",
+    "type": "borderRadius"
+  },
+  "radius-none": {
+    "value": "0",
+    "type": "borderRadius"
+  }
+}

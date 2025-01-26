@@ -1,0 +1,129 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { Icon } from 'astro-icon/components';
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog');
+    return posts.map(post => ({
+        params: { slug: post.slug },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+    <article class="blog-post">
+        <div class="back-link">
+            <a href="/blog" class="back-button">
+                <Icon name="arrow-left" />
+                <span>Terug naar blog</span>
+            </a>
+        </div>
+        <div class="hero">
+            <h1>{post.data.title}</h1>
+            {post.data.heroImage && (
+                <img 
+                    src={post.data.heroImage} 
+                    alt={post.data.title}
+                    class="hero-image"
+                />
+            )}
+        </div>
+        <div class="content">
+            <Content />
+        </div>
+    </article>
+</Layout>
+
+<style lang="scss">
+    @use 'sass:map';
+    @use '../../styles/_partials/_design-system' as *;
+
+    .blog-post {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: map.get($spacing, 8);
+    }
+
+    .back-link {
+        margin-bottom: map.get($spacing, 8);
+    }
+
+    .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: map.get($spacing, 2);
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.3s ease;
+        font-size: map.get($font-sizes, base);
+
+        &:hover {
+            color: var(--text-primary);
+        }
+
+        [data-icon] {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .hero {
+        margin-bottom: map.get($spacing, 8);
+        text-align: center;
+
+        h1 {
+            font-size: map.get($font-sizes, 4xl);
+            color: var(--text-primary);
+            margin-bottom: map.get($spacing, 8);
+        }
+    }
+
+    .hero-image {
+        width: 100%;
+        height: auto;
+        border-radius: map.get($spacing, 4);
+        margin-bottom: map.get($spacing, 8);
+    }
+
+    .content {
+        font-size: map.get($font-sizes, lg);
+        line-height: 1.8;
+        color: var(--text-primary);
+
+        :global(h2) {
+            font-size: map.get($font-sizes, 2xl);
+            color: var(--text-primary);
+            margin: map.get($spacing, 8) 0 map.get($spacing, 4);
+        }
+
+        :global(p) {
+            margin-bottom: map.get($spacing, 4);
+        }
+
+        :global(img) {
+            width: 100%;
+            height: auto;
+            border-radius: map.get($spacing, 4);
+            margin: map.get($spacing, 8) 0;
+        }
+    }
+
+    @media (max-width: map.get($breakpoints, md)) {
+        .blog-post {
+            padding: map.get($spacing, 4);
+        }
+
+        .back-link {
+            margin-bottom: map.get($spacing, 4);
+        }
+
+        .hero h1 {
+            font-size: map.get($font-sizes, 3xl);
+        }
+    }
+</style> 
