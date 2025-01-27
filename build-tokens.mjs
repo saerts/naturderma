@@ -115,8 +115,10 @@ async function generateVariables() {
         if (radius) {
             content += '// Border Radius\n';
             content += '$radius: (\n';
-            Object.entries(radius.radius || {}).forEach(([key, value]) => {
-                content += `  "${key}": ${value.value}px,\n`;
+            Object.entries(radius).forEach(([key, value]) => {
+                // Remove the 'radius-' prefix from the key
+                const cleanKey = key.replace('radius-', '');
+                content += `  "${cleanKey}": ${value.value}px,\n`;
             });
             content += ');\n\n';
         }
