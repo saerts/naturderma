@@ -41,7 +41,9 @@ const {title, description = "Spaans hypoallergeen sieradenmerk", image = "assets
 </body>
 </html>
 
-<style>
+<style lang="scss">
+    @use 'sass:map';
+    @use '../styles/_partials/_design-system' as *;
     .frame {
         min-height: 100vh;
         display: flex;
@@ -50,6 +52,7 @@ const {title, description = "Spaans hypoallergeen sieradenmerk", image = "assets
 
     main {
         flex: 1;
+        background: var(--Surface-main);
     }
 </style>
 

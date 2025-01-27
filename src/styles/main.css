@@ -8,11 +8,11 @@ Error: Invalid CSS after "  font-family: map": expected ";", was ".get($fonts, p
 24: 
 25: body {
 26:   font-family: map.get($fonts, primary);
-27:   /*background-color: theme('bg-primary');*\/
-28:   color: theme('text-primary');
-29:   line-height: 1.6;
-30:   transition: background-color 0.3s ease, color 0.3s ease;
-31: }
+27:   color: var(--Text-body);
+28:   line-height: 1.6;
+29:   transition: background-color 0.3s ease, color 0.3s ease;
+30: }
+31: h1 {
 
 Backtrace:
 main.scss:26
@@ -47,4 +47,4 @@ main.scss:26
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"  font-family: map\": expected \";\", was \".get($fonts, pr...\"\A         on line 26 of main.scss\A \A 21:   width: 100%;\A 22:   height: 100%;\A 23: }\A 24: \A 25: body {\A 26:   font-family: map.get($fonts, primary);\A 27:   /*background-color: theme('bg-primary');*/\A 28:   color: theme('text-primary');\A 29:   line-height: 1.6;\A 30:   transition: background-color 0.3s ease, color 0.3s ease;\A 31: }"; }
+  content: "Error: Invalid CSS after \"  font-family: map\": expected \";\", was \".get($fonts, pr...\"\A         on line 26 of main.scss\A \A 21:   width: 100%;\A 22:   height: 100%;\A 23: }\A 24: \A 25: body {\A 26:   font-family: map.get($fonts, primary);\A 27:   color: var(--Text-body);\A 28:   line-height: 1.6;\A 29:   transition: background-color 0.3s ease, color 0.3s ease;\A 30: }\A 31: h1 {"; }
