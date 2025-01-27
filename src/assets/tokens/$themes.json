@@ -531,7 +531,8 @@
       "Primitives.Red.600": "S:ca98eaeca2ed5867849cb44f3684920997677dd7,",
       "Primitives.Red.700": "S:dded5da38d3c9db0b61b797531e2e22e9a745f44,",
       "Primitives.Red.800": "S:0f9a6d80b4c93a5d774ea7808770fd702306cee6,",
-      "Primitives.Red.900": "S:4e062eadaa83563925472cfca27e0b86a5f3bb95,"
+      "Primitives.Red.900": "S:4e062eadaa83563925472cfca27e0b86a5f3bb95,",
+      "Heading.H2": "S:2fb5eb8f5c7e3d437634e6dfdadf5c7916cc1f26,"
     },
     "$figmaVariableReferences": {
       "fontWeights.Regular": "b5c623b3206c1e43479343e1892a6d8f1ea1d293",
