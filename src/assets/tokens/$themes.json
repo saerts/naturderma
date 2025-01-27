@@ -496,11 +496,11 @@
       "H2.Regular": "S:942e56a9ff21521869ec8c94195dc68eecdb8f47,",
       "H3.Bold": "S:8449ca4d8640b1597ba150ad99f64087f5108cc6,",
       "H3.Regular": "S:9c3172ad2728b3da8df9fc80980967b4539ddd72,",
-      "Body.Bold": "S:db16024c1f88ab768fbdd6d1b0b3554aa0d7a721,",
-      "Body.Regular": "S:faa50cbfa30f891b03d4ae7fd13e31989ef55bc9,",
-      "Body.Light": "S:33c31a0a6bb682f2f9a568e5c62942bfe736e475,",
-      "Button.Regular": "S:14235522a6acab1fcb885046761915951defdcbd,",
-      "Body.Medium": "S:9697c05932def6943ab326a81143bf06d6db6e0c,",
+      "Body.Bold": "S:1d3bccd6f31041fe739a5cfc62dd06ffca59fe8c,",
+      "Body.Regular": "S:7c999a5c3a4dbe6757ca5ab8fcbf5fcef4d45a30,",
+      "Body.Light": "S:862eb79be675d1d35556dffbc41f80b4a908b48a,",
+      "Button.Regular": "S:f4e37710226c60683035c6f9d573c3935a8d4d30,",
+      "Body.Medium": "S:d73d727cb02ddd83fd1210e11877afa561754daf,",
       "Heading.H1": "S:f51da41486deea9b3d9043247711efb0f8e95b05,",
       "Primitives.Primary.50": "S:230257bac439912286025c2e303f70de7155f014,",
       "Primitives.Primary.100": "S:1bbe47c5f6bf8d9f963155105e799db259e7a189,",
@@ -532,7 +532,8 @@
       "Primitives.Red.700": "S:dded5da38d3c9db0b61b797531e2e22e9a745f44,",
       "Primitives.Red.800": "S:0f9a6d80b4c93a5d774ea7808770fd702306cee6,",
       "Primitives.Red.900": "S:4e062eadaa83563925472cfca27e0b86a5f3bb95,",
-      "Heading.H2": "S:2fb5eb8f5c7e3d437634e6dfdadf5c7916cc1f26,"
+      "Heading.H2": "S:2fb5eb8f5c7e3d437634e6dfdadf5c7916cc1f26,",
+      "Nav.Regular": "S:6d33e254c0355dca1e04e36b52b111baa8232396,"
     },
     "$figmaVariableReferences": {
       "fontWeights.Regular": "b5c623b3206c1e43479343e1892a6d8f1ea1d293",
