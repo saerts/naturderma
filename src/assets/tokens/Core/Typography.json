@@ -159,6 +159,15 @@
         "lineHeight": "{lineHeights.115%}"
       },
       "type": "typography"
+    },
+    "H2": {
+      "value": {
+        "fontFamily": "{system-ui}",
+        "fontWeight": "{fontWeights.Bold}",
+        "fontSize": "{fontSize.L}",
+        "lineHeight": "{lineHeights.115%}"
+      },
+      "type": "typography"
     }
   }
 }
