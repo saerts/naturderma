@@ -43,45 +43,45 @@ $font-size: (
 $body: (
   "Regular": (
     "fontFamily": "system-ui",
-    "fontWeight": map-get($font-weight, "Regular"),
-    "lineHeight": map-get($line-height, "125%"),
-    "fontSize": map-get($font-size, "M"),
+    "fontWeight": map.get($font-weight, "Regular"),
+    "lineHeight": map.get($line-height, "125%"),
+    "fontSize": map.get($font-size, "M"),
   ),
   "Medium": (
     "fontFamily": "system-ui",
-    "fontWeight": map-get($font-weight, "Medium"),
-    "lineHeight": map-get($line-height, "125%"),
-    "fontSize": map-get($font-size, "M"),
+    "fontWeight": map.get($font-weight, "Medium"),
+    "lineHeight": map.get($line-height, "125%"),
+    "fontSize": map.get($font-size, "M"),
   ),
   "Bold": (
     "fontFamily": "system-ui",
-    "fontWeight": map-get($font-weight, "Bold"),
-    "lineHeight": map-get($line-height, "125%"),
-    "fontSize": map-get($font-size, "M"),
+    "fontWeight": map.get($font-weight, "Bold"),
+    "lineHeight": map.get($line-height, "125%"),
+    "fontSize": map.get($font-size, "M"),
   ),
   "Light": (
     "fontFamily": "system-ui",
-    "fontWeight": map-get($font-weight, "Light"),
-    "lineHeight": map-get($line-height, "125%"),
-    "fontSize": map-get($font-size, "M"),
+    "fontWeight": map.get($font-weight, "Light"),
+    "lineHeight": map.get($line-height, "125%"),
+    "fontSize": map.get($font-size, "M"),
   ),
 );
 
 $button: (
   "Regular": (
     "fontFamily": "system-ui",
-    "fontWeight": map-get($font-weight, "Medium"),
-    "lineHeight": map-get($line-height, "100%"),
-    "fontSize": map-get($font-size, "M"),
+    "fontWeight": map.get($font-weight, "Medium"),
+    "lineHeight": map.get($line-height, "100%"),
+    "fontSize": map.get($font-size, "M"),
   ),
 );
 
 $heading: (
   "H1": (
     "fontFamily": "system-ui",
-    "fontWeight": map-get($font-weight, "Bold"),
-    "fontSize": map-get($font-size, "XXL"),
-    "lineHeight": map-get($line-height, "115%"),
+    "fontWeight": map.get($font-weight, "Bold"),
+    "fontSize": map.get($font-size, "XXL"),
+    "lineHeight": map.get($line-height, "115%"),
   ),
 );
 

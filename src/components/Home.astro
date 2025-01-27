@@ -21,32 +21,31 @@ const imagePath4 = "/images/4_Naturderma.jpg";
 
 <style lang="scss">
     @use 'sass:map';
-    @use '../styles/_partials/_design-system' as *;
+    @use '../styles/_partials/_variables' as *;
     
     #frame {
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
-        padding: map.get($spacing, 8);
+        padding: map.get($spacing, s);
     }
 
     .hero {
         text-align: center;
-        padding: map.get($spacing, 16) 0;
+        padding: map.get($spacing, m) 0;
     }
 
 
 
     p {
-        font-size: map.get($font-sizes, xl);
-        color: var(--text-secondary);
+        font-size: map.get($font-size, M);
     }
 
     .featured {
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: map.get($spacing, 8);
+        gap: map.get($spacing, s);
         
         img {
             width: 100%;

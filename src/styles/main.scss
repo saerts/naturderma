@@ -1,17 +1,13 @@
 @use 'sass:map';
-@use '_partials' as *;
+@use '_partials/themes' as themes;
+@use '_partials/variables' as vars;
 
 // Apply theme variables
 :root {
-  @include generate-theme-vars('light');
-
-  // Add spacing variables
-  --spacing-2: 0.5rem;
-  --spacing-4: 1rem;
-  --spacing-8: 2rem;
+  @include themes.generate-theme-vars('light');
 
   &[data-theme='dark'] {
-    @include generate-theme-vars('dark');
+    @include themes.generate-theme-vars('dark');
   }
 }
 
@@ -29,8 +25,8 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 h1 {
-  font-size: map.get($font-sizes, "2xl");
-  margin-bottom: map.get($spacing, "l");
+  font-size: map.get(vars.$font-size, "XXL");
+  margin-bottom: map.get(vars.$spacing, "l");
 }
 
 

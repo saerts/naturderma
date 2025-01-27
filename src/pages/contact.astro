@@ -73,22 +73,21 @@ import Layout from '../layouts/Layout.astro';
 
 <style lang="scss">
     @use 'sass:map';
-    @use '../styles/_partials/_design-system' as *;
+    @use '../styles/_partials/_variables' as *;
 
     .contact-container {
         max-width: 800px;
         margin: 0 auto;
-        padding: map.get($spacing, 8);
-
+        padding: map.get($spacing, "m");
     }
 
     .contact-info {
-        margin-bottom: map.get($spacing, 12);
+        margin-bottom: map.get($spacing, "xl");
         text-align: center;
     }
 
     .contact-intro {
-        font-size: map.get($font-sizes, lg);
+        font-size: map.get($font-size, "M");
         color: var(--text-secondary);
         line-height: 1.6;
     }
@@ -97,8 +96,8 @@ import Layout from '../layouts/Layout.astro';
         display: inline-block;
         color: var(--bg-secondary);
         text-decoration: none;
-        font-weight: map.get($font-weights, medium);
-        margin-top: map.get($spacing, 2);
+        font-weight: map.get($font-weight, "Medium");
+        margin-top: map.get($spacing, "s");
         transition: color 0.3s ease;
 
         &:hover {
@@ -109,39 +108,39 @@ import Layout from '../layouts/Layout.astro';
     .contact-form-container {
         background: var(--card-bg);
         border: 1px solid var(--border-primary);
-        border-radius: map.get($spacing, 2);
-        padding: map.get($spacing, 8);
+        border-radius: map.get($spacing, "s");
+        padding: map.get($spacing, "l");
 
         h2 {
-            font-size: map.get($font-sizes, xl);
+            font-size: map.get($font-size, "XL");
             color: var(--text-primary);
-            margin-bottom: map.get($spacing, 6);
+            margin-bottom: map.get($spacing, "m");
             text-align: center;
         }
     }
 
     .contact-form {
         display: grid;
-        gap: map.get($spacing, 6);
+        gap: map.get($spacing, "m");
 
         .form-group {
             display: grid;
-            gap: map.get($spacing, 2);
+            gap: map.get($spacing, "s");
 
             label {
-                font-size: map.get($font-sizes, base);
+                font-size: map.get($font-size, "M");
                 color: var(--text-primary);
-                font-weight: map.get($font-weights, medium);
+                font-weight: map.get($font-weight, "Medium");
             }
 
             input, textarea {
                 width: 100%;
-                padding: map.get($spacing, 3);
+                padding: map.get($spacing, "s");
                 border: 1px solid var(--border-primary);
-                border-radius: map.get($spacing, 1);
+                border-radius: map.get($spacing, "xs");
                 background: var(--bg-main);
                 color: var(--text-primary);
-                font-size: map.get($font-sizes, base);
+                font-size: map.get($font-size, "M");
                 transition: border-color 0.3s ease;
 
                 &::placeholder {
@@ -165,10 +164,10 @@ import Layout from '../layouts/Layout.astro';
         background: var(--bg-secondary);
         color: white;
         border: none;
-        padding: map.get($spacing, 4) map.get($spacing, 6);
-        border-radius: map.get($spacing, 1);
-        font-size: map.get($font-sizes, base);
-        font-weight: map.get($font-weights, medium);
+        padding: map.get($spacing, "s") map.get($spacing, "m");
+        border-radius: map.get($spacing, "xs");
+        font-size: map.get($font-size, "M");
+        font-weight: map.get($font-weight, "Medium");
         cursor: pointer;
         transition: background-color 0.3s ease;
         justify-self: center;
@@ -179,21 +178,21 @@ import Layout from '../layouts/Layout.astro';
         }
     }
 
-    @media (max-width: map.get($breakpoints, md)) {
+    @media (max-width: 768px) {
         .contact-container {
-            padding: map.get($spacing, 4);
+            padding: map.get($spacing, "s");
 
             h1 {
-                font-size: map.get($font-sizes, 2xl);
+                font-size: map.get($font-size, "XL");
             }
         }
 
         .contact-form-container {
-            padding: map.get($spacing, 4);
+            padding: map.get($spacing, "s");
         }
 
         .contact-intro {
-            font-size: map.get($font-sizes, base);
+            font-size: map.get($font-size, "M");
         }
 
         .submit-button {

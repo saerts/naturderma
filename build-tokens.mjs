@@ -198,7 +198,7 @@ function generateTypographyVariables(typography) {
                                         'lineHeights': 'line-height'
                                     };
                                     const categoryFixed = categoryMap[category] || category.toLowerCase();
-                                    cleanValue = `map-get($${categoryFixed}, "${weight}")`;
+                                    cleanValue = `map.get($${categoryFixed}, "${weight}")`;
                                 }
                             } else {
                                 cleanValue = `"${val}"`;

@@ -29,14 +29,14 @@ import Layout from '../layouts/Layout.astro';
 
 <style lang="scss">
     @use 'sass:map';
-    @use '../styles/_partials/_design-system' as *;
+    @use '../styles/_partials/_variables' as *;
 
     .error-container {
         min-height: 100vh;
         background: linear-gradient(
             to bottom,
-            map.get($colors, neutral, 900),
-            map.get($colors, neutral, 800)
+            var(--Surface-main),
+            var(--Surface-primary)
         );
         position: relative;
         overflow: hidden;
@@ -59,11 +59,11 @@ import Layout from '../layouts/Layout.astro';
             right: 0;
             bottom: 0;
             background-image: 
-                radial-gradient(2px 2px at 20px 30px, map.get($colors, neutral, 100), rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 40px 70px, map.get($colors, neutral, 100), rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 50px 160px, map.get($colors, neutral, 100), rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 90px 40px, map.get($colors, neutral, 100), rgba(0,0,0,0)),
-                radial-gradient(2px 2px at 130px 80px, map.get($colors, neutral, 100), rgba(0,0,0,0));
+                radial-gradient(2px 2px at 20px 30px, var(--Text-primary), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 40px 70px, var(--Text-primary), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, var(--Text-primary), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, var(--Text-primary), rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 130px 80px, var(--Text-primary), rgba(0,0,0,0));
             background-repeat: repeat;
             background-size: 200px 200px;
             opacity: 0;
@@ -86,12 +86,12 @@ import Layout from '../layouts/Layout.astro';
     }
 
     .error-content {
-        color: map.get($colors, neutral, 100);
+        color: var(--Text-primary);
         
         h1 {
-            font-size: map.get($font-sizes, 4xl);
+            font-size: map.get($font-size, "XXL");
             margin: 0;
-            font-weight: map.get($font-weights, bold);
+            font-weight: map.get($font-weight, "Bold");
             text-shadow: 0 0 20px rgba(255,255,255,0.3);
 
             .planet {
@@ -99,35 +99,35 @@ import Layout from '../layouts/Layout.astro';
                 animation: rotate 4s linear infinite;
                 background: linear-gradient(
                     45deg,
-                    map.get($colors, primary, base),
-                    map.get($colors, secondary, base)
+                    var(--Surface-primary),
+                    var(--Surface-secondary)
                 );
                 border-radius: 50%;
-                box-shadow: 0 0 50px map.get($colors, secondary, base);
+                box-shadow: 0 0 50px var(--Surface-secondary);
             }
         }
 
         p {
-            font-size: map.get($font-sizes, xl);
-            margin: map.get($spacing, 4) 0;
-            color: map.get($colors, neutral, 400);
+            font-size: map.get($font-size, "XL");
+            margin: map.get($spacing, "m") 0;
+            color: var(--Text-secondary);
         }
     }
 
     .btn-go-home {
         display: inline-block;
-        padding: map.get($spacing, 4) map.get($spacing, 8);
-        background: map.get($colors, primary, base);
-        color: map.get($colors, neutral, 100);
+        padding: map.get($spacing, s) map.get($spacing, m);
+        background: var(--Surface-primary);
+        color: var(--Text-primary);
         text-decoration: none;
-        border-radius: map.get($spacing, 8);
-        font-weight: map.get($font-weights, medium);
+        border-radius: map.get($spacing, m);
+        font-weight: map.get($font-weight, "Medium");
         transition: transform 0.3s ease, box-shadow 0.3s ease;
         
         &:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px map.get($colors, primary, dark);
-            background: map.get($colors, primary, light);
+            box-shadow: 0 5px 15px var(--Surface-secondary);
+            background: var(--Surface-secondary);
         }
     }
 
@@ -135,8 +135,8 @@ import Layout from '../layouts/Layout.astro';
         position: absolute;
         width: 250px;
         height: 300px;
-        background: map.get($colors, secondary, base);
-        border-radius: map.get($spacing, 8);
+        background: var(--Surface-secondary);
+        border-radius: map.get($spacing, m);
         top: -100px;
         right: -100px;
         animation: float 6s ease-in-out infinite;
@@ -146,7 +146,7 @@ import Layout from '../layouts/Layout.astro';
         &::before {
             content: '';
             position: absolute;
-            background: map.get($colors, primary, base);
+            background: var(--Surface-primary);
             width: 100px;
             height: 100px;
             border-radius: 50%;
@@ -170,14 +170,14 @@ import Layout from '../layouts/Layout.astro';
         50% { transform: translateY(-20px) rotate(-5deg); }
     }
 
-    @media (max-width: map.get($breakpoints, md)) {
+    @media (max-width: 768px) {
         .error-content {
             h1 {
-                font-size: map.get($font-sizes, 3xl);
+                font-size: map.get($font-size, 3xl);
             }
 
             p {
-                font-size: map.get($font-sizes, lg);
+                font-size: map.get($font-size, lg);
                 padding: 0 map.get($spacing, 4);
             }
         }

@@ -45,29 +45,22 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
 
 <style lang="scss">
     @use 'sass:map';
-    @use '../../styles/_partials/_design-system' as *;
+    @use '../../styles/_partials/_variables' as *;
 
     .blog-index {
         max-width: 1200px;
         margin: 0 auto;
-        padding: map.get($spacing, 8);
-
-        h1 {
-            font-size: map.get($font-sizes, 4xl);
-            color: var(--text-primary);
-            margin-bottom: map.get($spacing, 8);
-            text-align: center;
-        }
+        padding: map.get($spacing, "s");
     }
 
     .posts {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: map.get($spacing, 8);
+        gap: map.get($spacing, "s");
     }
 
     .post-card {
-        border-radius: map.get($spacing, 4);
+        border-radius: map.get($spacing, "xs");
         overflow: hidden;
         transition: transform 0.3s ease;
         background-color: var(--bg-primary);
@@ -120,7 +113,7 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
                 rgba(0, 0, 0, 0.7) 100%
             );
             transition: background 0.3s ease;
-            padding: map.get($spacing, 6);
+            padding: map.get($spacing, s);
             display: flex;
             align-items: flex-end;
         }
@@ -129,36 +122,36 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
             color: white;
 
             h2 {
-                font-size: map.get($font-sizes, 2xl);
+                font-size: map.get($font-size, "XL");
                 margin-bottom: map.get($spacing, 2);
                 line-height: 1.2;
             }
 
             p {
-                font-size: map.get($font-sizes, base);
-                margin-bottom: map.get($spacing, 4);
+                font-size: map.get($font-size, M);
+                margin-bottom: map.get($spacing, xs);
                 opacity: 0.9;
             }
 
             .date {
                 display: block;
-                font-size: map.get($font-sizes, sm);
+                font-size: map.get($font-size, s);
                 opacity: 0.7;
                 margin-bottom: map.get($spacing, 2);
             }
 
             .read-more {
                 display: inline-block;
-                font-size: map.get($font-sizes, base);
+                font-size: map.get($font-size, m);
                 color: white;
                 transition: color 0.3s ease;
             }
         }
     }
 
-    @media (max-width: map.get($breakpoints, md)) {
+    @media (max-width: 768px) {
         .blog-index {
-            padding: map.get($spacing, 4);
+            padding: map.get($spacing, xs);
         }
 
         .posts {
@@ -172,7 +165,7 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
 
             .content {
                 h2 {
-                    font-size: map.get($font-sizes, xl);
+                    font-size: map.get($font-size, xl);
                 }
             }
         }
