@@ -169,5 +169,16 @@
       },
       "type": "typography"
     }
+  },
+  "Nav": {
+    "Regular": {
+      "value": {
+        "fontFamily": "{system-ui}",
+        "fontWeight": "{fontWeights.Medium}",
+        "fontSize": "{fontSize.XM}",
+        "lineHeight": "{lineHeights.115%}"
+      },
+      "type": "typography"
+    }
   }
 }
