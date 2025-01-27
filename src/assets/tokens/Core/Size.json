@@ -1,0 +1,70 @@
+{
+  "size": {
+    "none": {
+      "value": "0",
+      "type": "sizing"
+    },
+    "xs": {
+      "value": "4",
+      "type": "sizing"
+    },
+    "s": {
+      "value": "8",
+      "type": "sizing"
+    },
+    "m": {
+      "value": "16",
+      "type": "sizing"
+    },
+    "m20": {
+      "value": "20",
+      "type": "sizing"
+    },
+    "l": {
+      "value": "{size.s}*3",
+      "type": "sizing"
+    },
+    "xl": {
+      "value": "{size.m}*2",
+      "type": "sizing"
+    },
+    "xxl": {
+      "value": "40",
+      "type": "sizing"
+    }
+  },
+  "spacing": {
+    "none": {
+      "value": "0",
+      "type": "spacing"
+    },
+    "xs": {
+      "value": "4",
+      "type": "spacing"
+    },
+    "s": {
+      "value": "8",
+      "type": "spacing"
+    },
+    "m": {
+      "value": "16",
+      "type": "spacing"
+    },
+    "m20": {
+      "value": "20",
+      "type": "spacing"
+    },
+    "l": {
+      "value": "{spacing.s}*3",
+      "type": "spacing"
+    },
+    "xl": {
+      "value": "{spacing.m}*2",
+      "type": "spacing"
+    },
+    "xxl": {
+      "value": "40",
+      "type": "spacing"
+    }
+  }
+}
