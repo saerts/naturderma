@@ -23,14 +23,14 @@ body {
 }
 
 body {
-  font-family: map.get($fonts, primary);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   color: var(--Text-body);
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 h1 {
-  font-size: map.get($font-sizes, 5xl);
-  margin-bottom: map.get($spacing, 8);
+  font-size: map.get($font-sizes, "2xl");
+  margin-bottom: map.get($spacing, "l");
 }
 
 
@@ -81,10 +81,6 @@ h1 {
     }
 }
 
-/* Ensure smooth transitions for color changes */
-* {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
 
 /* Page transition styles */
 ::view-transition-old(root) {

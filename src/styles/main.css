@@ -1,21 +1,21 @@
 /*
-Error: Invalid CSS after "  font-family: map": expected ";", was ".get($fonts, pr..."
-        on line 26 of main.scss
+Error: Invalid CSS after "  font-size: map": expected ";", was ".get($font-size..."
+        on line 32 of main.scss
 
-21:   width: 100%;
-22:   height: 100%;
-23: }
-24: 
-25: body {
-26:   font-family: map.get($fonts, primary);
 27:   color: var(--Text-body);
 28:   line-height: 1.6;
 29:   transition: background-color 0.3s ease, color 0.3s ease;
 30: }
 31: h1 {
+32:   font-size: map.get($font-sizes, "2xl");
+33:   margin-bottom: map.get($spacing, "l");
+34: }
+35: 
+36: 
+37: /* View Transitions *\/
 
 Backtrace:
-main.scss:26
+main.scss:32
 /Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1278:in `expected'
 /Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1208:in `expected'
 /Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1203:in `tok!'
@@ -47,4 +47,4 @@ main.scss:26
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"  font-family: map\": expected \";\", was \".get($fonts, pr...\"\A         on line 26 of main.scss\A \A 21:   width: 100%;\A 22:   height: 100%;\A 23: }\A 24: \A 25: body {\A 26:   font-family: map.get($fonts, primary);\A 27:   color: var(--Text-body);\A 28:   line-height: 1.6;\A 29:   transition: background-color 0.3s ease, color 0.3s ease;\A 30: }\A 31: h1 {"; }
+  content: "Error: Invalid CSS after \"  font-size: map\": expected \";\", was \".get($font-size...\"\A         on line 32 of main.scss\A \A 27:   color: var(--Text-body);\A 28:   line-height: 1.6;\A 29:   transition: background-color 0.3s ease, color 0.3s ease;\A 30: }\A 31: h1 {\A 32:   font-size: map.get($font-sizes, \"2xl\");\A 33:   margin-bottom: map.get($spacing, \"l\");\A 34: }\A 35: \A 36: \A 37: /* View Transitions */"; }
