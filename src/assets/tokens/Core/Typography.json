@@ -164,7 +164,7 @@
       "value": {
         "fontFamily": "{system-ui}",
         "fontWeight": "{fontWeights.Bold}",
-        "fontSize": "{fontSize.L}",
+        "fontSize": "{fontSize.XM}",
         "lineHeight": "{lineHeights.115%}"
       },
       "type": "typography"
