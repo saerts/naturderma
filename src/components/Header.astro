@@ -31,18 +31,16 @@ const navItems = [
     </div>
     <nav id="main-nav">
         <ul>
-            {navItems.map(({ path, label }) => (
+            {navItems.map(item => (
                 <li>
                     <a 
-                        href={path}
+                        href={item.path} 
                         class:list={[
                             'nav-link',
-                            { active: currentPath === path || 
-                              (path !== '/' && currentPath.startsWith(path)) }
+                            { active: currentPath === item.path }
                         ]}
-                        aria-current={currentPath === path ? 'page' : undefined}
                     >
-                        {label}
+                        {item.label}
                     </a>
                 </li>
             ))}
@@ -55,21 +53,92 @@ const navItems = [
     @use '../styles/_partials/_design-system' as *;
 
     header {
+
+        border-bottom: 1px solid var(--Border-default);
         display: flex;
         flex-direction: column;
     }
 
     .topBar {
-        background-color: var(--bg-primary);
-        height: 150px;
+      background-color: var(--Surface-default);
         display: flex;
-        align-items: center;
         justify-content: space-between;
+        align-items: center;
         padding: map.get($spacing, 4);
+    }
 
+    .logo-link {
         img {
-            max-width: 347px;
-            height: auto;
+            height: 50px;
+            width: auto;
+        }
+    }
+
+    .header-controls {
+        display: flex;
+        gap: map.get($spacing, 4);
+    }
+
+    .theme-toggle, .menu-toggle {
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: map.get($spacing, 2);
+        color: var(--Text-body);
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: var(--Surface-subtle);
+        }
+    }
+
+    nav {
+        ul {
+            display: flex;
+            justify-content: center;
+            gap: map.get($spacing, 8);
+            padding: map.get($spacing, 4);
+            margin: 0;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--Text-body);
+            text-decoration: none;
+            font-weight: map.get($font-weights, medium);
+            padding: map.get($spacing, 2) map.get($spacing, 4);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 100%;
+                height: 2px;
+                background-color: var(--Surface-accent);
+                transform: scaleX(0);
+                transition: transform 0.3s ease;
+            }
+
+            &:hover {
+                color: var(--Text-title);
+                
+                &::after {
+                    transform: scaleX(0.5);
+                }
+            }
+
+            &.active {
+                color: var(--Text-title);
+                
+                &::after {
+                    transform: scaleX(1);
+                }
+            }
         }
     }
 
@@ -123,51 +192,6 @@ const navItems = [
                 transform: rotate(-90deg) scale(0);
             }
         }
-    }
-
-    nav {
-        border-bottom: 1px solid var(--border-primary);
-        
-        ul {
-            list-style: none;
-            display: flex;
-            gap: map.get($spacing, 8);
-            padding: map.get($spacing, 4);
-            margin: 0;
-            justify-content: center;
-        }
-
-        .nav-link {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: map.get($font-weights, medium);
-            padding: map.get($spacing, 2) map.get($spacing, 4);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            position: relative;
-
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 0;
-                height: 2px;
-                background-color: var(--bg-secondary);
-                transition: width 0.3s ease;
-            }
-
-            &:hover::after {
-                width: 100%;
-            }
-        }
-    }
-
-    .header-controls {
-        display: flex;
-        gap: map.get($spacing, 4);
-        align-items: center;
     }
 
     .menu-toggle {
@@ -272,14 +296,6 @@ const navItems = [
         .topBar {
             position: relative;
             z-index: 100;
-        }
-    }
-
-    .logo-link {
-        display: block;
-        
-        &:hover {
-            opacity: 0.9;
         }
     }
 </style>

@@ -6,9 +6,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "build:tokens": "node build-tokens.mjs"
   },
   "dependencies": {
+    "@tokens-studio/sd-transforms": "^1.2.9",
     "@vercel/speed-insights": "^1.1.0",
     "astro": "^5.1.9",
     "astro-icon": "^1.1.5"
