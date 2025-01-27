@@ -29,6 +29,12 @@ body {
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+h1 {
+  font-size: map.get($font-sizes, 5xl);
+  color: var(--text-primary);
+  margin-bottom: map.get($spacing, 8);
+}
+
 
 /* View Transitions */
 @starting-style {

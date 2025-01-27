@@ -16,5 +16,8 @@ export default defineConfig({
             },
         },
     },
-    integrations: [icon()]
+    integrations: [icon()],
+    legacy: {
+        collections: true
+    }
 });

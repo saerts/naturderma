@@ -1,0 +1,25 @@
+---
+import Layout from './Layout.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title} description={frontmatter.description}>
+    <main id="main">
+        <article class="content">
+            <h1>{frontmatter.title} </h1>
+            <slot />
+        </article>
+    </main>
+</Layout>
+
+<style lang="scss">
+    @use 'sass:map';
+    @use '../styles/_partials/_design-system' as *;
+
+    .content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: map.get($spacing, 8);
+    }
+</style> 
