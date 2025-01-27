@@ -59,4 +59,8 @@ const {title, description = "Spaans hypoallergeen sieradenmerk", image = "assets
             element.style.animationDelay = `${index * 0.2}s`;
         });
     });
+
+    // Set initial theme before page loads
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
 </script>

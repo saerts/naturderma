@@ -1,21 +1,14 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import MarkdownLayout from '../layouts/MarkdownLayout.astro';
 import { getEntry } from 'astro:content';
 
 const aboutContent = await getEntry('about', 'about');
 const { Content } = await aboutContent.render();
 ---
 
-<Layout 
-    title="Over ons | Naturderma" 
-    description={aboutContent.data.description}
->
-    <main class="about-container" transition:animate="fade">
-        <div class="stagger-in">
-            <Content />
-        </div>
-    </main>
-</Layout>
+<MarkdownLayout frontmatter={aboutContent.data}>
+    <Content />
+</MarkdownLayout>
 
 <style lang="scss">
     @use 'sass:map';
@@ -26,12 +19,6 @@ const { Content } = await aboutContent.render();
         margin: 0 auto;
         padding: map.get($spacing, 8);
 
-        :global(h1) {
-            font-size: map.get($font-sizes, 3xl);
-            color: var(--text-primary);
-            margin-bottom: map.get($spacing, 8);
-            text-align: center;
-        }
 
         :global(h2) {
             font-size: map.get($font-sizes, xl);

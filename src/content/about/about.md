@@ -3,8 +3,6 @@ title: Over ons
 description: Leer meer over Naturderma's hypoallergene sieraden
 ---
 
-# Over ons
-
 ## Allergieën voor oorbellen?
 
 Sinds 1989 zetten wij ons in om de beste gecertificeerde hypoallergene sieraden te leveren. Met originele ontwerpen gemaakt in Spanje en zorgvuldig geselecteerde hoogwaardige materialen, zoals 925 Sterling zilver, chirurgisch staal of titanium, minimaliseren we het risico op mogelijke allergieën.
