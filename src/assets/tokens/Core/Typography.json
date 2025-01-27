@@ -163,7 +163,7 @@
     "H2": {
       "value": {
         "fontFamily": "{system-ui}",
-        "fontWeight": "{fontWeights.Bold}",
+        "fontWeight": "{fontWeights.Semibold}",
         "fontSize": "{fontSize.XM}",
         "lineHeight": "{lineHeights.115%}"
       },
