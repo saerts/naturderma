@@ -1,53 +1,79 @@
-@use 'sass:map';
+// Generated Theme Variables
 
-// Theme color tokens
-$themes: (
-    light: (
-      // Background colors
-        bg-primary: rgba(118, 203, 182, 0.62),
-        bg-secondary: #028987,
-        bg-tertiary: #212121,
-        bg-main: white,
-      // Text colors
-        text-primary: #1A1A1A,
-        text-secondary: #4A5568,
-        text-tertiary: #718096,
-      // Border colors
-        border-primary: #E2E8F0,
-        border-secondary: #CBD5E0,
-      // Card colors
-        card-bg: #FFFFFF,
-        card-border: #E2E8F0,
-    ),
-    dark: (
-      // Background colors
-        bg-primary: #1A1A1A,
-        bg-secondary: #262626,
-        bg-tertiary: #404040,
-        bg-main: black,
-      // Text colors
-        text-primary: #FFFFFF,
-        text-secondary: #A0AEC0,
-        text-tertiary: #718096,
-      // Border colors
-        border-primary: #404040,
-        border-secondary: #4A5568,
-      // Card colors
-        card-bg: #2D2D2D,
-        card-border: #404040,
-    )
+$primitives: (
+  "Primary": (
+    "50": #F7FCFB,
+    "100": #E5F5F1,
+    "200": #D8F0EA,
+    "300": #C6EAE1,
+    "400": #BBE5DB,
+    "500": #AADFD2,
+    "600": #9BCBBF,
+    "700": #799E95,
+    "800": #5E7B74,
+    "900": #475E58,
+  ),
+  "Secondary": (
+    "50": #EBF9F6,
+    "100": #BFEDE4,
+    "200": #A1E4D7,
+    "300": #76d7c5,
+    "400": #5bd0ba,
+    "500": #32c4a9,
+    "600": #2eb29a,
+    "700": #248b78,
+    "800": #1c6c5d,
+    "900": #155247,
+  ),
+  "Red": (
+    "50": #F9EEEB,
+    "100": #F3DDD8,
+    "200": #E6B7AD,
+    "300": #DA9586,
+    "400": #CE735F,
+    "500": #BE523A,
+    "600": #98422F,
+    "700": #713123,
+    "800": #4A2017,
+    "900": #27110C,
+  ),
 );
 
-// Theme getter function
-@function theme($key) {
-  @return var(--#{$key});
-}
+$light-theme: (
+  "Surface-primary": #AADFD2,
+  "Surface-main": #F7FCFB,
+  "Surface-secondary": #32c4a9,
+  "Surface-disabled": #bbb,
+  "Border-subtle": #5bd0ba,
+  "Border-default": #BBE5DB,
+  "Border-darken": #9BCBBF,
+  "Border-disabled": #76d7c5,
+  "Text-title": #212121,
+  "Text-body": #212121,
+  "Text-disabled": #bbb,
+  "Text-primary": #AADFD2,
+  "Text-secondary": #32c4a9,
+);
 
-// Theme CSS variable generator
+$dark-theme: (
+  "Surface-primary": #AADFD2,
+  "Surface-main": #131313,
+  "Surface-secondary": #32c4a9,
+  "Surface-disabled": #bbb,
+  "Border-subtle": #5bd0ba,
+  "Border-default": #BBE5DB,
+  "Border-darken": #9BCBBF,
+  "Border-disabled": #76d7c5,
+  "Text-title": #fff,
+  "Text-body": #fff,
+  "Text-disabled": #bbb,
+  "Text-primary": #AADFD2,
+  "Text-secondary": #32c4a9,
+);
+
 @mixin generate-theme-vars($theme-name) {
-  $theme: map.get($themes, $theme-name);
-
+  $theme: if($theme-name == "light", $light-theme, $dark-theme);
   @each $key, $value in $theme {
     --#{$key}: #{$value};
   }
-} 
+}

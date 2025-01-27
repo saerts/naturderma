@@ -1,0 +1,164 @@
+{
+  "lineHeights": {
+    "100%": {
+      "value": "100%",
+      "type": "lineHeights"
+    },
+    "115%": {
+      "value": "115%",
+      "type": "lineHeights"
+    },
+    "125%": {
+      "value": "125%",
+      "type": "lineHeights"
+    },
+    "150%": {
+      "value": "150%",
+      "type": "lineHeights"
+    },
+    "175%": {
+      "value": "175%",
+      "type": "lineHeights"
+    }
+  },
+  "fontWeights": {
+    "Regular": {
+      "value": "400",
+      "type": "fontWeights"
+    },
+    "Medium": {
+      "value": "500",
+      "type": "fontWeights"
+    },
+    "Semibold": {
+      "value": "600",
+      "type": "fontWeights"
+    },
+    "Bold": {
+      "value": "700",
+      "type": "fontWeights"
+    },
+    "Heavy": {
+      "value": "800",
+      "type": "fontWeights"
+    },
+    "Black": {
+      "value": "900",
+      "type": "fontWeights"
+    },
+    "Light": {
+      "value": "300",
+      "type": "fontWeights"
+    },
+    "Thin": {
+      "value": "200",
+      "type": "fontWeights"
+    },
+    "Ultrathin": {
+      "value": "100",
+      "type": "fontWeights"
+    }
+  },
+  "fontSize": {
+    "XXL": {
+      "value": "118",
+      "type": "fontSizes"
+    },
+    "XL": {
+      "value": "90",
+      "type": "fontSizes"
+    },
+    "L": {
+      "value": "75",
+      "type": "fontSizes"
+    },
+    "XXM": {
+      "value": "36",
+      "type": "fontSizes"
+    },
+    "XM": {
+      "value": "30",
+      "type": "fontSizes"
+    },
+    "M": {
+      "value": "20",
+      "type": "fontSizes"
+    },
+    "S": {
+      "value": "16",
+      "type": "fontSizes"
+    },
+    "XS": {
+      "value": "14",
+      "type": "fontSizes"
+    },
+    "XXS": {
+      "value": "10",
+      "type": "fontSizes"
+    }
+  },
+  "Body": {
+    "Regular": {
+      "value": {
+        "fontFamily": "{system-ui}",
+        "fontWeight": "{fontWeights.Regular}",
+        "lineHeight": "{lineHeights.125%}",
+        "fontSize": "{fontSize.M}"
+      },
+      "type": "typography"
+    },
+    "Medium": {
+      "value": {
+        "fontFamily": "{system-ui}",
+        "fontWeight": "{fontWeights.Medium}",
+        "lineHeight": "{lineHeights.125%}",
+        "fontSize": "{fontSize.M}"
+      },
+      "type": "typography"
+    },
+    "Bold": {
+      "value": {
+        "fontFamily": "{system-ui}",
+        "fontWeight": "{fontWeights.Bold}",
+        "lineHeight": "{lineHeights.125%}",
+        "fontSize": "{fontSize.M}"
+      },
+      "type": "typography"
+    },
+    "Light": {
+      "value": {
+        "fontFamily": "{system-ui}",
+        "fontWeight": "{fontWeights.Light}",
+        "lineHeight": "{lineHeights.125%}",
+        "fontSize": "{fontSize.M}"
+      },
+      "type": "typography"
+    }
+  },
+  "Button": {
+    "Regular": {
+      "value": {
+        "fontFamily": "{system-ui}",
+        "fontWeight": "{fontWeights.Medium}",
+        "lineHeight": "{lineHeights.100%}",
+        "fontSize": "{fontSize.M}"
+      },
+      "type": "typography"
+    }
+  },
+  "system-ui": {
+    "value": "SF UI Display",
+    "type": "fontFamilies"
+  },
+  "Heading": {
+    "H1": {
+      "value": {
+        "fontFamily": "{system-ui}",
+        "fontWeight": "{fontWeights.Bold}",
+        "fontSize": "{fontSize.XXL}",
+        "lineHeight": "{lineHeights.115%}"
+      },
+      "type": "typography"
+    }
+  }
+}

@@ -15,11 +15,11 @@ const { frontmatter } = Astro.props;
 
 <style lang="scss">
     @use 'sass:map';
-    @use '../styles/_partials/_design-system' as *;
+    @use '../styles/_partials/_variables' as *;
 
     .content {
         max-width: 800px;
         margin: 0 auto;
-        padding: map.get($spacing, 8);
+        padding: map.get($spacing, "m");
     }
 </style> 

@@ -1,0 +1,78 @@
+{
+  "size": {
+    "none": {
+      "value": "0",
+      "type": "sizing"
+    },
+    "xs": {
+      "value": "4",
+      "type": "sizing"
+    },
+    "s": {
+      "value": "8",
+      "type": "sizing"
+    },
+    "m": {
+      "value": "16",
+      "type": "sizing"
+    },
+    "m20": {
+      "value": "20",
+      "type": "sizing"
+    },
+    "l": {
+      "value": "24",
+      "type": "sizing"
+    },
+    "xl": {
+      "value": "32",
+      "type": "sizing"
+    },
+    "2xl": {
+      "value": "40",
+      "type": "sizing"
+    },
+    "3xl": {
+      "value": "60",
+      "type": "sizing"
+    }
+  },
+  "spacing": {
+    "none": {
+      "value": "0",
+      "type": "spacing"
+    },
+    "xs": {
+      "value": "4",
+      "type": "spacing"
+    },
+    "s": {
+      "value": "8",
+      "type": "spacing"
+    },
+    "m": {
+      "value": "16",
+      "type": "spacing"
+    },
+    "m20": {
+      "value": "20",
+      "type": "spacing"
+    },
+    "l": {
+      "value": "24",
+      "type": "spacing"
+    },
+    "xl": {
+      "value": "32",
+      "type": "spacing"
+    },
+    "2xl": {
+      "value": "40",
+      "type": "spacing"
+    },
+    "3xl": {
+      "value": "60",
+      "type": "spacing"
+    }
+  }
+}

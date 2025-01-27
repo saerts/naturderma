@@ -1,0 +1,122 @@
+// Generated Variables
+
+@use 'sass:map';
+
+// Typography
+
+// Line Heights
+$line-height: (
+  "100%": 100%,
+  "115%": 115%,
+  "125%": 125%,
+  "150%": 150%,
+  "175%": 175%,
+);
+
+// Font Weights
+$font-weight: (
+  "Regular": 400,
+  "Medium": 500,
+  "Semibold": 600,
+  "Bold": 700,
+  "Heavy": 800,
+  "Black": 900,
+  "Light": 300,
+  "Thin": 200,
+  "Ultrathin": 100,
+);
+
+// Font Sizes
+$font-size: (
+  "XXL": 118px,
+  "XL": 90px,
+  "L": 75px,
+  "XXM": 36px,
+  "XM": 30px,
+  "M": 20px,
+  "S": 16px,
+  "XS": 14px,
+  "XXS": 10px,
+);
+
+// Typography Styles
+$body: (
+  "Regular": (
+    "fontFamily": "system-ui",
+    "fontWeight": map.get($font-weight, "Regular"),
+    "lineHeight": map.get($line-height, "125%"),
+    "fontSize": map.get($font-size, "M"),
+  ),
+  "Medium": (
+    "fontFamily": "system-ui",
+    "fontWeight": map.get($font-weight, "Medium"),
+    "lineHeight": map.get($line-height, "125%"),
+    "fontSize": map.get($font-size, "M"),
+  ),
+  "Bold": (
+    "fontFamily": "system-ui",
+    "fontWeight": map.get($font-weight, "Bold"),
+    "lineHeight": map.get($line-height, "125%"),
+    "fontSize": map.get($font-size, "M"),
+  ),
+  "Light": (
+    "fontFamily": "system-ui",
+    "fontWeight": map.get($font-weight, "Light"),
+    "lineHeight": map.get($line-height, "125%"),
+    "fontSize": map.get($font-size, "M"),
+  ),
+);
+
+$button: (
+  "Regular": (
+    "fontFamily": "system-ui",
+    "fontWeight": map.get($font-weight, "Medium"),
+    "lineHeight": map.get($line-height, "100%"),
+    "fontSize": map.get($font-size, "M"),
+  ),
+);
+
+$heading: (
+  "H1": (
+    "fontFamily": "system-ui",
+    "fontWeight": map.get($font-weight, "Bold"),
+    "fontSize": map.get($font-size, "XXL"),
+    "lineHeight": map.get($line-height, "115%"),
+  ),
+);
+
+// Spacing
+$spacing: (
+  "none": 0px,
+  "xs": 4px,
+  "s": 8px,
+  "m": 16px,
+  "m20": 20px,
+  "l": 24px,
+  "xl": 32px,
+  "2xl": 40px,
+  "3xl": 60px,
+);
+
+// Sizes
+$sizes: (
+  "none": 0px,
+  "xs": 4px,
+  "s": 8px,
+  "m": 16px,
+  "m20": 20px,
+  "l": 24px,
+  "xl": 32px,
+  "2xl": 40px,
+  "3xl": 60px,
+);
+
+// Border Radius
+$radius: (
+  "xs": 4px,
+  "s": 8px,
+  "m": 16px,
+  "l": 32px,
+  "none": 0px,
+);
+

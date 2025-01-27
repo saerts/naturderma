@@ -1,17 +1,13 @@
 @use 'sass:map';
-@use '_partials' as *;
+@use '_partials/themes' as themes;
+@use '_partials/variables' as vars;
 
 // Apply theme variables
 :root {
-  @include generate-theme-vars('light');
-
-  // Add spacing variables
-  --spacing-2: 0.5rem;
-  --spacing-4: 1rem;
-  --spacing-8: 2rem;
+  @include themes.generate-theme-vars('light');
 
   &[data-theme='dark'] {
-    @include generate-theme-vars('dark');
+    @include themes.generate-theme-vars('dark');
   }
 }
 
@@ -23,16 +19,14 @@ body {
 }
 
 body {
-  font-family: map.get($fonts, primary);
-  /*background-color: theme('bg-primary');*/
-  color: theme('text-primary');
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--Text-body);
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 h1 {
-  font-size: map.get($font-sizes, 5xl);
-  color: var(--text-primary);
-  margin-bottom: map.get($spacing, 8);
+  font-size: map.get(vars.$font-size, "XXL");
+  margin-bottom: map.get(vars.$spacing, "l");
 }
 
 
@@ -83,10 +77,6 @@ h1 {
     }
 }
 
-/* Ensure smooth transitions for color changes */
-* {
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
 
 /* Page transition styles */
 ::view-transition-old(root) {

@@ -1,31 +1,25 @@
 /*
-Error: Invalid CSS after "  font-family: map": expected ";", was ".get($fonts, pr..."
-        on line 26 of main.scss
+Error: Invalid CSS after "  @include themes": expected "}", was ".generate-theme..."
+        on line 7 of main.scss
 
-21:   width: 100%;
-22:   height: 100%;
-23: }
-24: 
-25: body {
-26:   font-family: map.get($fonts, primary);
-27:   /*background-color: theme('bg-primary');*\/
-28:   color: theme('text-primary');
-29:   line-height: 1.6;
-30:   transition: background-color 0.3s ease, color 0.3s ease;
-31: }
+2: @use '_partials/themes' as themes;
+3: @use '_partials/variables' as vars;
+4: 
+5: // Apply theme variables
+6: :root {
+7:   @include themes.generate-theme-vars('light');
+8: 
+9:   &[data-theme='dark'] {
+10:     @include themes.generate-theme-vars('dark');
+11:   }
+12: }
 
 Backtrace:
-main.scss:26
+main.scss:7
 /Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1278:in `expected'
 /Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1208:in `expected'
 /Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1203:in `tok!'
-/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:804:in `block in try_declaration'
-/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1254:in `rethrow'
-/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:809:in `try_declaration'
-/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:732:in `declaration_or_ruleset'
-/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:697:in `block_child'
-/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:686:in `block_contents'
-/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:678:in `block'
+/Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:679:in `block'
 /Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:670:in `ruleset'
 /Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:696:in `block_child'
 /Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:689:in `block_contents'
@@ -47,4 +41,4 @@ main.scss:26
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"  font-family: map\": expected \";\", was \".get($fonts, pr...\"\A         on line 26 of main.scss\A \A 21:   width: 100%;\A 22:   height: 100%;\A 23: }\A 24: \A 25: body {\A 26:   font-family: map.get($fonts, primary);\A 27:   /*background-color: theme('bg-primary');*/\A 28:   color: theme('text-primary');\A 29:   line-height: 1.6;\A 30:   transition: background-color 0.3s ease, color 0.3s ease;\A 31: }"; }
+  content: "Error: Invalid CSS after \"  @include themes\": expected \"}\", was \".generate-theme...\"\A         on line 7 of main.scss\A \A 2: @use '_partials/themes' as themes;\A 3: @use '_partials/variables' as vars;\A 4: \A 5: // Apply theme variables\A 6: :root {\A 7:   @include themes.generate-theme-vars('light');\A 8: \A 9:   &[data-theme='dark'] {\A 10:     @include themes.generate-theme-vars('dark');\A 11:   }\A 12: }"; }

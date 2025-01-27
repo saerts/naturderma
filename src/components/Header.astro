@@ -1,16 +1,16 @@
 ---
 import naturdermaLogo from '../assets/naturderma-logo.png';
-import { Icon } from 'astro-icon/components';
+import {Icon} from 'astro-icon/components';
 
 // Get the current path to determine active state
 const currentPath = Astro.url.pathname;
 
 // Define navigation items
 const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/about', label: 'Over ons' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/contact', label: 'Contact' }
+  {path: '/', label: 'Home'},
+  {path: '/about', label: 'Over ons'},
+  {path: '/blog', label: 'Blog'},
+  {path: '/contact', label: 'Contact'}
 ];
 ---
 
@@ -21,8 +21,8 @@ const navItems = [
         </a>
         <div class="header-controls">
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                <Icon name="sun" class="sun-icon" />
-                <Icon name="moon" class="moon-icon" />
+                <Icon name="sun" class="sun-icon"/>
+                <Icon name="moon" class="moon-icon"/>
             </button>
             <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
                 <span class="hamburger"></span>
@@ -31,297 +31,313 @@ const navItems = [
     </div>
     <nav id="main-nav">
         <ul>
-            {navItems.map(({ path, label }) => (
-                <li>
-                    <a 
-                        href={path}
-                        class:list={[
-                            'nav-link',
-                            { active: currentPath === path || 
-                              (path !== '/' && currentPath.startsWith(path)) }
-                        ]}
-                        aria-current={currentPath === path ? 'page' : undefined}
-                    >
-                        {label}
-                    </a>
-                </li>
-            ))}
+          {navItems.map(item => (
+                  <li>
+                      <a
+                              href={item.path}
+                              class:list={[
+                                'nav-link',
+                                {active: currentPath === item.path}
+                              ]}
+                      >
+                        {item.label}
+                      </a>
+                  </li>
+          ))}
         </ul>
     </nav>
 </header>
 
 <style lang="scss">
-    @use 'sass:map';
-    @use '../styles/_partials/_design-system' as *;
+  @use 'sass:map';
+  @use '../styles/_partials/_variables' as *;
 
-    header {
-        display: flex;
-        flex-direction: column;
+  header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topBar {
+    background: var(--Surface-primary);
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: map.get($spacing, s);
+
+    img {
+      max-width: 347px;
+      height: auto;
+    }
+  }
+
+  .header-controls {
+    display: flex;
+    gap: map.get($spacing, s);
+  }
+
+  .theme-toggle, .menu-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: map.get($spacing, xs);
+    color: var(--Text-body);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: var(--Surface-subtle);
+    }
+  }
+
+  nav {
+    background: var(--Surface-main);
+    ul {
+      display: flex;
+      justify-content: center;
+      gap: map.get($spacing, "s");
+      padding: map.get($spacing, "xs");
+      margin: 0;
+      list-style: none;
     }
 
-    .topBar {
-        background-color: var(--bg-primary);
-        height: 150px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: map.get($spacing, 4);
+    .nav-link {
+      color: var(--Text-body);
+      text-decoration: none;
+      font-weight: map.get($font-weight, "Medium");
+      padding: map.get($spacing, "xs") map.get($spacing, "s");
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      position: relative;
 
-        img {
-            max-width: 347px;
-            height: auto;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: var(--Surface-primary);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      &:hover {
+        color: var(--Text-secondary);
+
+        &::after {
+          transform: scaleX(0.5);
         }
+      }
+
+      &.active {
+        color: var(--Text-secondary);
+
+        &::after {
+          transform: scaleX(1);
+        }
+      }
+    }
+  }
+
+  .theme-toggle {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: map.get($spacing, xs);
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--Text-body);
+    transition: all 0.3s ease;
+
+    &:hover {
+      background-color: var(--Surface-primary);
+      color: var(--Text-secondary);
     }
 
+    svg {
+      width: 48px;
+      height: 48px;
+      position: absolute;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .sun-icon {
+      opacity: 0;
+      transform: rotate(90deg) scale(0);
+    }
+
+    .moon-icon {
+      opacity: 1;
+      transform: rotate(0) scale(1);
+    }
+  }
+
+  :global([data-theme="dark"]) {
     .theme-toggle {
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: map.get($spacing, 2);
-        border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        color: var(--text-primary);
+      .sun-icon {
+        opacity: 1;
+        transform: rotate(0) scale(1);
+      }
+
+      .moon-icon {
+        opacity: 0;
+        transform: rotate(-90deg) scale(0);
+      }
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: map.get($spacing, xs);
+    width: 40px;
+    height: 40px;
+    position: relative;
+
+    .hamburger {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background-color: var(--Text-primary);
+      transition: all 0.3s ease;
+      position: relative;
+
+      &::before,
+      &::after {
+        content: '';
+        position: absolute;
+        width: 24px;
+        height: 2px;
+        background-color: var(--Text-primary);
         transition: all 0.3s ease;
+      }
 
-        &:hover {
-            background-color: var(--bg-secondary);
-            color: var(--text-secondary);
-        }
+      &::before {
+        transform: translateY(-8px);
+      }
 
-        svg {
-            width: 24px;
-            height: 24px;
-            position: absolute;
-            transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        .sun-icon {
-            opacity: 0;
-            transform: rotate(90deg) scale(0);
-        }
-
-        .moon-icon {
-            opacity: 1;
-            transform: rotate(0) scale(1);
-        }
+      &::after {
+        transform: translateY(8px);
+      }
     }
 
-    :global([data-theme="dark"]) {
-        .theme-toggle {
-            .sun-icon {
-                opacity: 1;
-                transform: rotate(0) scale(1);
-            }
+    &.active {
+      .hamburger {
+        background-color: transparent;
 
-            .moon-icon {
-                opacity: 0;
-                transform: rotate(-90deg) scale(0);
-            }
+        &::before {
+          transform: rotate(45deg);
         }
+
+        &::after {
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .topBar {
+      height: 100px;
+      padding: map.get($spacing, xs);
+
+      img {
+        max-width: 200px;
+      }
     }
 
-    nav {
-        border-bottom: 1px solid var(--border-primary);
-        
-        ul {
-            list-style: none;
-            display: flex;
-            gap: map.get($spacing, 8);
-            padding: map.get($spacing, 4);
-            margin: 0;
-            justify-content: center;
-        }
-
-        .nav-link {
-            color: var(--text-primary);
-            text-decoration: none;
-            font-weight: map.get($font-weights, medium);
-            padding: map.get($spacing, 2) map.get($spacing, 4);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            position: relative;
-
-            &::after {
-                content: '';
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 0;
-                height: 2px;
-                background-color: var(--bg-secondary);
-                transition: width 0.3s ease;
-            }
-
-            &:hover::after {
-                width: 100%;
-            }
-        }
-    }
-
-    .header-controls {
-        display: flex;
-        gap: map.get($spacing, 4);
-        align-items: center;
+    nav ul {
+      gap: map.get($spacing, s);
+      padding: map.get($spacing, xs);
     }
 
     .menu-toggle {
-        display: none;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: map.get($spacing, 2);
-        width: 40px;
-        height: 40px;
-        position: relative;
-
-        .hamburger {
-            display: block;
-            width: 24px;
-            height: 2px;
-            background-color: var(--text-primary);
-            transition: all 0.3s ease;
-            position: relative;
-
-            &::before,
-            &::after {
-                content: '';
-                position: absolute;
-                width: 24px;
-                height: 2px;
-                background-color: var(--text-primary);
-                transition: all 0.3s ease;
-            }
-
-            &::before {
-                transform: translateY(-8px);
-            }
-
-            &::after {
-                transform: translateY(8px);
-            }
-        }
-
-        &.active {
-            .hamburger {
-                background-color: transparent;
-
-                &::before {
-                    transform: rotate(45deg);
-                }
-
-                &::after {
-                    transform: rotate(-45deg);
-                }
-            }
-        }
+      display: block;
     }
 
-    @media (max-width: map.get($breakpoints, md)) {
-        .topBar {
-            height: 100px;
-            padding: map.get($spacing, 2);
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--Surface-primary);
+      padding-top: 100px;
+      transform: translateX(100%);
+      transition: transform 0.3s ease;
+      z-index: 90;
 
-            img {
-                max-width: 200px;
-            }
+      &.active {
+        transform: translateX(0);
+      }
+
+      ul {
+        flex-direction: column;
+        align-items: center;
+        gap: map.get($spacing, s);
+        padding: map.get($spacing, s);
+
+        .nav-link {
+          font-size: map.get($font-size, xl);
         }
-
-        nav ul {
-            gap: map.get($spacing, 4);
-            padding: map.get($spacing, 2);
-        }
-
-        .menu-toggle {
-            display: block;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100vh;
-            background-color: var(--bg-primary);
-            padding-top: 100px;
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-            z-index: 90;
-
-            &.active {
-                transform: translateX(0);
-            }
-
-            ul {
-                flex-direction: column;
-                align-items: center;
-                gap: map.get($spacing, 8);
-                padding: map.get($spacing, 8);
-
-                .nav-link {
-                    font-size: map.get($font-sizes, xl);
-                }
-            }
-        }
-
-        .topBar {
-            position: relative;
-            z-index: 100;
-        }
+      }
     }
 
-    .logo-link {
-        display: block;
-        
-        &:hover {
-            opacity: 0.9;
-        }
+    .topBar {
+      position: relative;
+      z-index: 100;
     }
+  }
 </style>
 
 <script>
-    import { setupTheme } from '../scripts/theme';
+  import {setupTheme} from '../scripts/theme';
 
-    // Initialize theme and menu on page load and after navigation
-    document.addEventListener('astro:page-load', () => {
-        // Setup theme
-        setupTheme();
+  // Initialize theme and menu on page load and after navigation
+  document.addEventListener('astro:page-load', () => {
+    // Setup theme
+    setupTheme();
 
-        // Setup mobile menu
-        const menuToggle = document.getElementById('menu-toggle');
-        const mainNav = document.getElementById('main-nav');
-        const navLinks = document.querySelectorAll('.nav-link');
+    // Setup mobile menu
+    const menuToggle = document.getElementById('menu-toggle');
+    const mainNav = document.getElementById('main-nav');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-        function toggleMenu() {
-            menuToggle?.classList.toggle('active');
-            mainNav?.classList.toggle('active');
-            document.body.classList.toggle('menu-open');
+    function toggleMenu() {
+      menuToggle?.classList.toggle('active');
+      mainNav?.classList.toggle('active');
+      document.body.classList.toggle('menu-open');
+    }
+
+    menuToggle?.addEventListener('click', toggleMenu);
+
+    // Close menu when clicking a link
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (mainNav?.classList.contains('active')) {
+          toggleMenu();
         }
-
-        menuToggle?.addEventListener('click', toggleMenu);
-
-        // Close menu when clicking a link
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                if (mainNav?.classList.contains('active')) {
-                    toggleMenu();
-                }
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            const target = e.target as Node;
-            if (mainNav?.classList.contains('active') && 
-                !mainNav.contains(target) && 
-                !menuToggle?.contains(target)) {
-                toggleMenu();
-            }
-        });
+      });
     });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const target = e.target as Node;
+      if (mainNav?.classList.contains('active') &&
+        !mainNav.contains(target) &&
+        !menuToggle?.contains(target)) {
+        toggleMenu();
+      }
+    });
+  });
 </script>

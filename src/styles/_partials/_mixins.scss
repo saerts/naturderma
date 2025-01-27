@@ -1,0 +1,12 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+@mixin skill-tag {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-size: map.get($font-sizes, "sm");
+  font-weight: map.get($font-weights, "medium");
+  color: white;
+  text-transform: uppercase;
+} 

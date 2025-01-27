@@ -1,0 +1,10 @@
+{
+  "tokenSetOrder": [
+    "Color-primitives",
+    "Core/Typography",
+    "Core/Size",
+    "Core/Radius",
+    "Colors/Light/Tokens",
+    "Colors/Dark/Tokens"
+  ]
+}

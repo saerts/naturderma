@@ -12,43 +12,17 @@ const { Content } = await aboutContent.render();
 
 <style lang="scss">
     @use 'sass:map';
-    @use '../styles/_partials/_design-system' as *;
+    @use '../styles/_partials/_variables' as *;
 
     .about-container {
         max-width: 800px;
         margin: 0 auto;
-        padding: map.get($spacing, 8);
-
-
-        :global(h2) {
-            font-size: map.get($font-sizes, xl);
-            color: var(--text-primary);
-            margin: map.get($spacing, 8) 0 map.get($spacing, 4);
-        }
-
-        :global(p) {
-            font-size: map.get($font-sizes, lg);
-            color: var(--text-secondary);
-            line-height: 1.6;
-            margin-bottom: map.get($spacing, 4);
-        }
+        padding: map.get($spacing, s);
     }
 
-    @media (max-width: map.get($breakpoints, md)) {
+    @media (max-width: 768px) {
         .about-container {
-            padding: map.get($spacing, 4);
-
-            :global(h1) {
-                font-size: map.get($font-sizes, 2xl);
-            }
-
-            :global(h2) {
-                font-size: map.get($font-sizes, lg);
-            }
-
-            :global(p) {
-                font-size: map.get($font-sizes, base);
-            }
+            padding: map.get($spacing, xs);
         }
     }
 </style> 
