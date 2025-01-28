@@ -41,6 +41,10 @@ h3 {
   @include mix.apply-typography(map.get(vars.$heading, "H3"));
   margin-bottom: map.get(vars.$spacing, "s");
 }
+
+p {
+  @include mix.apply-typography(map.get(vars.$body, "Regular"));
+}
 /* View Transitions */
 @starting-style {
   ::view-transition-group(*),

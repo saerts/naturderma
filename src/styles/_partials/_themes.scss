@@ -53,6 +53,12 @@ $light-theme: (
   "Text-disabled": #bbb,
   "Text-primary": #AADFD2,
   "Text-secondary": #32c4a9,
+  "Text-negative": #fff,
+  "Decorative-line01": #F0F0F0,
+  "Decorative-line02": #8F98A1,
+  "Decorative-line03": #028987,
+  "Decorative-block01": #EF979D,
+  "Decorative-block02": #D1AB86,
 );
 
 $dark-theme: (
@@ -69,6 +75,12 @@ $dark-theme: (
   "Text-disabled": #bbb,
   "Text-primary": #AADFD2,
   "Text-secondary": #32c4a9,
+  "Text-negative": #000,
+  "Decorative-line01": #F0F0F0,
+  "Decorative-line02": #8F98A1,
+  "Decorative-line03": #028987,
+  "Decorative-block01": #EF979D,
+  "Decorative-block02": #D1AB86,
 );
 
 @mixin generate-theme-vars($theme-name) {

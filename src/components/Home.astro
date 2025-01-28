@@ -3,77 +3,58 @@ const imagePath1 = "/images/1_Naturderma.jpg";
 const imagePath2 = "/images/2_Naturderma.jpg";
 const imagePath3 = "/images/3_Naturderma.jpg";
 const imagePath4 = "/images/4_Naturderma.jpg";
+import Divider from './Divider.astro';
 ---
 
-<main id="main" transition:animate="fade">
-    <section class="hero animate-in">
-        <h1>Naturderma</h1>
-        <h2>Spanish hypoallergenic jewelry brand</h2>
-    </section>
 
-    <section class="featured stagger-in">
-        <img src={imagePath1} alt="Geen allergieën meer" />
-        <img src={imagePath2} alt="Exclusief in apotheken" />
-        <img src={imagePath3} alt="Unieke modellen" />
-        <img src={imagePath4} alt="5, 10, 15 of 20 Euros" />
-    </section>
-</main>
+<section class="hero animate-in">
+    <h1>Naturderma</h1>
+    <Divider variant="line01"/>
+    <h2>Spanish hypoallergenic jewelry brand</h2>
+    <Divider variant="line02"/>
+</section>
 
+
+<section class="featured stagger-in">
+    <div class="divider-container">
+        <span>Geen allergieën meer!</span>
+        <Divider variant="line03"/>
+    </div>
+    <img src={imagePath1} alt="Geen allergieën meer"/>
+    <img src={imagePath2} alt="Exclusief in apotheken"/>
+    <img src={imagePath3} alt="Unieke modellen"/>
+    <img src={imagePath4} alt="5, 10, 15 of 20 Euros"/>
+</section>
 <style lang="scss">
-    @use 'sass:map';
-    @use '../styles/_partials/_variables' as *;
-    
-    #frame {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: map.get($spacing, s);
+  @use 'sass:map';
+  @use '../styles/_partials/_variables' as *;
+
+  .hero {
+    text-align: center;
+    padding: map.get($spacing, m) 0;
+  }
+
+  .featured {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: map.get($spacing, s);
+
+    img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
+  }
 
-    .hero {
-        text-align: center;
-        padding: map.get($spacing, m) 0;
-    }
+  .divider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: map.get($spacing, m);
+  }
 
 
-
-    p {
-        font-size: map.get($font-size, M);
-    }
-
-    .featured {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: map.get($spacing, s);
-        
-        img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-    }
-
-    /* Add view transition styles */
-    ::view-transition-old(root),
-    ::view-transition-new(root) {
-        animation: none;
-        mix-blend-mode: normal;
-    }
-
-    /* Customize the view transition animation */
-    ::view-transition-old(root) {
-        animation: fadeOut 0.5s ease-out forwards;
-    }
-
-    ::view-transition-new(root) {
-        animation: fadeIn 0.5s ease-out forwards;
-    }
-
-    @keyframes fadeOut {
-        from { opacity: 1; }
-        to { opacity: 0; }
-    }
 </style>
