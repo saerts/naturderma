@@ -1,28 +1,44 @@
 ---
-import MarkdownLayout from '../layouts/MarkdownLayout.astro';
-import { getEntry } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import {getEntry} from 'astro:content';
+import Divider from '../components/Divider.astro';
 
 const aboutContent = await getEntry('about', 'about');
-const { Content } = await aboutContent.render();
+const {Content} = await aboutContent.render();
 ---
 
-<MarkdownLayout frontmatter={aboutContent.data}>
-    <Content />
-</MarkdownLayout>
+<Layout
+        title={aboutContent.data.title}
+        description={aboutContent.data.description}
+>
+    <div class="main-container">
+        <h1 class="animate-in">{aboutContent.data.title}</h1>
+        <Divider variant="line01"/>
+        <div class="content animate-in">
+            <Content/>
+        </div>
+    </div>
+</Layout>
 
 <style lang="scss">
-    @use 'sass:map';
-    @use '../styles/_partials/_variables' as *;
+  @use 'sass:map';
+  @use '../styles/_partials/_variables' as vars;
 
-    .about-container {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: map.get($spacing, s);
+  .content {
+    :global(article) {
+      margin-bottom: map.get(vars.$spacing, "2xl");
     }
 
-    @media (max-width: 768px) {
-        .about-container {
-            padding: map.get($spacing, xs);
-        }
+
+    :global(h3) {
+
+      margin-bottom: map.get(vars.$spacing, "m");
     }
+
+    :global(ul) {
+      margin-bottom: map.get(vars.$spacing, "m");
+      padding-left: map.get(vars.$spacing, "l");
+    }
+  }
+
 </style> 

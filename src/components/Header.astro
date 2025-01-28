@@ -50,7 +50,8 @@ const navItems = [
 
 <style lang="scss">
   @use 'sass:map';
-  @use '../styles/_partials/_variables' as *;
+  @use '../styles/_partials/_variables' as vars;
+  @use '../styles/_partials/mixins' as mix;
 
   header {
     display: flex;
@@ -63,7 +64,7 @@ const navItems = [
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: map.get($spacing, s);
+    padding: map.get(vars.$spacing, s);
 
     img {
       max-width: 347px;
@@ -73,14 +74,14 @@ const navItems = [
 
   .header-controls {
     display: flex;
-    gap: map.get($spacing, s);
+    gap: map.get(vars.$spacing, s);
   }
 
   .theme-toggle, .menu-toggle {
     background: none;
     border: none;
     cursor: pointer;
-    padding: map.get($spacing, xs);
+    padding: map.get(vars.$spacing, xs);
     color: var(--Text-body);
     border-radius: 4px;
     transition: background-color 0.3s ease;
@@ -92,20 +93,21 @@ const navItems = [
 
   nav {
     background: var(--Surface-main);
+    padding: map.get(vars.$spacing, l);
     ul {
       display: flex;
       justify-content: center;
-      gap: map.get($spacing, "s");
-      padding: map.get($spacing, "xs");
+      gap: map.get(vars.$spacing, "s");
+      padding: map.get(vars.$spacing, "xs");
       margin: 0;
       list-style: none;
     }
 
     .nav-link {
+      @include mix.apply-typography(map.get(vars.$nav, "Regular"));
       color: var(--Text-body);
       text-decoration: none;
-      font-weight: map.get($font-weight, "Medium");
-      padding: map.get($spacing, "xs") map.get($spacing, "s");
+      padding: map.get(vars.$spacing, "xs") map.get(vars.$spacing, "s");
       border-radius: 4px;
       transition: all 0.3s ease;
       position: relative;
@@ -147,10 +149,10 @@ const navItems = [
     background: none;
     border: none;
     cursor: pointer;
-    padding: map.get($spacing, xs);
+    padding: map.get(vars.$spacing, xs);
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -163,8 +165,8 @@ const navItems = [
     }
 
     svg {
-      width: 48px;
-      height: 48px;
+      width: 30px;
+      height: 30px;
       position: absolute;
       transition: transform 0.3s ease, opacity 0.3s ease;
     }
@@ -199,7 +201,7 @@ const navItems = [
     background: none;
     border: none;
     cursor: pointer;
-    padding: map.get($spacing, xs);
+    padding: map.get(vars.$spacing, xs);
     width: 40px;
     height: 40px;
     position: relative;
@@ -249,7 +251,7 @@ const navItems = [
   @media (max-width: 768px) {
     .topBar {
       height: 100px;
-      padding: map.get($spacing, xs);
+      padding: map.get(vars.$spacing, xs);
 
       img {
         max-width: 200px;
@@ -257,8 +259,8 @@ const navItems = [
     }
 
     nav ul {
-      gap: map.get($spacing, s);
-      padding: map.get($spacing, xs);
+      gap: map.get(vars.$spacing, s);
+      padding: map.get(vars.$spacing, xs);
     }
 
     .menu-toggle {
@@ -284,11 +286,11 @@ const navItems = [
       ul {
         flex-direction: column;
         align-items: center;
-        gap: map.get($spacing, s);
-        padding: map.get($spacing, s);
+        gap: map.get(vars.$spacing, s);
+        padding: map.get(vars.$spacing, s);
 
         .nav-link {
-          font-size: map.get($font-size, xl);
+          font-size: map.get(vars.$font-size, xl);
         }
       }
     }

@@ -1,13 +1,19 @@
 @use 'sass:map';
+@use "_partials/reset";
+@use "_partials/fonts";
 @use '_partials/themes' as themes;
+@use '_partials/theme-mixins' as theme;
 @use '_partials/variables' as vars;
+@use '_partials/mixins' as mix;
+
+
 
 // Apply theme variables
 :root {
-  @include themes.generate-theme-vars('light');
+  @include theme.generate-theme-vars("light");
 
   &[data-theme='dark'] {
-    @include themes.generate-theme-vars('dark');
+    @include theme.generate-theme-vars("dark");
   }
 }
 
@@ -19,25 +25,35 @@ body {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  @include mix.apply-typography(map.get(vars.$body, "Light"));
   color: var(--Text-body);
-  line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 h1 {
-  font-size: map.get(vars.$font-size, "XXL");
+  @include mix.apply-typography(map.get(vars.$heading, "H1"));
   margin-bottom: map.get(vars.$spacing, "l");
 }
-
-
-/* View Transitions */
-@starting-style {
-  ::view-transition-group(*),
-  ::view-transition-old(*),
-  ::view-transition-new(*) {
-    animation: none !important;
-  }
+h2 {
+  @include mix.apply-typography(map.get(vars.$heading, "H2"));
+  margin-bottom: map.get(vars.$spacing, "m");
 }
+
+h3 {
+  @include mix.apply-typography(map.get(vars.$heading, "H3"));
+  margin-bottom: map.get(vars.$spacing, "s");
+}
+
+p {
+  @include mix.apply-typography(map.get(vars.$body, "Light"));
+}
+
+.main-container{
+  max-width: 1000px;
+  margin: 60px auto 80px;
+}
+/* View Transitions */
+
 
 @keyframes fade-in {
   from { opacity: 0; }
@@ -78,14 +94,6 @@ h1 {
 }
 
 
-/* Page transition styles */
-::view-transition-old(root) {
-    animation: fade-out 0.5s ease-out forwards;
-}
-
-::view-transition-new(root) {
-    animation: fade-in 0.5s ease-out forwards;
-}
 
 /* Menu open state */
 body.menu-open {

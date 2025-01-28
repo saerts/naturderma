@@ -3,77 +3,147 @@ const imagePath1 = "/images/1_Naturderma.jpg";
 const imagePath2 = "/images/2_Naturderma.jpg";
 const imagePath3 = "/images/3_Naturderma.jpg";
 const imagePath4 = "/images/4_Naturderma.jpg";
+import Divider from './Divider.astro';
+import Button from './Button.astro';
 ---
 
-<main id="main" transition:animate="fade">
-    <section class="hero animate-in">
-        <h1>Naturderma</h1>
-        <p>Spanish hypoallergenic jewelry brand</p>
-    </section>
+<section class="hero animate-in">
+    <h1>Naturderma</h1>
+    <Divider variant="line01"/>
+    <h2>Spaans hypoallergeen sieradenmerk</h2>
+    <Divider variant="line02"/>
+</section>
+<section class="featured stagger-in">
+    <div class="visual visual-01">
+        <div class="divider-container">
+            <span class="divider-text">Geen allergieën meer!</span>
+            <Divider variant="line03"/>
+        </div>
+        <img src={imagePath1} alt="Geen allergieën meer"/>
+    </div>
+    <div class="visual visual-02">
+        <div class="block">
+            <span class="divider-text">Exclusief bij</span><span class="divider-text">apotheken</span>
+        </div>
+        <img src={imagePath2} alt="Exclusief in apotheken"/>
+    </div>
+    <div class="visual visual-03">
+        <img src={imagePath3} alt="Unieke modellen"/>
+        <div class="block2 full">
+            <span class="divider-text">Exclusieve modellen</span>
+        </div>
+    </div>
+    <div class="visual visual-04">
+        <img src={imagePath4} alt="5, 10, 15 of 20 Euros"/>
+        <div class="block2 end">
+            <span class="divider-text">5, 10, 15 of 20 Euros</span>
+        </div>
+    </div>
+</section>
 
-    <section class="featured stagger-in">
-        <img src={imagePath1} alt="Geen allergieën meer" />
-        <img src={imagePath2} alt="Exclusief in apotheken" />
-        <img src={imagePath3} alt="Unieke modellen" />
-        <img src={imagePath4} alt="5, 10, 15 of 20 Euros" />
-    </section>
-</main>
-
+<section class="contact animate-in">
+    <h2>Heeft u vragen?</h2>
+    <p>Neem contact met ons op voor meer informatie.</p>
+    <Button type="button" href="mailto: info@stevenaerts.be" variant="tertiary">Contact opnemen</Button>
+</section>
 <style lang="scss">
-    @use 'sass:map';
-    @use '../styles/_partials/_variables' as *;
-    
-    #frame {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: map.get($spacing, s);
+  @use 'sass:map';
+  @use '../styles/_partials/_variables' as *;
+
+  .hero {
+    text-align: center;
+    padding: map.get($spacing, "m") 0;
+  }
+
+  .featured {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: map.get($spacing, "2xl");
+    margin-bottom: map.get($spacing, "2xl");
+
+    img {
+      width: 100%;
+      max-width: 600px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  .visual{
+    display: flex;
+    flex-direction: column;
+    gap: map.get($spacing, "m");
+
+    img{
+      max-width: 90%;
+      margin: 0;
     }
 
-    .hero {
-        text-align: center;
-        padding: map.get($spacing, m) 0;
-    }
+    .block{
+      display: flex;
+      justify-content: center;
+      span {
+        padding: 4px;
+        display: inline-block;
+        background: transparent;
 
-
-
-    p {
-        font-size: map.get($font-size, M);
-    }
-
-    .featured {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: map.get($spacing, s);
-        
-        img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
+        &:last-of-type{
+          background: var(--Decorative-block01);
         }
-    }
+      }
 
-    /* Add view transition styles */
-    ::view-transition-old(root),
-    ::view-transition-new(root) {
-        animation: none;
-        mix-blend-mode: normal;
     }
+    .block2{
+      display: flex;
+      justify-content: center;
+      span {
+        padding: 4px;
+        display: inline-block;
+      }
 
-    /* Customize the view transition animation */
-    ::view-transition-old(root) {
-        animation: fadeOut 0.5s ease-out forwards;
+      &.full{
+        width: 90%;
+        span{
+          background: var(--Decorative-block02);
+          text-align: center;
+          width: 90%;
+        }
+      }
+      &.end{
+        width: 90%;
+        span{
+          background: var(--Surface-main);
+          text-align: right;
+          width: 90%;
+        }
+      }
     }
+  }
 
-    ::view-transition-new(root) {
-        animation: fadeIn 0.5s ease-out forwards;
-    }
+  .divider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: map.get($spacing, "m");
+    padding-left: map.get($spacing, "m");
+  }
 
-    @keyframes fadeOut {
-        from { opacity: 1; }
-        to { opacity: 0; }
-    }
+  span.divider-text{
+    text-transform: uppercase;
+    font-size: map.get($font-size, "M");
+    font-weight: map.get($font-weight, "Semibold");
+  }
+
+  .contact {
+    text-align: center;
+    padding: map.get($spacing, "2xl") 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: map.get($spacing, "l");
+    margin-bottom: 40px;
+  }
+
 </style>

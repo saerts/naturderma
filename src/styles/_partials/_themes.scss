@@ -1,43 +1,6 @@
-// Generated Theme Variables
+@use "sass:map";
 
-$primitives: (
-  "Primary": (
-    "50": #F7FCFB,
-    "100": #E5F5F1,
-    "200": #D8F0EA,
-    "300": #C6EAE1,
-    "400": #BBE5DB,
-    "500": #AADFD2,
-    "600": #9BCBBF,
-    "700": #799E95,
-    "800": #5E7B74,
-    "900": #475E58,
-  ),
-  "Secondary": (
-    "50": #EBF9F6,
-    "100": #BFEDE4,
-    "200": #A1E4D7,
-    "300": #76d7c5,
-    "400": #5bd0ba,
-    "500": #32c4a9,
-    "600": #2eb29a,
-    "700": #248b78,
-    "800": #1c6c5d,
-    "900": #155247,
-  ),
-  "Red": (
-    "50": #F9EEEB,
-    "100": #F3DDD8,
-    "200": #E6B7AD,
-    "300": #DA9586,
-    "400": #CE735F,
-    "500": #BE523A,
-    "600": #98422F,
-    "700": #713123,
-    "800": #4A2017,
-    "900": #27110C,
-  ),
-);
+// Generated Theme Variables
 
 $light-theme: (
   "Surface-primary": #AADFD2,
@@ -53,10 +16,28 @@ $light-theme: (
   "Text-disabled": #bbb,
   "Text-primary": #AADFD2,
   "Text-secondary": #32c4a9,
+  "Text-negative": #fff,
+  "Text-white": #fff,
+  "Text-black": #000,
+  "Decorative-line01": #e6e6e6,
+  "Decorative-line02": #8F98A1,
+  "Decorative-line03": #028987,
+  "Decorative-block01": #EF979D,
+  "Decorative-block02": #D1AB86,
+  "Button-primary-surface": #AADFD2,
+  "Button-primary-text": #475E58,
+  "Button-primary-surface-hover": #9BCBBF,
+  "Button-primary-text-text": #32c4a9,
+  "Button-tertiary-surface": #000,
+  "Button-tertiary-text": #fff,
+  "Button-tertiary-surface-hover": #222,
+  "Button-secondary-surface": #32c4a9,
+  "Button-secondary-text": #000,
+  "Button-secondary-surface-hover": #2eb29a,
 );
 
 $dark-theme: (
-  "Surface-primary": #AADFD2,
+  "Surface-primary": #1b1b1b,
   "Surface-main": #131313,
   "Surface-secondary": #32c4a9,
   "Surface-disabled": #bbb,
@@ -69,11 +50,23 @@ $dark-theme: (
   "Text-disabled": #bbb,
   "Text-primary": #AADFD2,
   "Text-secondary": #32c4a9,
+  "Text-negative": #000,
+  "Text-white": #fff,
+  "Text-black": #000,
+  "Decorative-line01": #2f2f2f,
+  "Decorative-line02": #8F98A1,
+  "Decorative-line03": #028987,
+  "Decorative-block01": #EF979D,
+  "Decorative-block02": #D1AB86,
+  "Button-primary-surface": #AADFD2,
+  "Button-primary-text": #475E58,
+  "Button-primary-surface-hover": #9BCBBF,
+  "Button-primary-text-text": #32c4a9,
+  "Button-tertiary-surface": #fff,
+  "Button-tertiary-text": #000,
+  "Button-tertiary-surface-hover": #d8d8d8,
+  "Button-secondary-surface": #32c4a9,
+  "Button-secondary-text": #000,
+  "Button-secondary-surface-hover": #2eb29a,
 );
 
-@mixin generate-theme-vars($theme-name) {
-  $theme: if($theme-name == "light", $light-theme, $dark-theme);
-  @each $key, $value in $theme {
-    --#{$key}: #{$value};
-  }
-}

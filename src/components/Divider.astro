@@ -1,0 +1,45 @@
+---
+interface Props {
+  variant?: 'line01' | 'line02' | 'line03';
+  color?: string;
+}
+
+const {
+  variant = 'lin01',
+  color = 'var(--Surface-primary)'
+} = Astro.props;
+---
+
+<div class={`divider ${variant}`}>
+    <span></span>
+</div>
+
+<style lang="scss" define:vars={{color}}>
+  @use 'sass:map';
+  @use '../styles/_partials/_variables' as vars;
+
+  .divider {
+    margin: map.get(vars.$spacing, "xl") 0;
+
+    &.line01 {
+      width: 100%;
+      max-width: 1200px;
+      height: 1px;
+      background: var(--Decorative-line01);
+    }
+
+    &.line02 {
+      width: 100px;
+      margin: map.get(vars.$spacing, "xl") auto;
+      height: 3px;
+      background: var(--Decorative-line02);
+    }
+
+    &.line03 {
+      width: 310px;
+      height: 6px;
+      background: var(--Decorative-line03);
+      margin: 0;
+    }
+  }
+</style> 
