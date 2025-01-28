@@ -73,7 +73,7 @@
       "type": "fontSizes"
     },
     "XXM": {
-      "value": "30",
+      "value": "28",
       "type": "fontSizes"
     },
     "XM": {
@@ -173,7 +173,7 @@
       "value": {
         "fontFamily": "{system-ui}",
         "fontWeight": "{fontWeights.Regular}",
-        "fontSize": "{fontSize.XM}",
+        "fontSize": "{fontSize.XXM}",
         "lineHeight": "{lineHeights.115%}"
       },
       "type": "typography"
