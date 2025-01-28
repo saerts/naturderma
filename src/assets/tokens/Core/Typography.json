@@ -183,7 +183,7 @@
     "Regular": {
       "value": {
         "fontFamily": "{system-ui}",
-        "fontWeight": "{fontWeights.Regular}",
+        "fontWeight": "{fontWeights.Light}",
         "fontSize": "{fontSize.XM}",
         "lineHeight": "{lineHeights.115%}"
       },
