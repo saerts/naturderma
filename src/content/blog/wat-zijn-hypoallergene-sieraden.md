@@ -2,7 +2,6 @@
 title: "Wat zijn hypoallergene sieraden?"
 description: "Ontdek wat hypoallergene sieraden zijn en waarom ze belangrijk zijn voor mensen met een metaalallergie."
 pubDate: "2024-01-25"
-heroImage: "/images/blog/blog1/visual-intro.jpg"
 ---
 
 Hypoallergene sieraden zijn steeds meer in trek. Ongeveer 15% van de bevolking heeft een allergie voor een bepaald metaal en dit type sieraden kan het risico op allergische reacties verminderen. Maar wat zijn hypoallergene sieraden eigenlijk?
@@ -11,7 +10,7 @@ Het zijn sieraden die gebruik maken van zorgvuldig geselecteerde metaallegeringe
 
 Er bestaat een misvatting dat hypoallergene sieraden helemaal geen allergieën veroorzaken. Het risico kan niet volledig worden geëlimineerd, maar wel worden geminimaliseerd.
 
-![Hypoallergene sieraden Naturderma](/images/blog/blog1/visual-02.jpg)
+![Hypoallergene sieraden Naturderma](/images/blog/blog2/visual-01.jpg)
 
 Om het risico op allergieën te minimaliseren, gebruikt Naturderma drie verschillende legeringen:
 
@@ -23,7 +22,7 @@ Zilver is een van de aanbevolen materialen voor kinderoorringen, omdat allergie�
 
 Daarom zijn Naturderma Baby oorbellen gemaakt van sterling zilver.
 
-![Naturderma Baby oorbellen](/images/blog/blog1/visual-03.jpg)
+![Naturderma Baby oorbellen](/images/blog/blog2/visual-02.jpg)
 
 ## Titanium
 
@@ -35,6 +34,6 @@ Chirurgisch staal is een type roestvrij staal dat wordt gebruikt in medische toe
 
 Het wordt veel gebruikt in sieraden omdat het bij de meeste mensen geen allergische reacties veroorzaakt en vanwege zijn eigenschappen die het bestand maken tegen slijtage.
 
-![Chirurgisch stalen oorbellen](/images/blog/blog1/visual-04.jpg)
+![Chirurgisch stalen oorbellen](/images/blog/blog2/visual-03.jpg)
 
 De Naturderma oorbellen voldoen aan de geldende Europese regelgeving voor de controle van nikkel, lood en cadmium, en superieure kwaliteitscontroles garanderen het dagelijks gebruik. 

@@ -1,17 +1,19 @@
 @use 'sass:map';
+@use "_partials/reset";
+@use "_partials/fonts";
 @use '_partials/themes' as themes;
+@use '_partials/theme-mixins' as theme;
 @use '_partials/variables' as vars;
 @use '_partials/mixins' as mix;
 
-@import "_partials/reset";
-@import "_partials/fonts";
+
 
 // Apply theme variables
 :root {
-  @include themes.generate-theme-vars('light');
+  @include theme.generate-theme-vars("light");
 
   &[data-theme='dark'] {
-    @include themes.generate-theme-vars('dark');
+    @include theme.generate-theme-vars("dark");
   }
 }
 
@@ -23,7 +25,7 @@ body {
 }
 
 body {
-  @include mix.apply-typography(map.get(vars.$body, "Regular"));
+  @include mix.apply-typography(map.get(vars.$body, "Light"));
   color: var(--Text-body);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -43,16 +45,15 @@ h3 {
 }
 
 p {
-  @include mix.apply-typography(map.get(vars.$body, "Regular"));
+  @include mix.apply-typography(map.get(vars.$body, "Light"));
+}
+
+.main-container{
+  max-width: 1000px;
+  margin: 60px auto 80px;
 }
 /* View Transitions */
-@starting-style {
-  ::view-transition-group(*),
-  ::view-transition-old(*),
-  ::view-transition-new(*) {
-    animation: none !important;
-  }
-}
+
 
 @keyframes fade-in {
   from { opacity: 0; }
@@ -93,14 +94,6 @@ p {
 }
 
 
-/* Page transition styles */
-::view-transition-old(root) {
-    animation: fade-out 0.5s ease-out forwards;
-}
-
-::view-transition-new(root) {
-    animation: fade-in 0.5s ease-out forwards;
-}
 
 /* Menu open state */
 body.menu-open {

@@ -1,35 +1,38 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import {getCollection} from 'astro:content';
+import Divider from "../../components/Divider.astro";
 
 const posts = await getCollection('blog');
 posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 ---
 
 <Layout title="Blog - Naturderma">
-    <section class="blog-index animate-in">
+    <div class="main-container">
         <h1>Blog</h1>
-        <div class="posts stagger-in">
-          {posts.map(post => (
+        <Divider variant="line01"/>
+        <section class="blog-index animate-in">
+            <div class="posts stagger-in">
+                {posts.map(post => (
                   <article class="post-card">
                       <a href={`/blog/${post.slug}`}>
                           <div class="image-container">
-                            {post.data.heroImage && (
-                                    <img
-                                            src={post.data.heroImage}
-                                            alt={post.data.title}
-                                            loading="lazy"
-                                    />
-                            )}
+                              {post.data.heroImage && (
+                                <img
+                                  src={post.data.heroImage}
+                                  alt={post.data.title}
+                                  loading="lazy"
+                                />
+                              )}
                               <div class="overlay">
                                   <div class="content">
-                                      <h2>{post.data.title}</h2>
+                                      <h3>{post.data.title}</h3>
                                       <p>{post.data.description}</p>
                                       <span class="date">
                                         {new Date(post.data.pubDate).toLocaleDateString('nl-NL', {
-                                          year: 'numeric',
-                                          month: 'long',
-                                          day: 'numeric'
+                                            year: 'numeric',
+                                            month: 'long',
+                                            day: 'numeric'
                                         })}
                                     </span>
                                       <span class="read-more">Lees meer »</span>
@@ -38,9 +41,10 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
                           </div>
                       </a>
                   </article>
-          ))}
-        </div>
-    </section>
+                ))}
+            </div>
+        </section>
+    </div>
 </Layout>
 
 <style lang="scss">
@@ -120,16 +124,11 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
 
     .content {
       color: white;
-
-      h2 {
-        font-size: map.get($font-size, "XL");
-        margin-bottom: map.get($spacing, 2);
-        line-height: 1.2;
-      }
+      
 
       p {
-        font-size: map.get($font-size, M);
-        margin-bottom: map.get($spacing, xs);
+        font-size: map.get($font-size, S);
+        margin-bottom: map.get($spacing, s);
         opacity: 0.9;
       }
 

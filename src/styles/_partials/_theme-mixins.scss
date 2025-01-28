@@ -1,0 +1,8 @@
+@use 'themes' as themes;
+
+@mixin generate-theme-vars($theme-name) {
+  $theme: if($theme-name == "light", themes.$light-theme, themes.$dark-theme);
+  @each $key, $value in $theme {
+    --#{$key}: #{$value};
+  }
+} 

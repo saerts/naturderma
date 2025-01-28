@@ -31,7 +31,7 @@ $font-size: (
   "XXL": 118px,
   "XL": 90px,
   "L": 40px,
-  "XXM": 30px,
+  "XXM": 28px,
   "XM": 22px,
   "M": 20px,
   "S": 16px,
@@ -44,7 +44,7 @@ $body: (
   "Regular": (
     "fontFamily": "system-ui",
     "fontWeight": map.get($font-weight, "Regular"),
-    "lineHeight": map.get($line-height, "125%"),
+    "lineHeight": map.get($line-height, "150%"),
     "fontSize": map.get($font-size, "M"),
   ),
   "Medium": (
@@ -91,8 +91,8 @@ $heading: (
   ),
   "H3": (
     "fontFamily": "system-ui",
-    "fontWeight": map.get($font-weight, "Semibold"),
-    "fontSize": map.get($font-size, "XM"),
+    "fontWeight": map.get($font-weight, "Regular"),
+    "fontSize": map.get($font-size, "XXM"),
     "lineHeight": map.get($line-height, "115%"),
   ),
 );
@@ -100,7 +100,7 @@ $heading: (
 $nav: (
   "Regular": (
     "fontFamily": "system-ui",
-    "fontWeight": map.get($font-weight, "Regular"),
+    "fontWeight": map.get($font-weight, "Light"),
     "fontSize": map.get($font-size, "XM"),
     "lineHeight": map.get($line-height, "115%"),
   ),

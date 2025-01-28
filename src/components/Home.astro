@@ -4,8 +4,8 @@ const imagePath2 = "/images/2_Naturderma.jpg";
 const imagePath3 = "/images/3_Naturderma.jpg";
 const imagePath4 = "/images/4_Naturderma.jpg";
 import Divider from './Divider.astro';
+import Button from './Button.astro';
 ---
-
 
 <section class="hero animate-in">
     <h1>Naturderma</h1>
@@ -44,6 +44,7 @@ import Divider from './Divider.astro';
 <section class="contact animate-in">
     <h2>Heeft u vragen?</h2>
     <p>Neem contact met ons op voor meer informatie.</p>
+    <Button type="button" href="mailto: info@stevenaerts.be" variant="tertiary">Contact opnemen</Button>
 </section>
 <style lang="scss">
   @use 'sass:map';
@@ -135,5 +136,14 @@ import Divider from './Divider.astro';
     font-weight: map.get($font-weight, "Semibold");
   }
 
+  .contact {
+    text-align: center;
+    padding: map.get($spacing, "2xl") 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: map.get($spacing, "l");
+    margin-bottom: 40px;
+  }
 
 </style>

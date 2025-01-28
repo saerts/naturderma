@@ -1,54 +1,44 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { getEntry } from 'astro:content';
+import {getEntry} from 'astro:content';
 import Divider from '../components/Divider.astro';
 
 const aboutContent = await getEntry('about', 'about');
-const { Content } = await aboutContent.render();
+const {Content} = await aboutContent.render();
 ---
 
-<Layout 
-  title={aboutContent.data.title} 
-  description={aboutContent.data.description}
+<Layout
+        title={aboutContent.data.title}
+        description={aboutContent.data.description}
 >
-  <main class="about-container">
-    <h1 class="animate-in">{aboutContent.data.title}</h1>
-    <Divider variant="line01" />
-    <div class="content animate-in">
-      <Content />
+    <div class="main-container">
+        <h1 class="animate-in">{aboutContent.data.title}</h1>
+        <Divider variant="line01"/>
+        <div class="content animate-in">
+            <Content/>
+        </div>
     </div>
-  </main>
 </Layout>
 
 <style lang="scss">
-    @use 'sass:map';
-    @use '../styles/_partials/_variables' as vars;
+  @use 'sass:map';
+  @use '../styles/_partials/_variables' as vars;
 
-    .about-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: map.get(vars.$spacing, "m");
+  .content {
+    :global(article) {
+      margin-bottom: map.get(vars.$spacing, "2xl");
     }
 
-    .content {
-        :global(p) {
-            margin-bottom: map.get(vars.$spacing, "m");
-        }
-        
-        :global(h2) {
-            margin-top: map.get(vars.$spacing, "xl");
-            margin-bottom: map.get(vars.$spacing, "m");
-        }
-        
-        :global(ul) {
-            margin-bottom: map.get(vars.$spacing, "m");
-            padding-left: map.get(vars.$spacing, "l");
-        }
+
+    :global(h3) {
+
+      margin-bottom: map.get(vars.$spacing, "m");
     }
 
-    @media (max-width: 768px) {
-        .about-container {
-            padding: map.get(vars.$spacing, "s");
-        }
+    :global(ul) {
+      margin-bottom: map.get(vars.$spacing, "m");
+      padding-left: map.get(vars.$spacing, "l");
     }
+  }
+
 </style> 

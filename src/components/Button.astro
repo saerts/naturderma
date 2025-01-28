@@ -1,0 +1,97 @@
+---
+interface Props {
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'text';
+  href?: string;
+  type?: 'button' | 'submit';
+  class?: string;
+}
+
+const { 
+  variant = 'primary',
+  href,
+  type = 'button',
+  class: className,
+  ...rest
+} = Astro.props;
+
+const Tag = href ? 'a' : 'button';
+---
+
+<Tag 
+  class:list={[
+    'button',
+    variant,
+    className
+  ]}
+  {...(href ? { href } : { type })}
+  {...rest}
+>
+  <slot />
+</Tag>
+
+<style lang="scss">
+  @use 'sass:map';
+  @use '../styles/_partials/_variables' as vars;
+  @use '../styles/_partials/mixins' as mix;
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: map.get(vars.$spacing, "s") map.get(vars.$spacing, "m");
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    @include mix.apply-typography(map.get(vars.$button, "Regular"));
+
+    &.primary {
+      background: var(--Button-primary-surface);
+      color: var(--Button-primary-text);
+
+      &:hover {
+        background: var(--Button-primary-surface-hover);
+        transform: translateY(-2px);
+      }
+    }
+
+    &.secondary {
+      background: var(--Button-secondary-surface);
+      color: var(--Button-secondary-text);
+
+      &:hover {
+        background: var(--Button-secondary-surface-hover);
+        transform: translateY(-2px);
+      }
+    }
+
+    &.tertiary {
+      background: var(--Button-tertiary-surface);
+      color: var(--Button-tertiary-text);
+
+      &:hover {
+        background: var(--Button-tertiary-surface-hover);
+        transform: translateY(-2px);
+      }
+    }
+
+    &.text {
+      background: transparent;
+      color: var(--Button-primary-text-text);
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+  }
+</style> 
