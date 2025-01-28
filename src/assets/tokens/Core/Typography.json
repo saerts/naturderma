@@ -69,11 +69,11 @@
       "type": "fontSizes"
     },
     "L": {
-      "value": "75",
+      "value": "40",
       "type": "fontSizes"
     },
     "XXM": {
-      "value": "36",
+      "value": "30",
       "type": "fontSizes"
     },
     "XM": {
@@ -164,6 +164,15 @@
       "value": {
         "fontFamily": "{system-ui}",
         "fontWeight": "{fontWeights.Semibold}",
+        "fontSize": "{fontSize.L}",
+        "lineHeight": "{lineHeights.115%}"
+      },
+      "type": "typography"
+    },
+    "H3": {
+      "value": {
+        "fontFamily": "{system-ui}",
+        "fontWeight": "{fontWeights.Semibold}",
         "fontSize": "{fontSize.XM}",
         "lineHeight": "{lineHeights.115%}"
       },
@@ -174,7 +183,7 @@
     "Regular": {
       "value": {
         "fontFamily": "{system-ui}",
-        "fontWeight": "{fontWeights.Medium}",
+        "fontWeight": "{fontWeights.Regular}",
         "fontSize": "{fontSize.XM}",
         "lineHeight": "{lineHeights.115%}"
       },
