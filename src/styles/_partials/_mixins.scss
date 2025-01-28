@@ -9,4 +9,11 @@
   font-weight: map.get($font-weights, "medium");
   color: white;
   text-transform: uppercase;
+}
+
+@mixin apply-typography($style-map) {
+  font-family: map.get($style-map, "fontFamily");
+  font-size: map.get($style-map, "fontSize");
+  font-weight: map.get($style-map, "fontWeight");
+  line-height: map.get($style-map, "lineHeight");
 } 

@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
+import {getCollection} from 'astro:content';
 
 const posts = await getCollection('blog');
 posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
@@ -10,164 +10,146 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
     <section class="blog-index animate-in">
         <h1>Blog</h1>
         <div class="posts stagger-in">
-            {posts.map(post => (
-                <article class="post-card">
-                    <a href={`/blog/${post.slug}`}>
-                        <div class="image-container">
+          {posts.map(post => (
+                  <article class="post-card">
+                      <a href={`/blog/${post.slug}`}>
+                          <div class="image-container">
                             {post.data.heroImage && (
-                                <img 
-                                    src={post.data.heroImage} 
-                                    alt={post.data.title}
-                                    loading="lazy"
-                                />
+                                    <img
+                                            src={post.data.heroImage}
+                                            alt={post.data.title}
+                                            loading="lazy"
+                                    />
                             )}
-                            <div class="overlay">
-                                <div class="content">
-                                    <h2>{post.data.title}</h2>
-                                    <p>{post.data.description}</p>
-                                    <span class="date">
+                              <div class="overlay">
+                                  <div class="content">
+                                      <h2>{post.data.title}</h2>
+                                      <p>{post.data.description}</p>
+                                      <span class="date">
                                         {new Date(post.data.pubDate).toLocaleDateString('nl-NL', {
-                                            year: 'numeric',
-                                            month: 'long',
-                                            day: 'numeric'
+                                          year: 'numeric',
+                                          month: 'long',
+                                          day: 'numeric'
                                         })}
                                     </span>
-                                    <span class="read-more">Lees meer »</span>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </article>
-            ))}
+                                      <span class="read-more">Lees meer »</span>
+                                  </div>
+                              </div>
+                          </div>
+                      </a>
+                  </article>
+          ))}
         </div>
     </section>
 </Layout>
 
 <style lang="scss">
-    @use 'sass:map';
-    @use '../../styles/_partials/_variables' as *;
+  @use 'sass:map';
+  @use '../../styles/_partials/_variables' as *;
 
-    .blog-index {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: map.get($spacing, "s");
-    }
+  .blog-index {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: map.get($spacing, "s");
+  }
 
-    .posts {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: map.get($spacing, "s");
-    }
+  .posts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: map.get($spacing, "s");
+  }
 
-    .post-card {
-        border-radius: map.get($spacing, "xs");
-        overflow: hidden;
-        transition: transform 0.3s ease;
-        background-color: var(--bg-primary);
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  .post-card {
+    border-radius: map.get($spacing, "xs");
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    background-color: var(--bg-primary);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 
-        &:hover {
-            transform: translateY(-4px);
+    &:hover {
+      transform: translateY(-4px);
 
-            .overlay {
-                background: linear-gradient(
-                    to bottom,
-                    rgba(0, 0, 0, 0.1) 0%,
-                    rgba(0, 0, 0, 0.8) 100%
-                );
-            }
-
-            .read-more {
-                color: var(--accent-color);
-            }
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            height: 100%;
-        }
-
-        .image-container {
-            position: relative;
-            width: 100%;
-            height: 400px;
-        }
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(
+      .overlay {
+        background: linear-gradient(
                 to bottom,
-                rgba(0, 0, 0, 0.2) 0%,
-                rgba(0, 0, 0, 0.7) 100%
-            );
-            transition: background 0.3s ease;
-            padding: map.get($spacing, s);
-            display: flex;
-            align-items: flex-end;
-        }
+                rgba(0, 0, 0, 0.1) 0%,
+                rgba(0, 0, 0, 0.8) 100%
+        );
+      }
 
-        .content {
-            color: white;
-
-            h2 {
-                font-size: map.get($font-size, "XL");
-                margin-bottom: map.get($spacing, 2);
-                line-height: 1.2;
-            }
-
-            p {
-                font-size: map.get($font-size, M);
-                margin-bottom: map.get($spacing, xs);
-                opacity: 0.9;
-            }
-
-            .date {
-                display: block;
-                font-size: map.get($font-size, s);
-                opacity: 0.7;
-                margin-bottom: map.get($spacing, 2);
-            }
-
-            .read-more {
-                display: inline-block;
-                font-size: map.get($font-size, m);
-                color: white;
-                transition: color 0.3s ease;
-            }
-        }
+      .read-more {
+        color: var(--accent-color);
+      }
     }
 
-    @media (max-width: 768px) {
-        .blog-index {
-            padding: map.get($spacing, xs);
-        }
-
-        .posts {
-            grid-template-columns: 1fr;
-        }
-
-        .post-card {
-            .image-container {
-                height: 300px;
-            }
-
-            .content {
-                h2 {
-                    font-size: map.get($font-size, xl);
-                }
-            }
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      height: 100%;
     }
+
+    .image-container {
+      position: relative;
+      width: 100%;
+      height: 400px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+              to bottom,
+              rgba(0, 0, 0, 0.2) 0%,
+              rgba(0, 0, 0, 0.7) 100%
+      );
+      transition: background 0.3s ease;
+      padding: map.get($spacing, s);
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .content {
+      color: white;
+
+      h2 {
+        font-size: map.get($font-size, "XL");
+        margin-bottom: map.get($spacing, 2);
+        line-height: 1.2;
+      }
+
+      p {
+        font-size: map.get($font-size, M);
+        margin-bottom: map.get($spacing, xs);
+        opacity: 0.9;
+      }
+
+      .date {
+        display: block;
+        font-size: map.get($font-size, s);
+        opacity: 0.7;
+        margin-bottom: map.get($spacing, 2);
+      }
+
+      .read-more {
+        display: inline-block;
+        font-size: map.get($font-size, m);
+        color: white;
+        transition: color 0.3s ease;
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+
+  }
 </style> 

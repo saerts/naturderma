@@ -44,8 +44,7 @@ const { Content } = await post.render();
     @use '../../styles/_partials/_variables' as *;
 
     .blog-post {
-        max-width: 800px;
-        margin: 0 auto;
+
         padding: map.get($spacing, "l");
     }
 
@@ -75,12 +74,6 @@ const { Content } = await post.render();
     .hero {
         margin-bottom: map.get($spacing, 8);
         text-align: center;
-
-        h1 {
-            font-size: map.get($font-size, "XL");
-            color: var(--text-primary);
-            margin-bottom: map.get($spacing, 8);
-        }
     }
 
     .hero-image {
@@ -91,21 +84,9 @@ const { Content } = await post.render();
     }
 
     .content {
-        font-size: map.get($font-size, m);
-        line-height: 1.8;
-        color: var(--text-primary);
 
-        :global(h2) {
-            font-size: map.get($font-size, m);
-            color: var(--text-primary);
-            margin: map.get($spacing, 8) 0 map.get($spacing, 4);
-        }
 
-        :global(p) {
-            margin-bottom: map.get($spacing, 4);
-        }
-
-        :global(img) {
+        img {
             width: 100%;
             height: auto;
             border-radius: map.get($spacing, 4);

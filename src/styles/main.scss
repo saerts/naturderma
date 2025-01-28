@@ -1,6 +1,10 @@
 @use 'sass:map';
 @use '_partials/themes' as themes;
 @use '_partials/variables' as vars;
+@use '_partials/mixins' as mix;
+
+@import "_partials/reset";
+@import "_partials/fonts";
 
 // Apply theme variables
 :root {
@@ -19,17 +23,24 @@ body {
 }
 
 body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  @include mix.apply-typography(map.get(vars.$body, "Regular"));
   color: var(--Text-body);
-  line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 h1 {
-  font-size: map.get(vars.$font-size, "XXL");
+  @include mix.apply-typography(map.get(vars.$heading, "H1"));
   margin-bottom: map.get(vars.$spacing, "l");
 }
+h2 {
+  @include mix.apply-typography(map.get(vars.$heading, "H2"));
+  margin-bottom: map.get(vars.$spacing, "m");
+}
 
-
+h3 {
+  @include mix.apply-typography(map.get(vars.$heading, "H3"));
+  margin-bottom: map.get(vars.$spacing, "s");
+}
 /* View Transitions */
 @starting-style {
   ::view-transition-group(*),

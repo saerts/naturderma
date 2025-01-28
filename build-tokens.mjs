@@ -174,7 +174,7 @@ function generateTypographyVariables(typography) {
         }
 
         // Typography Styles
-        const typographyGroups = ['Body', 'Button', 'Heading'];
+        const typographyGroups = ['Body', 'Button', 'Heading', 'Nav'];
         content += '// Typography Styles\n';
         
         typographyGroups.forEach(group => {

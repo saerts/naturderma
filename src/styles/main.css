@@ -1,21 +1,21 @@
 /*
 Error: Invalid CSS after "  @include themes": expected "}", was ".generate-theme..."
-        on line 7 of main.scss
+        on line 11 of main.scss
 
-2: @use '_partials/themes' as themes;
-3: @use '_partials/variables' as vars;
-4: 
-5: // Apply theme variables
-6: :root {
-7:   @include themes.generate-theme-vars('light');
+6: @import "_partials/reset";
+7: @import "_partials/fonts";
 8: 
-9:   &[data-theme='dark'] {
-10:     @include themes.generate-theme-vars('dark');
-11:   }
-12: }
+9: // Apply theme variables
+10: :root {
+11:   @include themes.generate-theme-vars('light');
+12: 
+13:   &[data-theme='dark'] {
+14:     @include themes.generate-theme-vars('dark');
+15:   }
+16: }
 
 Backtrace:
-main.scss:7
+main.scss:11
 /Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1278:in `expected'
 /Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1208:in `expected'
 /Users/saerts/.rvm/gems/ruby-2.5.1/gems/sass-3.6.0/lib/sass/scss/parser.rb:1203:in `tok!'
@@ -41,4 +41,4 @@ main.scss:7
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"  @include themes\": expected \"}\", was \".generate-theme...\"\A         on line 7 of main.scss\A \A 2: @use '_partials/themes' as themes;\A 3: @use '_partials/variables' as vars;\A 4: \A 5: // Apply theme variables\A 6: :root {\A 7:   @include themes.generate-theme-vars('light');\A 8: \A 9:   &[data-theme='dark'] {\A 10:     @include themes.generate-theme-vars('dark');\A 11:   }\A 12: }"; }
+  content: "Error: Invalid CSS after \"  @include themes\": expected \"}\", was \".generate-theme...\"\A         on line 11 of main.scss\A \A 6: @import \"_partials/reset\";\A 7: @import \"_partials/fonts\";\A 8: \A 9: // Apply theme variables\A 10: :root {\A 11:   @include themes.generate-theme-vars('light');\A 12: \A 13:   &[data-theme='dark'] {\A 14:     @include themes.generate-theme-vars('dark');\A 15:   }\A 16: }"; }
