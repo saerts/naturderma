@@ -102,7 +102,7 @@
       "value": {
         "fontFamily": "{system-ui}",
         "fontWeight": "{fontWeights.Regular}",
-        "lineHeight": "{lineHeights.125%}",
+        "lineHeight": "{lineHeights.150%}",
         "fontSize": "{fontSize.M}"
       },
       "type": "typography"
@@ -172,7 +172,7 @@
     "H3": {
       "value": {
         "fontFamily": "{system-ui}",
-        "fontWeight": "{fontWeights.Semibold}",
+        "fontWeight": "{fontWeights.Regular}",
         "fontSize": "{fontSize.XM}",
         "lineHeight": "{lineHeights.115%}"
       },
