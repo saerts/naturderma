@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import {getCollection} from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import {Icon} from 'astro-icon/components';
@@ -27,7 +28,7 @@ const {Content} = await post.render();
             <div class="hero">
                 <h1>{post.data.title}</h1>
               {post.data.heroImage && (
-                      <img
+                      <Image
                               src={post.data.heroImage}
                               alt={post.data.title}
                               class="hero-image"

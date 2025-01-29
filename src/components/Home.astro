@@ -1,10 +1,12 @@
 ---
-const imagePath1 = "/images/1_Naturderma.jpg";
-const imagePath2 = "/images/2_Naturderma.jpg";
-const imagePath3 = "/images/3_Naturderma.jpg";
-const imagePath4 = "/images/4_Naturderma.jpg";
+import { Image } from 'astro:assets';
+import image1 from '../assets/images/home/1_Naturderma.jpg';
+import image2 from '../assets/images/home/2_Naturderma.jpg';
+import image3 from '../assets/images/home/3_Naturderma.jpg';
+import image4 from '../assets/images/home/4_Naturderma.jpg';
 import Divider from './Divider.astro';
 import Button from './Button.astro';
+
 ---
 
 <section class="hero animate-in">
@@ -19,22 +21,22 @@ import Button from './Button.astro';
             <span class="divider-text">Geen allergieën meer!</span>
             <Divider variant="line03"/>
         </div>
-        <img src={imagePath1} alt="Geen allergieën meer"/>
+        <Image src={image1} alt="Geen allergieën meer"/>
     </div>
     <div class="visual visual-02">
         <div class="block">
             <span class="divider-text">Exclusief bij</span><span class="divider-text">apotheken</span>
         </div>
-        <img src={imagePath2} alt="Exclusief in apotheken"/>
+        <Image src={image2} alt="Exclusief in apotheken"/>
     </div>
     <div class="visual visual-03">
-        <img src={imagePath3} alt="Unieke modellen"/>
+        <Image src={image3} alt="Unieke modellen"/>
         <div class="block2 full">
             <span class="divider-text">Exclusieve modellen</span>
         </div>
     </div>
     <div class="visual visual-04">
-        <img src={imagePath4} alt="5, 10, 15 of 20 Euros"/>
+        <Image src={image4} alt="5, 10, 15 of 20 Euros"/>
         <div class="block2 end">
             <span class="divider-text">5, 10, 15 of 20 Euros</span>
         </div>

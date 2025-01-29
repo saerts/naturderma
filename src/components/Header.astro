@@ -1,5 +1,6 @@
 ---
-import naturdermaLogo from '../assets/naturderma-logo.png';
+import { Image } from 'astro:assets';
+import naturdermaLogo from '../assets/images/logo/naturderma-logo.png';
 import {Icon} from 'astro-icon/components';
 
 // Get the current path to determine active state
@@ -17,7 +18,7 @@ const navItems = [
 <header id="header">
     <div class="topBar">
         <a href="/" class="logo-link">
-            <img id="background" src={naturdermaLogo.src} alt="Naturderma logo" fetchpriority="high"/>
+            <Image id="background" src={naturdermaLogo} alt="Naturderma logo" fetchpriority="high"/>
         </a>
         <div class="header-controls">
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
@@ -74,6 +75,7 @@ const navItems = [
 
   .header-controls {
     display: flex;
+    align-items: center;
     gap: map.get(vars.$spacing, s);
   }
 
@@ -201,7 +203,7 @@ const navItems = [
     background: none;
     border: none;
     cursor: pointer;
-    padding: map.get(vars.$spacing, xs);
+    padding: map.get(vars.$spacing, "xs");
     width: 40px;
     height: 40px;
     position: relative;
@@ -210,7 +212,7 @@ const navItems = [
       display: block;
       width: 24px;
       height: 2px;
-      background-color: var(--Text-primary);
+      background-color: var(--Text-body);
       transition: all 0.3s ease;
       position: relative;
 
@@ -220,7 +222,7 @@ const navItems = [
         position: absolute;
         width: 24px;
         height: 2px;
-        background-color: var(--Text-primary);
+        background-color: var(--Text-body);
         transition: all 0.3s ease;
       }
 
@@ -251,10 +253,14 @@ const navItems = [
   @media (max-width: 768px) {
     .topBar {
       height: 100px;
-      padding: map.get(vars.$spacing, xs);
-
+      padding: 0 map.get(vars.$spacing, m) 0 0;
+      display: flex;
+      justify-content: space-between;
       img {
         max-width: 200px;
+      }
+      .theme-toggle{
+        position: relative;
       }
     }
 
