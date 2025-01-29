@@ -20,9 +20,11 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
                           <div class="image-container">
                               {post.data.heroImage && (
                                 <Image
-                                  src={post.data.heroImage}
+                                  src={post.data.heroImage.src}
                                   alt={post.data.title}
                                   loading="lazy"
+                                  width={post.data.heroImage.width}
+                                  height={post.data.heroImage.height}
                                 />
                               )}
                               <div class="overlay">

@@ -29,9 +29,11 @@ const {Content} = await post.render();
                 <h1>{post.data.title}</h1>
               {post.data.heroImage && (
                       <Image
-                              src={post.data.heroImage}
+                              src={post.data.heroImage.src}
                               alt={post.data.title}
                               class="hero-image"
+                              width={post.data.heroImage.width}
+                              height={post.data.heroImage.height}
                       />
               )}
             </div>
