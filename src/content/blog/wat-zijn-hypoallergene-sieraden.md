@@ -14,7 +14,7 @@ Het zijn sieraden die gebruik maken van zorgvuldig geselecteerde metaallegeringe
 
 Er bestaat een misvatting dat hypoallergene sieraden helemaal geen allergieën veroorzaken. Het risico kan niet volledig worden geëlimineerd, maar wel worden geminimaliseerd.
 
-![Hypoallergene sieraden Naturderma](../assets/images/blog/blog2/visual-02.jpg)
+![Hypoallergene sieraden Naturderma](/src/assets/images/blog/blog2/visual-02.jpg)
 
 Om het risico op allergieën te minimaliseren, gebruikt Naturderma drie verschillende legeringen:
 
@@ -26,7 +26,7 @@ Zilver is een van de aanbevolen materialen voor kinderoorringen, omdat allergie�
 
 Daarom zijn Naturderma Baby oorbellen gemaakt van sterling zilver.
 
-![Naturderma Baby oorbellen](../assets/images/blog/blog2/visual-03.jpg)
+![Naturderma Baby oorbellen](/src/assets/images/blog/blog2/visual-03.jpg)
 
 ## Titanium
 

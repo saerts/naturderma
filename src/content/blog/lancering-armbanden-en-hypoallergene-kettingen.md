@@ -15,10 +15,10 @@ Vervaardigd uit:
 - Acero 316
 - Materialen die veel worden gebruikt in medische instrumenten
 
-![Hypoallergene sieraden schetsen](../assets/images/blog/blog1/visual-01.jpg)
+![Hypoallergene sieraden schetsen](/src/assets/images/blog/blog1/visual-01.jpg)
 
-![Hypoallergene armbanden designs](../assets/images/blog/blog1/visual-02.jpg)
+![Hypoallergene armbanden designs](/src/assets/images/blog/blog1/visual-02.jpg)
 
-![Hypoallergene armbanden collectie](../assets/images/blog/blog1/visual-03.jpg)
+![Hypoallergene armbanden collectie](/src/assets/images/blog/blog1/visual-03.jpg)
 
-![Hypoallergene armbanden voorbeelden](../assets/images/blog/blog1/visual-04.jpg) 
+![Hypoallergene armbanden voorbeelden](/src/assets/images/blog/blog1/visual-04.jpg) 
