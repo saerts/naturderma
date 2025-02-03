@@ -27,26 +27,39 @@ import instagram from '../assets/images/home/socials/instagram.svg';
 </div>
 
 <style lang="scss">
-    @use 'sass:map';
-    @use '../styles/_partials/_variables' as *;
-    .socials {
-        margin-top: map.get($spacing, "xl");;
-        ul {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: map.get($spacing, "m");
-            
-            li {
-                a {
-                    width: 36px;
-                    height: 36px;
-                    border-radius: 50%;
-                    
-                    
-                }
-            }
+  @use 'sass:map';
+  @use '../styles/_partials/_variables' as *;
+
+  .socials {
+    margin-top: map.get($spacing, "xl");;
+
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: map.get($spacing, "m");
+
+      li {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: white;
+        
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
+
+      &:hover{
+        background: var(--Surface-secondary);
+      }
         }
+      }
     }
+  }
 
 </style>
