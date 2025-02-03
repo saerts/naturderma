@@ -22,6 +22,21 @@ const {Content} = await cookiesContent.render();
   @use '../styles/_partials/_variables' as vars;
 
   .content {
-  
+      :global(article) {
+          margin-bottom: map.get(vars.$spacing, "l");
+      }
+      
+      :global(h3) {
+          margin-bottom: map.get(vars.$spacing, "s");
+      }
+      
+      :global(p) {
+          margin-bottom: map.get(vars.$spacing, "m");
+      }
+      :global(ul) {
+          list-style: disc;
+          padding-left: map.get(vars.$spacing, "2xl");
+          margin-bottom: map.get(vars.$spacing, "m");;
+      }
   }
 </style> 

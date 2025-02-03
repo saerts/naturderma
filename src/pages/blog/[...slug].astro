@@ -47,6 +47,7 @@ const {Content} = await post.render();
 <style lang="scss">
   @use 'sass:map';
   @use '../../styles/_partials/_variables' as *;
+  @use '../../styles/_partials/_breakpoints' as breakpoints;
 
   .blog-post {
     padding: map.get($spacing, "l");
@@ -127,8 +128,8 @@ const {Content} = await post.render();
       }
     }
   }
-
-  @media (max-width: 768px) {
+  
+  @include breakpoints.breakpoint-down('md') {
     .blog-post {
       padding: map.get($spacing, "xs");
     }
@@ -137,8 +138,6 @@ const {Content} = await post.render();
       margin-bottom: map.get($spacing, "xs");
     }
 
-    .hero h1 {
-      font-size: map.get($font-size, XL);
-    }
+    
   }
 </style> 

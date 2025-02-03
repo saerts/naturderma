@@ -29,9 +29,10 @@ import instagram from '../assets/images/home/socials/instagram.svg';
 <style lang="scss">
   @use 'sass:map';
   @use '../styles/_partials/_variables' as *;
+  @use '../styles/_partials/_breakpoints' as *;
 
   .socials {
-    margin-top: map.get($spacing, "xl");;
+    margin-top: map.get($spacing, "xl");
 
     ul {
       display: flex;
@@ -39,9 +40,19 @@ import instagram from '../assets/images/home/socials/instagram.svg';
       align-items: center;
       gap: map.get($spacing, "m");
 
+      @include breakpoint-down('sm') {
+        gap: map.get($spacing, "s");
+      }
+
       li {
         width: 36px;
         height: 36px;
+
+        @include breakpoint('md') {
+          width: 42px;
+          height: 42px;
+        }
+
         border-radius: 50%;
         background: white;
         
@@ -50,8 +61,8 @@ import instagram from '../assets/images/home/socials/instagram.svg';
           display: flex;
           align-items: center;
           justify-content: center;
-          width: 36px;
-          height: 36px;
+          width: inherit;
+          height: inherit;
           border-radius: 50%;
 
       &:hover{

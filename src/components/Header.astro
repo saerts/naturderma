@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import {Image} from 'astro:assets';
 import naturdermaLogo from '../assets/images/logo/naturderma-logo.png';
 import {Icon} from 'astro-icon/components';
 
@@ -53,6 +53,7 @@ const navItems = [
   @use 'sass:map';
   @use '../styles/_partials/_variables' as vars;
   @use '../styles/_partials/mixins' as mix;
+  @use '../styles/_partials/_breakpoints' as *;
 
   header {
     display: flex;
@@ -67,9 +68,21 @@ const navItems = [
     justify-content: center;
     padding: map.get(vars.$spacing, s);
 
+    @include breakpoint('md') {
+      height: 180px;
+    }
+
+    @include breakpoint('lg') {
+      height: 200px;
+    }
+
     img {
       max-width: 347px;
       height: auto;
+
+      @include breakpoint-down('sm') {
+        max-width: 250px;
+      }
     }
   }
 
@@ -96,6 +109,7 @@ const navItems = [
   nav {
     background: var(--Surface-main);
     padding: map.get(vars.$spacing, l);
+
     ul {
       display: flex;
       justify-content: center;
@@ -103,6 +117,11 @@ const navItems = [
       padding: map.get(vars.$spacing, "xs");
       margin: 0;
       list-style: none;
+
+      @include breakpoint-down('md') {
+        flex-direction: column;
+        align-items: center;
+      }
     }
 
     .nav-link {
@@ -256,10 +275,12 @@ const navItems = [
       padding: 0 map.get(vars.$spacing, m) 0 0;
       display: flex;
       justify-content: space-between;
+
       img {
         max-width: 200px;
       }
-      .theme-toggle{
+
+      .theme-toggle {
         position: relative;
       }
     }
@@ -310,25 +331,25 @@ const navItems = [
 
 <script>
   import {setupTheme} from '../scripts/theme';
-
+  
   // Initialize theme and menu on page load and after navigation
   document.addEventListener('astro:page-load', () => {
     // Setup theme
     setupTheme();
-
+    
     // Setup mobile menu
     const menuToggle = document.getElementById('menu-toggle');
     const mainNav = document.getElementById('main-nav');
     const navLinks = document.querySelectorAll('.nav-link');
-
+    
     function toggleMenu() {
       menuToggle?.classList.toggle('active');
       mainNav?.classList.toggle('active');
       document.body.classList.toggle('menu-open');
     }
-
+    
     menuToggle?.addEventListener('click', toggleMenu);
-
+    
     // Close menu when clicking a link
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -337,7 +358,7 @@ const navItems = [
         }
       });
     });
-
+    
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
       const target = e.target as Node;
