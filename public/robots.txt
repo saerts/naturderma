@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://naturderma.be/sitemap-index.xml 

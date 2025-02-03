@@ -18,5 +18,7 @@ export default defineConfig({
     integrations: [icon()],
     legacy: {
         collections: true
-    }
+    },
+    site: 'https://naturderma.be',
+    sitemap: true,
 });
