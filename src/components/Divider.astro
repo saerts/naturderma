@@ -17,6 +17,7 @@ const {
 <style lang="scss" define:vars={{color}}>
   @use 'sass:map';
   @use '../styles/_partials/_variables' as vars;
+  @use '../styles/_partials/_breakpoints' as breakpoints;
 
   .divider {
     margin: map.get(vars.$spacing, "xl") 0;
@@ -25,7 +26,7 @@ const {
       width: 100%;
       max-width: 1000px;
       height: 1px;
-        margin: map.get(vars.$spacing, "xl") auto;
+      margin: map.get(vars.$spacing, "xl") auto;
       background: var(--Decorative-line01);
     }
 
@@ -41,6 +42,9 @@ const {
       height: 6px;
       background: var(--Decorative-line03);
       margin: 0;
+        @include breakpoints.breakpoint-down('md') {
+            width: 25%;
+        }
     }
   }
 </style> 

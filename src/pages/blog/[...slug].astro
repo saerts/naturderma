@@ -98,10 +98,10 @@ const {Content} = await post.render();
     }
 
     :global(img) {
-      width: 100%;
+      max-width: 100%;
       height: auto;
       border-radius: map.get($radius, "xs");
-      padding: map.get($spacing, "xl") 0;
+      margin: map.get($spacing, "xl") 0;
     }
 
     :global(ul) {
