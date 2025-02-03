@@ -1,0 +1,45 @@
+// Breakpoint map
+$breakpoints: (
+  'xs': 320px,
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+  '2xl': 1400px
+);
+
+// Mixin for min-width breakpoints
+@mixin breakpoint($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media screen and (min-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$size}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// Mixin for max-width breakpoints
+@mixin breakpoint-down($size) {
+  @if map-has-key($breakpoints, $size) {
+    @media screen and (max-width: map-get($breakpoints, $size)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$size}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// Mixin for custom breakpoint range
+@mixin breakpoint-between($min, $max) {
+  @if map-has-key($breakpoints, $min) and map-has-key($breakpoints, $max) {
+    @media screen and (min-width: map-get($breakpoints, $min)) and (max-width: map-get($breakpoints, $max)) {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$min}` or `#{$max}`. "
+        + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}

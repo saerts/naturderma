@@ -1,6 +1,7 @@
 @use 'sass:map';
 @use "_partials/reset";
 @use "_partials/fonts";
+@use "_partials/breakpoints" as breakpoints;
 @use '_partials/themes' as themes;
 @use '_partials/theme-mixins' as theme;
 @use '_partials/variables' as vars;
@@ -33,10 +34,23 @@ body {
 h1 {
   @include mix.apply-typography(map.get(vars.$heading, "H1"));
   margin-bottom: map.get(vars.$spacing, "l");
+
+  @include breakpoints.breakpoint-down('md') {
+    font-size: 75px;
+  }
+
+  @include breakpoints.breakpoint-down('sm') {
+    font-size: 46px;
+  }
 }
 h2 {
   @include mix.apply-typography(map.get(vars.$heading, "H2"));
   margin-bottom: map.get(vars.$spacing, "m");
+
+  @include breakpoints.breakpoint-down('sm') {
+    font-size: 32px;
+  }
+
 }
 
 h3 {
@@ -49,8 +63,13 @@ p {
 }
 
 .main-container{
-  max-width: 1000px;
+  max-width: 992px;
   margin: 60px auto 80px;
+
+  @include breakpoints.breakpoint-down('lg') {
+    max-width: 90%;
+    margin: 36px auto 48px;
+  }
 }
 /* View Transitions */
 

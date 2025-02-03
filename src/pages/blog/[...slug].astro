@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import {getCollection} from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import {Icon} from 'astro-icon/components';
@@ -27,10 +28,12 @@ const {Content} = await post.render();
             <div class="hero">
                 <h1>{post.data.title}</h1>
               {post.data.heroImage && (
-                      <img
-                              src={post.data.heroImage}
+                      <Image
+                              src={post.data.heroImage.src}
                               alt={post.data.title}
                               class="hero-image"
+                              width={post.data.heroImage.width}
+                              height={post.data.heroImage.height}
                       />
               )}
             </div>
@@ -44,6 +47,7 @@ const {Content} = await post.render();
 <style lang="scss">
   @use 'sass:map';
   @use '../../styles/_partials/_variables' as *;
+  @use '../../styles/_partials/_breakpoints' as breakpoints;
 
   .blog-post {
     padding: map.get($spacing, "l");
@@ -124,8 +128,8 @@ const {Content} = await post.render();
       }
     }
   }
-
-  @media (max-width: 768px) {
+  
+  @include breakpoints.breakpoint-down('md') {
     .blog-post {
       padding: map.get($spacing, "xs");
     }
@@ -134,8 +138,6 @@ const {Content} = await post.render();
       margin-bottom: map.get($spacing, "xs");
     }
 
-    .hero h1 {
-      font-size: map.get($font-size, XL);
-    }
+    
   }
 </style> 

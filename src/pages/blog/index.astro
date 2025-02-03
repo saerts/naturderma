@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import Layout from '../../layouts/Layout.astro';
 import {getCollection} from 'astro:content';
 import Divider from "../../components/Divider.astro";
@@ -18,10 +19,12 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
                       <a href={`/blog/${post.slug}`}>
                           <div class="image-container">
                               {post.data.heroImage && (
-                                <img
-                                  src={post.data.heroImage}
+                                <Image
+                                  src={post.data.heroImage.src}
                                   alt={post.data.title}
                                   loading="lazy"
+                                  width={post.data.heroImage.width}
+                                  height={post.data.heroImage.height}
                                 />
                               )}
                               <div class="overlay">
@@ -50,6 +53,7 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
 <style lang="scss">
   @use 'sass:map';
   @use '../../styles/_partials/_variables' as *;
+  @use '../../styles/_partials/_breakpoints' as breakpoints;
 
   .blog-index {
     max-width: 1200px;
@@ -61,94 +65,99 @@ posts.sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDat
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: map.get($spacing, "s");
+      
+      @include breakpoints.breakpoint-down(md){
+          grid-template-columns: 1fr;
+      }
   }
 
   .post-card {
-    border-radius: map.get($spacing, "xs");
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    background-color: var(--bg-primary);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-
-    &:hover {
-      transform: translateY(-4px);
-
+      border-radius: map.get($spacing, "xs");
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      background-color: var(--bg-primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      
+      &:hover {
+          transform: translateY(-4px);
+          
+          .overlay {
+              background: linear-gradient(
+                  to bottom,
+                  rgba(0, 0, 0, 0.1) 0%,
+                  rgba(0, 0, 0, 0.8) 100%
+              );
+          }
+          
+          .read-more {
+              color: var(--accent-color);
+          }
+      }
+      
+      a {
+          text-decoration: none;
+          color: inherit;
+          display: block;
+          height: 100%;
+      }
+      
+      .image-container {
+          position: relative;
+          width: 100%;
+          height: 400px;
+      }
+      
+      img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
+      
       .overlay {
-        background: linear-gradient(
-                to bottom,
-                rgba(0, 0, 0, 0.1) 0%,
-                rgba(0, 0, 0, 0.8) 100%
-        );
-      }
-
-      .read-more {
-        color: var(--accent-color);
-      }
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-      display: block;
-      height: 100%;
-    }
-
-    .image-container {
-      position: relative;
-      width: 100%;
-      height: 400px;
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: linear-gradient(
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: linear-gradient(
               to bottom,
               rgba(0, 0, 0, 0.2) 0%,
               rgba(0, 0, 0, 0.7) 100%
-      );
-      transition: background 0.3s ease;
-      padding: map.get($spacing, s);
-      display: flex;
-      align-items: flex-end;
-    }
-
-    .content {
-      color: white;
+          );
+          transition: background 0.3s ease;
+          padding: map.get($spacing, "s");
+          display: flex;
+          align-items: flex-end;
+      }
       
-
-      p {
-        font-size: map.get($font-size, S);
-        margin-bottom: map.get($spacing, s);
-        opacity: 0.9;
+      .content {
+          color: white;
+          
+          
+          p {
+              font-size: map.get($font-size, "S");
+              margin-bottom: map.get($spacing, "s");
+              opacity: 0.9;
+          }
+          
+          .date {
+              display: block;
+              font-size: map.get($font-size, "XS");
+              opacity: 0.7;
+              margin-bottom: map.get($spacing, "xs");
+          }
+          
+          .read-more {
+              display: inline-block;
+              font-size: map.get($font-size, "M");
+              color: var(--Text-primary);
+              transition: color 0.3s ease;
+              
+              &:hover{
+                  color: var(--Text-secondary);
+              }
+          }
       }
-
-      .date {
-        display: block;
-        font-size: map.get($font-size, s);
-        opacity: 0.7;
-        margin-bottom: map.get($spacing, 2);
-      }
-
-      .read-more {
-        display: inline-block;
-        font-size: map.get($font-size, m);
-        color: white;
-        transition: color 0.3s ease;
-      }
-    }
   }
 
-  @media (max-width: 768px) {
-
-  }
 </style> 

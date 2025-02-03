@@ -1,0 +1,76 @@
+---
+import {Image} from 'astro:assets';
+import facebook from '../assets/images/home/socials/facebook.svg';
+import email from '../assets/images/home/socials/mail.svg';
+import instagram from '../assets/images/home/socials/instagram.svg';
+---
+<div class="socials">
+    <ul>
+        <li class="facebook">
+            <a href="https://www.facebook.com/naturdermaofficial" target="_blank"
+               aria-label="Facebook: https://www.facebook.com/naturdermaofficial">
+                <Image src={facebook} alt="Facebook naturderma official logo"/>
+            </a>
+        </li>
+        <li class="instagram">
+            <a href="https://www.instagram.com/naturderma_official/" target="_blank"
+               aria-label="Instagram: https://www.instagram.com/naturderma_official/">
+                <Image src={instagram} alt="Instagram naturderma official logo"/>
+            </a>
+        </li>
+        <li class="email">
+            <a href="mailto:info@naturderma.be" aria-label="Mail: mailto:info@naturderma.be">
+                <Image src={email} alt="Email: mailto:info@naturderma.be"/>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<style lang="scss">
+  @use 'sass:map';
+  @use '../styles/_partials/_variables' as *;
+  @use '../styles/_partials/_breakpoints' as *;
+
+  .socials {
+    margin-top: map.get($spacing, "xl");
+
+    ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: map.get($spacing, "m");
+
+      @include breakpoint-down('sm') {
+        gap: map.get($spacing, "s");
+      }
+
+      li {
+        width: 36px;
+        height: 36px;
+
+        @include breakpoint('md') {
+          width: 42px;
+          height: 42px;
+        }
+
+        border-radius: 50%;
+        background: white;
+        
+
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: inherit;
+          height: inherit;
+          border-radius: 50%;
+
+      &:hover{
+        background: var(--Surface-secondary);
+      }
+        }
+      }
+    }
+  }
+
+</style>

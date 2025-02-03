@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import CookieConsent from '../components/CookieConsent.astro';
 import { ViewTransitions } from 'astro:transitions';
 import SpeedInsights from '@vercel/speed-insights/astro';
 import "../styles/main.scss";
@@ -36,6 +37,7 @@ const {title, description = "Spaans hypoallergeen sieradenmerk", image = "assets
             <slot />
         </main>
         <Footer transition:persist />
+        <CookieConsent />
     </div>
     <SpeedInsights />
 </body>
@@ -48,11 +50,14 @@ const {title, description = "Spaans hypoallergeen sieradenmerk", image = "assets
         min-height: 100vh;
         display: flex;
         flex-direction: column;
+        background: var(--Surface-main);
     }
 
     main {
         flex: 1;
-        background: var(--Surface-main);
+        
+        max-width: 90%;
+        margin: 0 auto;
     }
 </style>
 

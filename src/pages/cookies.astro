@@ -1,0 +1,42 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {getEntry} from 'astro:content';
+import Divider from '../components/Divider.astro';
+
+const cookiesContent = await getEntry('cookies', 'cookies');
+const {Content} = await cookiesContent.render();
+---
+
+<Layout title={cookiesContent.data.title} description={cookiesContent.data.description}>
+    <div class="main-container">
+        <h1 class="animate-in">{cookiesContent.data.title}</h1>
+        <Divider variant="line01"/>
+        <div class="content animate-in">
+            <Content/>
+        </div>
+    </div>
+</Layout>
+
+<style lang="scss">
+  @use 'sass:map';
+  @use '../styles/_partials/_variables' as vars;
+
+  .content {
+      :global(article) {
+          margin-bottom: map.get(vars.$spacing, "l");
+      }
+      
+      :global(h3) {
+          margin-bottom: map.get(vars.$spacing, "s");
+      }
+      
+      :global(p) {
+          margin-bottom: map.get(vars.$spacing, "m");
+      }
+      :global(ul) {
+          list-style: disc;
+          padding-left: map.get(vars.$spacing, "2xl");
+          margin-bottom: map.get(vars.$spacing, "m");;
+      }
+  }
+</style> 

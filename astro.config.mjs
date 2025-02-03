@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
 import { z } from 'zod';
 import icon from "astro-icon";

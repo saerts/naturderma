@@ -1,17 +1,48 @@
 ---
-
+let today = new Date();
+let year = today.getFullYear();
 ---
 <footer>
-    <div class="footerContainer">
-        Copyright (c) 2025 All Rights Reserved
+    <div class="footer-content">
+        Copyright (c) {year} All Rights Reserved
+        <div class="footer-links">
+            <span>|</span><a href="/cookies">Cookiebeleid</a>
+        </div>
     </div>
 </footer>
 
 <style lang="scss">
-    footer {
-        background-color: var(--Surface-primary);
-        max-height: 150px;
-        padding: 2rem;
-        text-align: center;
+  @use 'sass:map';
+  @use '../styles/_partials/_variables' as *;
+
+  footer {
+    background-color: var(--Surface-primary);
+    max-height: 150px;
+    padding: 2rem;
+    text-align: center;
+    font-size: map.get($font-size, "S");
+
+    .footer-content {
+      display: flex;
+      gap: map.get($spacing, "s");
+      justify-content: center;
     }
+  }
+
+  .footer-links {
+
+    display: flex;
+    justify-content: center;
+    gap: map.get($spacing, "s");
+
+    a {
+      color: var(--Text-body);
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: var(--Text-secondary);
+      }
+    }
+  }
 </style>
