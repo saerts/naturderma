@@ -2,16 +2,36 @@
 
 ---
 <footer>
-    <div class="footerContainer">
+    <div class="footer-content">
         Copyright (c) 2025 All Rights Reserved
+        <div class="footer-links">
+            <a href="/cookies">Cookiebeleid</a>
+        </div>
     </div>
 </footer>
 
 <style lang="scss">
+    @use 'sass:map';
+    @use '../styles/_partials/_variables' as *;
     footer {
         background-color: var(--Surface-primary);
         max-height: 150px;
         padding: 2rem;
         text-align: center;
+    }
+
+    .footer-links {
+        margin-top: map.get($spacing, "l");
+        text-align: center;
+        
+        a {
+            color: var(--Text-body);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            
+            &:hover {
+                color: var(--Text-secondary);
+            }
+        }
     }
 </style>
