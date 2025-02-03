@@ -1,7 +1,7 @@
 <div id="cookie-consent" class="cookie-consent">
     <div class="cookie-content">
-        <p>Wij gebruiken cookies om uw ervaring op onze website te verbeteren. 
-           Door verder te gaan, gaat u akkoord met ons <a href="/cookies">cookiebeleid</a>.</p>
+        <p>Wij gebruiken cookies om uw ervaring op onze website te verbeteren.
+            Door verder te gaan, gaat u akkoord met ons <a href="/cookies">cookiebeleid</a>.</p>
         <div class="cookie-buttons">
             <button id="accept-cookies" class="accept">Accepteren</button>
             <button id="decline-cookies" class="decline">Weigeren</button>
@@ -10,115 +10,115 @@
 </div>
 
 <script>
-    import { CookieManager } from '../utils/cookieManager';
-
-    const cookieConsent = document.getElementById('cookie-consent');
-    const acceptButton = document.getElementById('accept-cookies');
-    const declineButton = document.getElementById('decline-cookies');
-
-    // Check if user has already made a choice
-    if (!CookieManager.getConsentStatus()) {
-        cookieConsent.classList.add('show');
-    }
-
-    acceptButton.addEventListener('click', () => {
-        CookieManager.setConsent('accepted');
-        cookieConsent.classList.remove('show');
-        // Initialize analytics or other cookie-dependent services here
-    });
-
-    declineButton.addEventListener('click', () => {
-        CookieManager.setConsent('declined');
-        cookieConsent.classList.remove('show');
-    });
+  import {CookieManager} from '../utils/cookieManager';
+  
+  const cookieConsent = document.getElementById('cookie-consent');
+  const acceptButton = document.getElementById('accept-cookies');
+  const declineButton = document.getElementById('decline-cookies');
+  
+  // Check if user has already made a choice
+  if (!CookieManager.getConsentStatus()) {
+    cookieConsent.classList.add('show');
+  }
+  
+  acceptButton.addEventListener('click', () => {
+    CookieManager.setConsent('accepted');
+    cookieConsent.classList.remove('show');
+    // Initialize analytics or other cookie-dependent services here
+  });
+  
+  declineButton.addEventListener('click', () => {
+    CookieManager.setConsent('declined');
+    cookieConsent.classList.remove('show');
+  });
 </script>
 
 <style lang="scss">
-    @use 'sass:map';
-    @use '../styles/_partials/_variables' as *;
+  @use 'sass:map';
+  @use '../styles/_partials/_variables' as *;
 
-    .cookie-consent {
-        position: fixed;
-        bottom: -100%;
-        left: 0;
-        right: 0;
-        background: var(--Surface-main);
-        padding: map.get($spacing, "xl");
-        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-        transition: bottom 0.3s ease-in-out;
-        border-top: 1px solid var(--Border-subtle);
+  .cookie-consent {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: var(--Surface-main);
+    padding: map.get($spacing, "xl");
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: bottom 0.3s ease-in-out;
+    border-top: 1px solid var(--Border-subtle);
 
-        &.show {
-            bottom: 0;
-        }
+    &.show {
+      bottom: 0;
     }
+  }
 
-    .cookie-content {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: map.get($spacing, "l");
+  .cookie-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: map.get($spacing, "l");
 
-        p {
-            margin: 0;
-            font-size: map.get($font-size, "S");
+    p {
+      margin: 0;
+      font-size: map.get($font-size, "S");
 
-            a {
-                color: var(--Text-secondary);
-                text-decoration: none;
+      a {
+        color: var(--Text-secondary);
+        text-decoration: none;
 
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
+        &:hover {
+          text-decoration: underline;
         }
+      }
+    }
+  }
+
+  .cookie-buttons {
+    display: flex;
+    gap: map.get($spacing, "m");
+
+    button {
+      padding: map.get($spacing, "s") map.get($spacing, "m");
+      border: none;
+      border-radius: map.get($radius, "xs");
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: map.get($font-size, "S");
+
+      &.accept {
+        background: var(--Button-primary-surface);
+        color: var(--Button-primary-text);
+
+        &:hover {
+          background: var(--Button-primary-surface-hover);
+        }
+      }
+
+      &.decline {
+        background: transparent;
+        color: var(--Text-body);
+        border: 1px solid var(--Border-subtle);
+
+        &:hover {
+          border: 1px solid var(--Border-default);
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cookie-content {
+      flex-direction: column;
+      text-align: center;
     }
 
     .cookie-buttons {
-        display: flex;
-        gap: map.get($spacing, "m");
-
-        button {
-            padding: map.get($spacing, "s") map.get($spacing, "m");
-            border: none;
-            border-radius: map.get($radius, "xs");
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-size: map.get($font-size, "S");
-
-            &.accept {
-                background: var(--Button-primary-surface);
-                color: var(--Button-primary-text);
-
-                &:hover {
-                    background: var(--Button-primary-surface-hover);
-                }
-            }
-
-            &.decline {
-                background: transparent;
-                color: var(--Text-body);
-                border: 1px solid var(--Border-subtle);
-
-                &:hover {
-                    border: 1px solid var(--Border-default);
-                }
-            }
-        }
+      width: 100%;
+      justify-content: center;
     }
-
-    @media (max-width: 768px) {
-        .cookie-content {
-            flex-direction: column;
-            text-align: center;
-        }
-
-        .cookie-buttons {
-            width: 100%;
-            justify-content: center;
-        }
-    }
+  }
 </style> 
