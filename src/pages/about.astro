@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import {getEntry} from 'astro:content';
 import Divider from '../components/Divider.astro';
+import Socials from "../components/Socials.astro";
 
 const aboutContent = await getEntry('about', 'about');
 const {Content} = await aboutContent.render();
@@ -16,6 +17,7 @@ const {Content} = await aboutContent.render();
         <Divider variant="line01"/>
         <div class="content animate-in">
             <Content/>
+            <Socials/>
         </div>
     </div>
 </Layout>

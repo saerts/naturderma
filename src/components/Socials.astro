@@ -1,0 +1,52 @@
+---
+import {Image} from 'astro:assets';
+import facebook from '../assets/images/home/socials/facebook.svg';
+import email from '../assets/images/home/socials/mail.svg';
+import instagram from '../assets/images/home/socials/instagram.svg';
+---
+<div class="socials">
+    <ul>
+        <li class="facebook">
+            <a href="https://www.facebook.com/naturdermaofficial" target="_blank"
+               aria-label="Facebook: https://www.facebook.com/naturdermaofficial">
+                <Image src={facebook} alt="Facebook naturderma official logo"/>
+            </a>
+        </li>
+        <li class="instagram">
+            <a href="https://www.instagram.com/naturderma_official/" target="_blank"
+               aria-label="Instagram: https://www.instagram.com/naturderma_official/">
+                <Image src={instagram} alt="Instagram naturderma official logo"/>
+            </a>
+        </li>
+        <li class="email">
+            <a href="mailto:info@naturderma.be" aria-label="Mail: mailto:info@naturderma.be">
+                <Image src={email} alt="Email: mailto:info@naturderma.be"/>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<style lang="scss">
+    @use 'sass:map';
+    @use '../styles/_partials/_variables' as *;
+    .socials {
+        margin-top: map.get($spacing, "xl");;
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: map.get($spacing, "m");
+            
+            li {
+                a {
+                    width: 36px;
+                    height: 36px;
+                    border-radius: 50%;
+                    
+                    
+                }
+            }
+        }
+    }
+
+</style>
