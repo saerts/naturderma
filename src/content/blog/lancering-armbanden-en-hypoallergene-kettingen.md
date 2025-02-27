@@ -11,8 +11,8 @@ heroImage:
 Complementerend aan ons huidige aanbod van hypoallergene oorbellen, lanceren we nu armbanden en kettingen.
 
 Vervaardigd uit:
-- Acero 304
-- Acero 316
+- RVS 304
+- RVS 316
 - Materialen die veel worden gebruikt in medische instrumenten
 
 ![Hypoallergene sieraden schetsen](/images/blog/blog1/visual-01.jpg)
