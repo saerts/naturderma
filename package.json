@@ -13,7 +13,7 @@
     "@tokens-studio/sd-transforms": "^1.2.9",
     "@vercel/analytics": "^1.4.1",
     "@vercel/speed-insights": "^1.1.0",
-    "astro": "^5.1.9",
+    "astro": "^5.13.4",
     "astro-icon": "^1.1.5"
   },
   "devDependencies": {
